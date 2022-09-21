@@ -1,0 +1,72 @@
+import React from 'react'
+
+import Logo from '../assets/logo.png'
+
+const Header = () => {
+	return (
+		<section id="header">
+			{/* Header Container */}
+			<div className="container max-w-screen-2xl mx-auto px-6 py-12 pt-3">
+				<nav className="flex items-center justify-between font-bold text-slate-800">
+					{/* Logo */}
+					<img src={Logo} alt="Logo" />
+					{/* Menu */}
+					<div className="hidden h-10 font-alata md:flex md:space-x-8">
+						<div className="group">
+							<a href="#body">About</a>
+							<div className="mx-2 group-hover:border-b group-hover:border-slate-800"></div>
+						</div>
+						<div className="group">
+							<a href="#body">Members</a>
+							<div className="mx-2 group-hover:border-b group-hover:border-slate-800"></div>
+						</div>
+						<div className="group">
+							<a href="#body">Contacts</a>
+							<div className="mx-2 group-hover:border-b group-hover:border-slate-800"></div>
+						</div>
+						<div className="group">
+							<a href="#body">Start Now</a>
+							<div className="mx-2 group-hover:border-b group-hover:border-slate-800"></div>
+						</div>
+					</div>
+					{/* Hamburger Button */}
+					<div className="md:hidden">
+						<button
+							id="menu-btn"
+							type="button"
+							className="z-40 block hamburger md:hidden focus:outline-none"
+						>
+							<span className="hamburger-top"></span>
+							<span className="hamburger-middle"></span>
+							<span className="hamburger-bottom"></span>
+						</button>
+					</div>
+				</nav>
+
+				{/* Mobile Menu */}
+				<div
+					id="menu"
+					className="absolute top-0 bottom-0 left-0 hidden flex-col self-end w-full min-h-screen py-1 pt-40 pl-12 space-y-3 text-lg text-black uppercase bg-black"
+				>
+					<a href="#body" className="hover:text-pink-500">
+						About
+					</a>
+					<a href="#body" className="hover:text-pink-500">
+						Careers
+					</a>
+					<a href="#body" className="hover:text-pink-500">
+						Events
+					</a>
+					<a href="#body" className="hover:text-pink-500">
+						Products
+					</a>
+					<a href="#body" className="hover:text-pink-500">
+						Support
+					</a>
+				</div>
+			</div>
+		</section>
+	)
+}
+
+export default Header

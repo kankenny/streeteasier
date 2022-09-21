@@ -1,3 +1,60 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url('./assets/background-image.avif');
+	filter: saturate(3) opacity(35%) brightness(60%);
+	z-index: -100000;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.hamburger {
+	cursor: pointer;
+	width: 24px;
+	height: 24px;
+	transition: all 0.25s;
+	position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+	position: absolute;
+	width: 24px;
+	height: 2px;
+	top: 0;
+	left: 0;
+	background: #fff;
+	transform: rotate(0);
+	transition: all 0.25s;
+}
+
+.hamburger-middle {
+	transform: translateY(7px);
+}
+
+.hamburger-bottom {
+	transform: translateY(14px);
+}
+
+.open {
+	transform: rotate(90deg);
+}
+
+.open .hamburger-top {
+	transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-middle {
+	display: none;
+}
+
+.open .hamburger-bottom {
+	transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}

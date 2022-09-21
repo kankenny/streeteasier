@@ -1,7 +1,18 @@
+import React, { Fragment } from 'react'
+
+import Header from './layout/Header'
+import Body from './layout/Body'
+import Footer from './layout/Footer'
 import './App.css'
 
 function App() {
-	return <div className="App bg-blue-600">Hello world</div>
+	return (
+		<Fragment>
+			<Header />
+			<Body />
+			<Footer />
+		</Fragment>
+	)
 }
 
 export default App
