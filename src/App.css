@@ -16,8 +16,8 @@ html::before {
 
 .hamburger {
 	cursor: pointer;
-	width: 24px;
-	height: 24px;
+	width: 32px;
+	height: 32px;
 	transition: all 0.25s;
 	position: relative;
 }
@@ -32,7 +32,7 @@ html::before {
 	left: 0;
 	background: #708090;
 	transform: rotate(0);
-	transition: all 0.25s;
+	transition: all 0.3s;
 }
 
 .hamburger-middle {
