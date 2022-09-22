@@ -13,7 +13,7 @@ const MobileMenu = (props) => {
 			<MobileLinks linkText="About" />
 			<MobileLinks linkText="Members" />
 			<MobileLinks linkText="Contact" />
-			<MobileLinks linkText="Let's Get Started" />
+			<MobileLinks linkText="Let's Get Started" className="mainLink"/>
 		</div>
 	)
 }

@@ -8,7 +8,7 @@ const DesktopMenu = () => {
 			<HeaderLink linkText="About" />
 			<HeaderLink linkText="Members" />
 			<HeaderLink linkText="Contacts" />
-			<HeaderLink linkText="Let's Get Started" />
+			<HeaderLink linkText="Let's Get Started" className='mainLink'/>
 		</div>
 	)
 }
