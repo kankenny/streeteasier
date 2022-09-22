@@ -8,7 +8,7 @@ html::before {
 	width: 100%;
 	height: 100%;
 	background-image: url('./assets/background-image.avif');
-	filter: saturate(3) opacity(35%) brightness(60%);
+	filter: saturate(3) opacity(20%) brightness(40%);
 	z-index: -100000;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -26,8 +26,8 @@ html::before {
 .hamburger-middle,
 .hamburger-bottom {
 	position: absolute;
-	width: 24px;
-	height: 2px;
+	width: 32px;
+	height: 3px;
 	top: 0;
 	left: 0;
 	background: #708090;
