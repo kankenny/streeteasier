@@ -30,7 +30,7 @@ html::before {
 	height: 2px;
 	top: 0;
 	left: 0;
-	background: #fff;
+	background: #708090;
 	transform: rotate(0);
 	transition: all 0.25s;
 }
