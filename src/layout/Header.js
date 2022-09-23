@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import Logo from './header/Logo'
+import Logo from '../components/ui/Logo'
 import DesktopMenu from './header/DesktopMenu'
 import HamburgerButton from './header/HamburgerButton'
 
