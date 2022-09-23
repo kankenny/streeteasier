@@ -1,4 +1,6 @@
-# _Some Project Name_ CSCI 318 Project
+# StreetEasier
+
+A hub to search for apartments and roommate matching
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
