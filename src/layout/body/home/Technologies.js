@@ -4,6 +4,7 @@ import DiReact from './tech_stack/React'
 import AiFillHtml5 from './tech_stack/HTML'
 import DiCss3 from './tech_stack/CSS'
 import SiTailwindcss from './tech_stack/Tailwind'
+import SiJavascript from './tech_stack/JavaScript'
 
 const headerClasses = 'text-2xl text-center uppercase '
 
@@ -20,6 +21,7 @@ const Technologies = () => {
 				<AiFillHtml5 />
 				<DiCss3 />
 				<SiTailwindcss />
+				<SiJavascript />
 			</div>
 		</div>
 	)

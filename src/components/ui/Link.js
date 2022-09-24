@@ -5,7 +5,7 @@ const Link = ({ linkText, type, className }) => {
 		<a
 			className={`group text-zinc-900 transition-all duration-200 ease-in-out ${className} ${
 				type === 'mainLink'
-					? ' bg-blue-700 align-text-middle rounded-full px-4 py-2'
+					? ' bg-blue-700 align-text-middle rounded-full px-4 py-2 shadow-2xl'
 					: ''
 			}`}
 			href="#body"
