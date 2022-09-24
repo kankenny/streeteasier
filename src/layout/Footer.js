@@ -5,7 +5,7 @@ import Logo from '../components/ui/Logo'
 import IconContainer from './footer/IconContainer'
 import FooterMenu from './footer/FooterMenu'
 
-const footerContainer = 'bg-slate-100 fixed bottom-0 min-w-full max-h-fit'
+const footerContainer = 'bg-slate-100  bottom-0 min-w-full max-h-fit'
 const mainFooterContainer = 'container max-w-6xl py-10 mx-auto bottom:0 '
 const footerFlexClasses =
 	'flex flex-col items-center mb-8 space-y-6 md:flex-row md:space-y-0 md:justify-between md:items-start'
