@@ -15,7 +15,7 @@ const MobileMenu = (props) => {
 			<Link linkText="About" />
 			<Link linkText="Members" />
 			<Link linkText="Contact" />
-			<Link linkText="Let's Get Started" className="mainLink" />
+			<Link linkText="Let's Get Started" type="mainLink" />
 		</div>
 	)
 }
