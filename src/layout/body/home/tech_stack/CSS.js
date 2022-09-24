@@ -7,8 +7,8 @@ function DiCss3(props) {
 			fill="currentColor"
 			strokeWidth={0}
 			viewBox="0 0 32 32"
-			height="5em"
-			width="5em"
+			height="6em"
+			width="6em"
 			className="duration-300 hover:text-blue-500"
 			{...props}
 		>
