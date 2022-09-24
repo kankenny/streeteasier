@@ -13,15 +13,15 @@ const Features = () => {
 				<img
 					src={Bed}
 					alt="bed"
-					className="min-w-full max-h-[100rem] aspect-auto rounded-xl shadow-lg"
+					className="min-w-full max-h-[100rem] rounded-xl shadow-2xl"
 				/>
 
 				<Card className="md:absolute md:top-2 md:right-8 md:py-20 py-10">
 					<h2 className="max-w-lg mb-6 text-3xl text-center text-gray-900 uppercase md:text-5xl md:mt-0">
-						A hub to search for your next Home
+						Search for your next Home
 					</h2>
 
-					<p className="max-w-md text-center text-gray-500">
+					<p className="max-w-lg text-center text-gray-500">
 						StreetEasier Lorem ipsum dolor sit, amet
 						consectetur adipisicing elit. Ullam fugit, vel
 						labore sapiente quas inventore? Deserunt neque ut

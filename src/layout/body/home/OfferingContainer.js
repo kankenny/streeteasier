@@ -39,7 +39,7 @@ const OfferingContainer = ({ setNumber }) => {
 				fileName: 'offering7.jpg',
 			},
 			offering4: {
-				desc: 'Own a Cozy Place',
+				desc: 'Home Sweet Home',
 				fileName: 'offering8.jpg',
 			},
 		}
