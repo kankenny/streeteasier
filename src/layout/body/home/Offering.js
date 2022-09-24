@@ -11,7 +11,7 @@ const Offering = ({ offeringName, fileName }) => {
 			<img
 				src={require(`../../../assets/home/${fileName}`)}
 				alt=""
-				class="w-full md:hidden"
+				className="w-full md:hidden"
 			/>
 			<div className="item-gradient"></div>
 			<h5>{offeringName}</h5>

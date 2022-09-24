@@ -12,7 +12,7 @@
 }
 
 .item-container {
-	@apply flex flex-col justify-between align-middle w-full space-y-6 text-2xl text-white uppercase md:flex-row md:space-y-0 space-x-8;
+	@apply flex flex-col justify-between items-center w-full space-y-6 text-2xl text-white uppercase md:flex-row md:space-y-0 space-x-8;
 }
 
 .item {
