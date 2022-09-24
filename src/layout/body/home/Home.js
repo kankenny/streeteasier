@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 
 import Features from './Features'
-import Creations from './Creations'
+import Offerings from './Offerings'
 
 const Home = () => {
 	return (
 		<Fragment>
 			<Features />
-			<Creations />
+			<Offerings />
 		</Fragment>
 	)
 }

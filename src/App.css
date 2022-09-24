@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	h5 {
+		@apply absolute px-6 duration-200 md:w-52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black;
+	}
+}
+.item-gradient {
+	@apply absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-transparent to-gray-900 group-hover:from-gray-50 group-hover:to-gray-500 group-hover:opacity-70;
+}
+
+.item-container {
+	@apply flex flex-col justify-between align-middle w-full space-y-6 text-2xl text-white uppercase md:flex-row md:space-y-0 space-x-8;
+}
+
+.item {
+	@apply relative overflow-hidden md:w-1/4;
+}
+
 .hamburger {
 	cursor: pointer;
 	width: 32px;
