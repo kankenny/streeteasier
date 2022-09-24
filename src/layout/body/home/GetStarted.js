@@ -2,7 +2,8 @@ import React from 'react'
 
 import Link from '../../../components/ui/Link'
 
-const headerClasses = 'text-4xl text-center uppercase md:text-left md:text-5xl'
+const headerClasses =
+	'text-4xl text-center uppercase md:text-left md:text-5xl py-4 px-12'
 
 function GetStarted() {
 	return (
