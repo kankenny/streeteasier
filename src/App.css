@@ -19,6 +19,10 @@
 	@apply relative overflow-hidden md:w-1/4 h-[330px];
 }
 
+html {
+	background: #e7eaed;
+}
+
 .hamburger {
 	cursor: pointer;
 	width: 32px;
