@@ -3,6 +3,7 @@ import React, { Fragment } from 'react'
 import Features from './Features'
 import GetStarted from './GetStarted'
 import Offerings from './Offerings'
+import Technologies from './Technologies'
 
 const Home = () => {
 	return (
@@ -10,6 +11,7 @@ const Home = () => {
 			<Features />
 			<Offerings />
 			<GetStarted />
+			<Technologies />
 		</Fragment>
 	)
 }
