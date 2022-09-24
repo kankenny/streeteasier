@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+
+import Home from './body/home/Home'
 
 const Body = () => {
 	return (
-		<div className="text-purple-900 uppercase text-3xl text-center">
-			I am the body hello world
-		</div>
+		<Fragment>
+			<Home />
+		</Fragment>
 	)
 }
 
