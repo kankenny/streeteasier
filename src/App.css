@@ -16,7 +16,7 @@
 }
 
 .item {
-	@apply relative overflow-hidden md:w-1/4;
+	@apply relative overflow-hidden md:w-1/4 h-[330px];
 }
 
 .hamburger {
