@@ -1,14 +1,15 @@
 import LogoImage from '../../assets/projectLogo.png'
+import { Link } from 'react-router-dom'
 
 const Logo = ({ className }) => {
 	return (
-		<a href="#body">
+		<Link to="/welcome">
 			<img
 				src={LogoImage}
 				alt="Logo"
 				className={`max-h-[5rem] ${className}`}
 			/>
-		</a>
+		</Link>
 	)
 }
 
