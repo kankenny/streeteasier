@@ -46,7 +46,7 @@ const OfferingContainer = ({ setNumber }) => {
 	}
 
 	return (
-		<div className="item-container mb-10 mx-auto">
+		<div className="item-container mb-8 mx-auto">
 			<Offering
 				offeringName={offering.offering1.desc}
 				fileName={offering.offering1.fileName}

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Offering = ({ offeringName, fileName }) => {
 	return (
-		<div className="group item max-w-[256px] max-h-[450px] shadow-2xl rounded-xl">
+		<div className="group item max-w-[275px] max-h-[450px] shadow-2xl rounded-xl">
 			<img
 				src={require(`../../../assets/home/${fileName}`)}
 				alt=""

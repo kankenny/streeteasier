@@ -16,7 +16,7 @@ const Technologies = () => {
 			>
 				Technologies Used
 			</div>
-			<div className="flex flex-col align-middle w-max container mx-auto gap-y-4 md:flex-row md:justify-center md:gap-y-0 md:gap-x-40">
+			<div className="flex flex-col align-middle w-max container mx-auto gap-y-6 md:flex-row md:justify-center md:gap-y-0 md:gap-x-40">
 				<DiReact />
 				<AiFillHtml5 />
 				<DiCss3 />
