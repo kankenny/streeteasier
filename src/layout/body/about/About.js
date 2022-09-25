@@ -8,23 +8,23 @@ const About = () => {
 	return (
 		<Fragment>
 			<Overview
-				title="About Us"
-				subtitle="We are simply students with a vision for change"
+				title="About"
+				subtitle="A hub to search and match with roommates"
 				paragraph={aboutParagraph}
 			/>
 			<Overview
-				title="About Us"
-				subtitle="We are simply students with a vision for change"
+				title="About"
+				subtitle="A hub to search and match with roommates"
 				paragraph={aboutParagraph}
 			/>
 			<Overview
-				title="About Us"
-				subtitle="We are simply students with a vision for change"
+				title="About"
+				subtitle="A hub to search and match with roommates"
 				paragraph={aboutParagraph}
 			/>
 			<Overview
-				title="About Us"
-				subtitle="We are simply students with a vision for change"
+				title="About"
+				subtitle="A hub to search and match with roommates"
 				paragraph={aboutParagraph}
 			/>
 		</Fragment>
