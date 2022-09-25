@@ -12,10 +12,14 @@ const MobileMenu = (props) => {
 			}`}
 		>
 			<Logo className="max-w-[10rem]" />
-			<Link linkText="About" />
-			<Link linkText="Members" />
-			<Link linkText="Contact" />
-			<Link linkText="Let's Get Started" type="mainLink" />
+			<Link linkText="About" urlPath="about" />
+			<Link linkText="Members" urlPath="members" />
+			<Link linkText="Contact" urlPath="contact" />
+			<Link
+				linkText="Let's Get Started"
+				type="mainLink"
+				urlPath="user-login-signup"
+			/>
 		</div>
 	)
 }
