@@ -16,7 +16,7 @@ const Link = ({ linkText, type, className, urlPath }) => {
 
 	return (
 		<NavLink
-			to={`/${linkText}`}
+			to={`/${urlPath}`}
 			className={({ isActive }) => {
 				return isActive ? activeLinkClasses : inactiveLinkClasses
 			}}
