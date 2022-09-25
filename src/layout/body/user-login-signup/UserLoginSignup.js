@@ -14,7 +14,7 @@ function UserLoginSignup() {
 			<div className="mx-auto space-x-20">
 				<SolidButton
 					buttonText="Register"
-					className="h-15 w-40 text-2xl"
+					className="h-15 w-40 text-2xl bg-blue-700 hover:bg-blue-900 focus:ring-blue-500"
 				/>
 				<SolidButton
 					buttonText="Log-in"
