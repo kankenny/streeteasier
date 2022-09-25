@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Link = ({ linkText, type, className, urlPath }) => {
-	const activeLinkClasses = `bg-red-500 rounded-full text-white px-4 py-2 group text-zinc-900 transition-all duration-200 ease-in-out ${className} ${
+	const activeLinkClasses = `bg-purple-900 rounded-full text-white px-4 py-2 group text-zinc-900 transition-all duration-200 ease-in-out ${className} ${
 		type === 'mainLink'
 			? ' bg-blue-700 align-text-middle rounded-full px-4 py-2 shadow-2xl'
 			: ''
