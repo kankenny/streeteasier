@@ -5,6 +5,7 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				sans: ['Merriweather', 'sans-serif'],
+				serif: ['Zilla Slab'],
 			},
 		},
 	},
