@@ -1,13 +1,19 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 import Card from '../../../../components/ui/Card'
 import img from '../../../../assets/signup-login/signup.jpg'
 import Overview from '../../../../components/ui/Overview'
 
+import { motion } from 'framer-motion'
+
 const SignUp = () => {
 	return (
-		<Fragment>
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
 			<Overview
 				title="Our team is so excited that you're joining!"
 				subtitle="Only a couple more steps to find your home and roommates"
@@ -74,7 +80,7 @@ const SignUp = () => {
 					className="max-w-lg rounded-xl shadow-2xl sm:mx-auto"
 				/>
 			</Card>
-		</Fragment>
+		</motion.div>
 	)
 }
 
