@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 
 import Card from '../../../../components/ui/Card'
-import img from '../../../../assets/home/bed.jpg'
+import img from '../../../../assets/signup-login/signup.jpg'
 import Overview from '../../../../components/ui/Overview'
 
 const SignUp = () => {
@@ -11,7 +12,7 @@ const SignUp = () => {
 				title="Our team is so excited that you're joining!"
 				subtitle="Only a couple more steps to find your home and roommates"
 			/>
-			<Card className="max-w-6xl mx-auto flex flex-col md:flex-row">
+			<Card className="max-w-6xl mx-auto flex flex-col md:flex-row space-x-8">
 				<div className="w-full md:w-1/2 lg:w-1/3 mx-auto my-12 ml-10 min-h-[15rem]">
 					<h1 className="text-2xl font-bold">Register</h1>
 					<form className="flex flex-col mt-4">
@@ -56,13 +57,13 @@ const SignUp = () => {
 						</button>
 						<div className="flex flex-col items-center">
 							<p className="mt-1 text-xs font-light text-gray-500 ">
-								Registered already?
-								<a
+								Are you an existing user?
+								<Link
 									className="ml-1 font-medium text-blue-400"
-									href="#body"
+									to="/login"
 								>
 									Sign in now
-								</a>
+								</Link>
 							</p>
 						</div>
 					</form>
@@ -70,7 +71,7 @@ const SignUp = () => {
 				<img
 					src={img}
 					alt="bed"
-					className="max-h-[100rem] max-w-lg rounded-xl shadow-2xl sm:mx-auto"
+					className="max-w-lg rounded-xl shadow-2xl sm:mx-auto"
 				/>
 			</Card>
 		</Fragment>
