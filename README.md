@@ -6,9 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Want to Test Yourself?
 1.) Clone/Fork this repo<br>
-2.) ### `npm install / npm run install` <br>
-  - must have npm installed first<br>
-3.) See available scripts section  <br>
+2.) `npm install / npm run install` (must have npm installed first) <br>
+3.) See available scripts section 
 
 ## Available Scripts
 
