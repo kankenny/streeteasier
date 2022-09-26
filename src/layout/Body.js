@@ -7,6 +7,7 @@ import Members from './body/members/Members'
 import Contacts from './body/contacts/Contacts'
 import UserLoginSignup from './body/user-login-signup/UserLoginSignup'
 import SignUp from './body/user-login-signup/signup/SignUp'
+import Login from './body/user-login-signup/login/Login'
 
 const Body = () => {
 	return (
@@ -18,7 +19,7 @@ const Body = () => {
 				<Route path="/members" element={<Members />} />
 				<Route path="/contact" element={<Contacts />} />
 				<Route path="/signup" element={<SignUp />} />
-				{/* <Route path="/login" element={<Contacts />} /> */}
+				<Route path="/login" element={<Login />} />
 				<Route
 					path="/user-login-signup"
 					element={<UserLoginSignup />}

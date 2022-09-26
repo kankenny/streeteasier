@@ -8,7 +8,6 @@ const FooterMenu = () => {
 			<Link linkText="About" urlPath="about" />
 			<Link linkText="Members" urlPath="members" />
 			<Link linkText="Contact" urlPath="contact" />
-			<Link linkText="Codebase" urlPath="welcome" />
 		</div>
 	)
 }
