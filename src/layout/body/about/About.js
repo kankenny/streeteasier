@@ -9,22 +9,22 @@ const About = () => {
 		<Fragment>
 			<Overview
 				title="About"
-				subtitle="A hub to search and match with roommates"
+				subtitle="Our team designed this project to help people"
 				paragraph={aboutParagraph}
 			/>
 			<Overview
 				title="About"
-				subtitle="A hub to search and match with roommates"
+				subtitle="Our team designed this project to help people"
 				paragraph={aboutParagraph}
 			/>
 			<Overview
 				title="About"
-				subtitle="A hub to search and match with roommates"
+				subtitle="Our team designed this project to help people"
 				paragraph={aboutParagraph}
 			/>
 			<Overview
 				title="About"
-				subtitle="A hub to search and match with roommates"
+				subtitle="Our team designed this project to help people"
 				paragraph={aboutParagraph}
 			/>
 		</Fragment>
