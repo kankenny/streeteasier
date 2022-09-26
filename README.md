@@ -4,6 +4,12 @@ A hub to search for apartments and roommate matching
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Want to Test Yourself?
+1.) Clone/Fork this repo
+2.) ### `npm install / npm run install` 
+  - must have npm installed first
+3.) See available scripts section  
+
 ## Available Scripts
 
 In the project directory, you can run:
