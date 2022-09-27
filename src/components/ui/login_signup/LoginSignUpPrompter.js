@@ -16,7 +16,7 @@ const ExistingUserPrompter = ({
 				{isRouterLink ? (
 					<NavLink
 						className="ml-1 font-medium text-blue-400"
-						to={fromSignUp ? '/login' : 'signup'}
+						to={fromSignUp ? '/login' : '/signup'}
 					>
 						{action}
 					</NavLink>
