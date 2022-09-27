@@ -8,6 +8,11 @@ import Overview from '../../../../components/ui/Overview'
 import { motion } from 'framer-motion'
 
 import {
+	doc,
+	setDoc,
+} from 'firebase/firestore'
+
+import {
 	createUserWithEmailAndPassword,
 	sendEmailVerification,
 	updateProfile
@@ -15,10 +20,10 @@ import {
 
 import { 
 	auth,
+	db
 } from '../../../../firebase'
 
 const SignUp = () => {
-
 	// Storing table below into variable userInfo. setUserInfo is the function name that we call to change the values of the table.
 	const [userInfo, setUserInfo] = useState({
 		firstName: "",
@@ -45,7 +50,7 @@ const SignUp = () => {
 		})
 	}
 
-	const handleSignUpRequest = (e) => {
+	const handleSignUpRequest = async (e) => {
 		e.preventDefault();
 
 		/*
@@ -55,24 +60,27 @@ const SignUp = () => {
 		If the user has not been sucessfully created, throw error.
 		*/
 
-		createUserWithEmailAndPassword(auth, userInfo.email, userInfo.password)
-		.then((UserCredentials) => {
-			const user = UserCredentials.user; // Details of a user.
+		await createUserWithEmailAndPassword(auth, userInfo.email, userInfo.password)
+		.then((userCredentials) => {
+			const user = userCredentials.user; // Details of a user.
 			console.log(user);
 
 			updateProfile(user, {displayName: userInfo.firstName + ' ' + userInfo.lastName})
-			.then(() => {
-				console.log("Profile updated. ")
-				console.log(user);
-
+			.then(async () => {
 				sendEmailVerification(user);
-				console.log("Sent verification email");
+					await setDoc(doc(db, "users", user.uid), { // Straight from Firebase documentation: https://firebase.google.com/docs/firestore/manage-data/add-data
+						firstName: userInfo.firstName,
+						lastName: userInfo.lastName,
+						age: userInfo.age,
+						email: userInfo.email
+					});
 			})
 			.catch((err) => {
 				console.log(err.message)
 			}) 
 			
-		}).catch((err) => {
+		})
+		.catch((err) => {
 			console.log(err.message);
 		})
 
