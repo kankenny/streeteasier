@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import Card from '../../../../components/ui/Card'
@@ -7,7 +7,64 @@ import Overview from '../../../../components/ui/Overview'
 
 import { motion } from 'framer-motion'
 
+import {
+	createUserWithEmailAndPassword,
+	sendEmailVerification
+} from 'firebase/auth'
+
+import { 
+	auth,
+} from '../../../../firebase'
+
 const SignUp = () => {
+
+	// Storing table below into variable credentials. setCredentials is the function name that we call to change the values of the table.
+	const [credentials, setCredentials] = useState({
+		firstName: "",
+		lastName: "",
+		age: "",
+		email: "",
+		password: "",
+		confirmPassword: ""
+	})
+
+	const handleUserInput = (e) => {
+		e.preventDefault(); // Prevents default event from being accept (in this case passing in nothing)
+
+		/* 
+		{name} refers to the name of a HTML node property, {value} refers to the actual input.
+		Needed to target and grab the appropriate node (in our case, specific use input fields) and destructuring it. 
+		*/
+		
+		const {name, value} = e.target; 
+		setCredentials((userInput) => {
+			return {...userInput, [name] : value};
+		})
+	}
+
+	const handleSignUpRequest = (e) => {
+		e.preventDefault();
+
+		/*
+		User registeratiion.
+		This is a promise. When we attempt to create a user, need to use then and catch for the promise.
+		If the user has been sucessfully created, we create a user object with the respective information and place it in our DB. We can use this in a callback later to grab the data.
+		If the user has not been sucessfully created, throw error.
+		*/
+
+		createUserWithEmailAndPassword(auth, credentials.email, credentials.password)
+		.then((UserCredentials) => {
+			const user = UserCredentials.user;
+			console.log(user);
+
+			sendEmailVerification(user);
+			console.log("Sent email verification.")
+		}).catch((err) => {
+			console.log(err.message);
+		})
+
+	}
+
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -16,7 +73,7 @@ const SignUp = () => {
 		>
 			<Overview
 				title="Our team is so excited that you're joining!"
-				subtitle="Only a couple more steps to find your home and roommates"
+				subtitle="Only a couple more steps to begin finding your new home and roommates"
 			/>
 			<Card className="max-w-6xl mx-auto flex flex-col md:flex-row space-x-8">
 				<div className="w-full md:w-1/2 lg:w-1/3 mx-auto my-12 ml-10 min-h-[15rem]">
@@ -25,39 +82,58 @@ const SignUp = () => {
 						<input
 							type="text"
 							name="full-name"
-							className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
 							placeholder="Full Name"
+							value={credentials.firstName} // This is how we set the table with respect to the value of the node.
+							className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+
+							onChange={handleUserInput} // When the input field changes, call the function that handles user input.
 						/>
 						<input
 							type="number"
-							name="number"
-							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+							name="age"
 							placeholder="Age"
+							value={credentials.age}
+							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+
+							onChange={handleUserInput}
 						/>
 						<input
 							type="email"
 							name="email"
+							placeholder="Email Address"
+							value={credentials.email}
 							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
-							placeholder="Email address"
-						/>
 
+							onChange={handleUserInput}
+						/>
 						<input
 							type="password"
 							name="password"
-							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
 							placeholder="Password"
+							value={credentials.password}
+							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
 							autoComplete="on"
+
+							onChange={handleUserInput}
 						/>
 						<input
 							type="password"
 							name="repeat-password"
-							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
 							placeholder="Confirm Password"
+							value={credentials.confirmPassword}
+							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
 							autoComplete="on"
+
+							onChange={handleUserInput}
 						/>
 						<button
 							type="submit"
 							className="mt-4 px-4 py-3  leading-6 text-base rounded-md border border-transparent focus:outline-none bg-blue-500 text-blue-100 hover:text-white focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer inline-flex items-center w-full justify-center font-medium min-w-30 max-w-[20rem]"
+
+							onClick = {(e) => {
+								e.preventDefault();
+								console.log(credentials);
+							}}
 						>
 							Register
 						</button>
