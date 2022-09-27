@@ -1,6 +1,14 @@
 import React from 'react'
 
-const Input = ({ type, name, className, placeholder, value, onChange }) => {
+const Input = ({
+	type,
+	name,
+	className,
+	placeholder,
+	value,
+	onChange,
+	required,
+}) => {
 	return (
 		<input
 			type={type}
@@ -11,6 +19,7 @@ const Input = ({ type, name, className, placeholder, value, onChange }) => {
 			onChange={onChange}
 			autoComplete={type === 'password' ? 'on' : 'off'}
 			// autoComplete is for passwords
+			required={required}
 		/>
 	)
 }
