@@ -1,13 +1,40 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
 
-import Card from '../../../../components/ui/Card'
+import Input from '../../../../components/ui/Input'
+import SolidButton from '../../../../components/ui/button/SolidButton'
+import LoginSignUpPrompter from '../../../../components/ui/login_signup/LoginSignUpPrompter'
+
 import img from '../../../../assets/signup-login/login.jpg'
 import Overview from '../../../../components/ui/Overview'
+import Card from '../../../../components/ui/Card'
 
 import { motion } from 'framer-motion'
 
 const Login = () => {
+	const [userInfo, setUserInfo] = useState({
+		emailAddress: '',
+		password: '',
+	})
+
+	const emailChangeHandler = (e) => {
+		setUserInfo((prevState) => ({
+			...prevState,
+			emailAddress: e.target.value,
+		}))
+	}
+
+	const passwordChangeHandler = (e) => {
+		setUserInfo((prevState) => ({
+			...prevState,
+			password: e.target.value,
+		}))
+	}
+
+	const onUserSubmitHandler = (e) => {
+		e.preventDefault()
+		console.log(userInfo)
+	}
+
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -24,47 +51,38 @@ const Login = () => {
 						Enter User Details
 					</h1>
 					<form className="flex flex-col mt-4">
-						<input
+						<Input
 							type="email"
 							name="email"
-							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
-							placeholder="Email address"
+							placeholder="Email Address"
+							value={userInfo.emailAddress}
+							onChange={emailChangeHandler}
+							required={true}
 						/>
-						<input
+						<Input
 							type="password"
 							name="password"
-							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
 							placeholder="Password"
-							autoComplete="on"
+							value={userInfo.password}
+							onChange={passwordChangeHandler}
+							required={true}
 						/>
-						<div className="flex flex-col items-center">
-							<p className="mt-1 text-xs font-light text-gray-500 ">
-								Forgot Password?
-								<Link
-									className="ml-1 font-medium text-blue-400"
-									to="/login"
-								>
-									Reset Password
-								</Link>
-							</p>
-						</div>
-						<button
-							type="submit"
-							className="mt-4 px-4 py-3  leading-6 text-base rounded-md border border-transparent focus:outline-none bg-blue-500 text-blue-100 hover:text-white focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer inline-flex items-center w-full justify-center font-medium min-w-30 max-w-full "
-						>
-							Login
-						</button>
-						<div className="flex flex-col items-center">
-							<p className="mt-1 text-xs font-light text-gray-500 ">
-								Don't have an account?
-								<Link
-									className="ml-1 font-medium text-blue-400"
-									to="/signup"
-								>
-									Register here
-								</Link>
-							</p>
-						</div>
+						<LoginSignUpPrompter
+							question="Forgot Password?"
+							action="Reset Password"
+						/>
+						<SolidButton
+							buttonType="submit"
+							buttonText="Login"
+							className="my-4"
+							onClick={onUserSubmitHandler}
+						/>
+						<LoginSignUpPrompter
+							question="Don't have an account?"
+							action="Register here"
+							isLoggingIn={false}
+							isRouterLink={true}
+						/>
 					</form>
 				</div>
 				<img

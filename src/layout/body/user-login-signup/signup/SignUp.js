@@ -5,7 +5,7 @@ import Overview from '../../../../components/ui/Overview'
 
 import Card from '../../../../components/ui/Card'
 import SolidButton from '../../../../components/ui/button/SolidButton'
-import ExistingUserPrompter from '../../../../components/ui/signup/ExistingUserPrompter'
+import ExistingUserPrompter from '../../../../components/ui/login_signup/LoginSignUpPrompter'
 
 import img from '../../../../assets/signup-login/signup.jpg'
 import { motion } from 'framer-motion'
@@ -139,7 +139,12 @@ const SignUp = () => {
 							buttonType="submit"
 							onClick={onUserSubmitHandler}
 						/>
-						<ExistingUserPrompter />
+						<ExistingUserPrompter
+							question="Are you an existing user?"
+							action="Sign in now"
+							fromSignUp={true}
+							isRouterLink={true}
+						/>
 					</form>
 				</div>
 				<img
