@@ -6,10 +6,11 @@ import DatePicker from 'react-datepicker'
 import Card from '../../../../components/ui/Card'
 import SolidButton from '../../../../components/ui/button/SolidButton'
 import ExistingUserPrompter from '../../../../components/ui/login_signup/LoginSignUpPrompter'
+import FormContainer from '../../../../components/ui/FormContainer'
+import 'react-datepicker/dist/react-datepicker.css'
 
 import img from '../../../../assets/signup-login/signup.jpg'
 import { motion } from 'framer-motion'
-import 'react-datepicker/dist/react-datepicker.css'
 
 import { doc, setDoc } from 'firebase/firestore'
 
@@ -20,9 +21,6 @@ import {
 } from 'firebase/auth'
 
 import { auth, db } from '../../../../firebase'
-
-const signUpContainerClasses =
-	'w-full md:w-1/2 lg:w-1/3 mx-auto my-12 ml-10 min-h-[15rem]'
 
 const SignUp = () => {
 	// Storing table below into variable userInfo. setUserInfo is the function name that we call to change the values of the table.
@@ -106,7 +104,7 @@ const SignUp = () => {
 				subtitle="Only a couple more steps to begin finding your new home and roommates"
 			/>
 			<Card className="max-w-6xl mx-auto flex flex-col md:flex-row space-x-8">
-				<div className={signUpContainerClasses}>
+				<FormContainer>
 					<h1 className="text-2xl font-bold">Register</h1>
 					<form className="flex flex-col mt-4 space-y-5">
 						<Input
@@ -166,7 +164,7 @@ const SignUp = () => {
 							isRouterLink={true}
 						/>
 					</form>
-				</div>
+				</FormContainer>
 				<img
 					src={img}
 					alt="bed"

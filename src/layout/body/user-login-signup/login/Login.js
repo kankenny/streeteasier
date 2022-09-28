@@ -7,6 +7,7 @@ import LoginSignUpPrompter from '../../../../components/ui/login_signup/LoginSig
 import img from '../../../../assets/signup-login/login.jpg'
 import Overview from '../../../../components/ui/Overview'
 import Card from '../../../../components/ui/Card'
+import FormContainer from '../../../../components/ui/FormContainer'
 
 import { motion } from 'framer-motion'
 
@@ -41,11 +42,11 @@ const Login = () => {
 				subtitle="It's great to see you again!"
 			/>
 			<Card className="max-w-6xl container mx-auto flex flex-col md:flex-row space-x-8">
-				<div className="w-full md:w-1/2 lg:w-1/3 mx-auto my-12 ml-10 min-h-[15rem] max-w-sm">
+				<FormContainer>
 					<h1 className="text-2xl font-bold">
 						Enter User Details
 					</h1>
-					<form className="flex flex-col mt-4">
+					<form className="flex flex-col mt-4 space-y-4">
 						<Input
 							type="email"
 							name="emailAddress"
@@ -79,7 +80,7 @@ const Login = () => {
 							isRouterLink={true}
 						/>
 					</form>
-				</div>
+				</FormContainer>
 				<img
 					src={img}
 					alt="bed"
