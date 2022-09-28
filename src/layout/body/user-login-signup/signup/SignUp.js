@@ -156,6 +156,7 @@ const SignUp = () => {
 							buttonText="Register"
 							buttonType="submit"
 							onClick={handleSignUpRequest}
+							className="bg-blue-500 hover:bg-blue-900 focus:ring-blue-300"
 						/>
 						<ExistingUserPrompter
 							question="Are you an existing user?"

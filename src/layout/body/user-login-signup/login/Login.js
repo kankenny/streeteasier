@@ -70,7 +70,7 @@ const Login = () => {
 						<SolidButton
 							buttonType="submit"
 							buttonText="Login"
-							className="my-4"
+							className="my-4 bg-blue-500 hover:bg-blue-900 focus:ring-blue-300"
 							onClick={onUserSubmitHandler}
 						/>
 						<LoginSignUpPrompter
