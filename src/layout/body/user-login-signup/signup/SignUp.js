@@ -34,7 +34,7 @@ const SignUp = () => {
 		confirmPassword: '',
 	})
 
-	const handleUserInput = (e) => {
+	const userInputHandler = (e) => {
 		e.preventDefault() // Prevents default event from being accept (in this case passing in nothing)
 
 		/* 
@@ -111,14 +111,14 @@ const SignUp = () => {
 							name="firstName"
 							placeholder="First Name"
 							value={userInfo.firstName}
-							onChange={handleUserInput}
+							onChange={userInputHandler}
 						/>
 						<Input
 							type="text"
 							name="lastName"
 							placeholder="Last Name"
 							value={userInfo.lastName}
-							onChange={handleUserInput}
+							onChange={userInputHandler}
 						/>
 						<Input
 							type="number"
@@ -126,7 +126,7 @@ const SignUp = () => {
 							placeholder="Age"
 							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
 							value={userInfo.age}
-							onChange={handleUserInput}
+							onChange={userInputHandler}
 						/>
 						<Input
 							type="email"
@@ -134,7 +134,7 @@ const SignUp = () => {
 							value={userInfo.email}
 							placeholder="Email Address"
 							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
-							onChange={handleUserInput}
+							onChange={userInputHandler}
 						/>
 						<input
 							type="password"
@@ -143,7 +143,7 @@ const SignUp = () => {
 							value={userInfo.password}
 							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
 							autoComplete="on"
-							onChange={handleUserInput}
+							onChange={userInputHandler}
 						/>
 						<Input
 							type="password"
@@ -152,7 +152,7 @@ const SignUp = () => {
 							value={userInfo.confirmPassword}
 							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
 							autoComplete="on"
-							onChange={handleUserInput}
+							onChange={userInputHandler}
 						/>
 						<SolidButton
 							buttonText="Register"
