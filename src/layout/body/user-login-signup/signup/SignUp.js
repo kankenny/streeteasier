@@ -6,10 +6,11 @@ import DatePicker from 'react-datepicker'
 import Card from '../../../../components/ui/Card'
 import SolidButton from '../../../../components/ui/button/SolidButton'
 import ExistingUserPrompter from '../../../../components/ui/login_signup/LoginSignUpPrompter'
+import FormContainer from '../../../../components/ui/FormContainer'
+import 'react-datepicker/dist/react-datepicker.css'
 
 import img from '../../../../assets/signup-login/signup.jpg'
 import { motion } from 'framer-motion'
-import 'react-datepicker/dist/react-datepicker.css'
 
 import { doc, setDoc } from 'firebase/firestore'
 
@@ -20,9 +21,6 @@ import {
 } from 'firebase/auth'
 
 import { auth, db } from '../../../../firebase'
-
-const signUpContainerClasses =
-	'w-full md:w-1/2 lg:w-1/3 mx-auto my-12 ml-10 min-h-[15rem]'
 
 const SignUp = () => {
 	// Storing table below into variable userInfo. setUserInfo is the function name that we call to change the values of the table.
@@ -35,7 +33,7 @@ const SignUp = () => {
 		confirmPassword: '',
 	})
 
-	const [birthday, setBirthday] = useState(new Date('10/28/99'))
+	const [birthday, setBirthday] = useState()
 
 	const userInputHandler = (e) => {
 		e.preventDefault() // Prevents default event from being accept (in this case passing in nothing)
@@ -106,7 +104,7 @@ const SignUp = () => {
 				subtitle="Only a couple more steps to begin finding your new home and roommates"
 			/>
 			<Card className="max-w-6xl mx-auto flex flex-col md:flex-row space-x-8">
-				<div className={signUpContainerClasses}>
+				<FormContainer>
 					<h1 className="text-2xl font-bold">Register</h1>
 					<form className="flex flex-col mt-4 space-y-5">
 						<Input
@@ -127,22 +125,22 @@ const SignUp = () => {
 							selected={birthday}
 							onSelect={setBirthday} //when day is clicked
 							onChange={setBirthday} //only when value has changed
-							className="px-4 py-3 text-sm w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500"
+							className="px-4 py-3 text-sm w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500
+							"
+							placeholderText={'MM/DD/YY'}
 						/>
 						<Input
 							type="email"
 							name="email"
 							value={userInfo.email}
 							placeholder="Email Address"
-							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
 							onChange={userInputHandler}
 						/>
-						<input
+						<Input
 							type="password"
 							name="password"
 							placeholder="Password"
 							value={userInfo.password}
-							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
 							autoComplete="on"
 							onChange={userInputHandler}
 						/>
@@ -151,9 +149,8 @@ const SignUp = () => {
 							name="confirmPassword"
 							placeholder="Confirm Password"
 							value={userInfo.confirmPassword}
-							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
-							autoComplete="on"
 							onChange={userInputHandler}
+							autoComplete="on"
 						/>
 						<SolidButton
 							buttonText="Register"
@@ -167,7 +164,7 @@ const SignUp = () => {
 							isRouterLink={true}
 						/>
 					</form>
-				</div>
+				</FormContainer>
 				<img
 					src={img}
 					alt="bed"
