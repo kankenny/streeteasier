@@ -13,7 +13,7 @@ function UserLoginSignup() {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
-			className=""
+			className="mt-[8.5rem]"
 		>
 			<Card className="mx-auto max-w-[60rem] flex flex-col my-auto">
 				<Title
