@@ -10,72 +10,86 @@ import ExistingUserPrompter from '../../../../components/ui/login_signup/LoginSi
 import img from '../../../../assets/signup-login/signup.jpg'
 import { motion } from 'framer-motion'
 
+import {
+	doc,
+	setDoc,
+} from 'firebase/firestore'
+
+import {
+	createUserWithEmailAndPassword,
+	sendEmailVerification,
+	updateProfile
+} from 'firebase/auth'
+
+import { 
+	auth,
+	db
+} from '../../../../firebase'
+
 const signUpContainerClasses =
 	'w-full md:w-1/2 lg:w-1/3 mx-auto my-12 ml-10 min-h-[15rem]'
 
 const SignUp = () => {
+	// Storing table below into variable userInfo. setUserInfo is the function name that we call to change the values of the table.
 	const [userInfo, setUserInfo] = useState({
-		firstName: '',
-		lastName: '',
-		birthday: '',
-		age: '',
-		emailAddress: '',
-		password: '',
-		confirmPassword: '',
+		firstName: "",
+		lastName: "",
+		age: "",
+		email: "",
+		password: "",
+		confirmPassword: ""
 	})
 
-	const firstNameChangeHandler = (e) => {
-		setUserInfo((prevState) => ({
-			...prevState,
-			firstName: e.target.value,
-		}))
+	const handleUserInput = (e) => {
+		e.preventDefault(); // Prevents default event from being accept (in this case passing in nothing)
+
+		/* 
+		{name} refers to the name of a HTML node property, {value} refers to the actual input.
+		Needed to target and grab the appropriate node (in our case, specific use input fields) and destructuring it. 
+
+		It is coded this way to support multifunctional handlers. Otherwise, we would have to create a handler for each input field, which is not ideal.
+		*/
+		
+		const {name, value} = e.target; 
+		setUserInfo((userInput) => {
+			return {...userInput, [name] : value};
+		})
 	}
 
-	const lastNameChangeHandler = (e) => {
-		setUserInfo((prevState) => ({
-			...prevState,
-			lastName: e.target.value,
-		}))
-	}
+	const handleSignUpRequest = async (e) => {
+		e.preventDefault();
 
-	const ageChangeHandler = (e) => {
-		setUserInfo((prevState) => ({
-			...prevState,
-			age: e.target.value,
-		}))
-	}
+		/*
+		User registeratiion.
+		This is a promise. When we attempt to create a user, need to use then and catch for the promise.
+		If the user has been sucessfully created, we create a user object with the respective information and place it in our DB. We can use this in a callback later to grab the data.
+		If the user has not been sucessfully created, throw error.
+		*/
 
-	const emailChangeHandler = (e) => {
-		setUserInfo((prevState) => ({
-			...prevState,
-			emailAddress: e.target.value,
-		}))
-	}
+		await createUserWithEmailAndPassword(auth, userInfo.email, userInfo.password)
+		.then((userCredentials) => {
+			const user = userCredentials.user; // Details of a user.
+			console.log(user);
 
-	const birthdayChangeHandler = (e) => {
-		setUserInfo((prevState) => ({
-			...prevState,
-			birthday: e.target.value,
-		}))
-	}
+			updateProfile(user, {displayName: userInfo.firstName + ' ' + userInfo.lastName})
+			.then(async () => {
+				sendEmailVerification(user);
+					await setDoc(doc(db, "users", user.uid), { // Straight from Firebase documentation: https://firebase.google.com/docs/firestore/manage-data/add-data
+						firstName: userInfo.firstName,
+						lastName: userInfo.lastName,
+						age: userInfo.age,
+						email: userInfo.email
+					});
+			})
+			.catch((err) => {
+				console.log(err.message)
+			}) 
+			
+		})
+		.catch((err) => {
+			console.log(err.message);
+		})
 
-	const passwordChangeHandler = (e) => {
-		setUserInfo((prevState) => ({
-			...prevState,
-			password: e.target.value,
-		}))
-	}
-
-	const confirmPasswordChangeHandler = (e) => {
-		setUserInfo((prevState) => ({
-			...prevState,
-			confirmPassword: e.target.value,
-		}))
-	}
-
-	const onUserSubmitHandler = (e) => {
-		e.preventDefault()
-		console.log(userInfo)
 	}
 
 	return (
@@ -86,7 +100,7 @@ const SignUp = () => {
 		>
 			<Overview
 				title="Our team is so excited that you're joining!"
-				subtitle="Only a couple more steps to find your home and roommates"
+				subtitle="Only a couple more steps to begin finding your new home and roommates"
 			/>
 			<Card className="max-w-6xl mx-auto flex flex-col md:flex-row space-x-8">
 				<div className={signUpContainerClasses}>
@@ -97,47 +111,53 @@ const SignUp = () => {
 							name="firstName"
 							placeholder="First Name"
 							value={userInfo.firstName}
-							onChange={firstNameChangeHandler}
+							onChange={handleUserInput}
 						/>
 						<Input
 							type="text"
 							name="lastName"
 							placeholder="Last Name"
 							value={userInfo.lastName}
-							onChange={lastNameChangeHandler}
+							onChange={handleUserInput}
 						/>
 						<Input
 							type="number"
 							name="age"
 							placeholder="Age"
+							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
 							value={userInfo.age}
-							onChange={ageChangeHandler}
+							onChange={handleUserInput}
 						/>
 						<Input
 							type="email"
 							name="email"
+							value={userInfo.email}
 							placeholder="Email Address"
-							value={userInfo.emailAddress}
-							onChange={emailChangeHandler}
+							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+							onChange={handleUserInput}
 						/>
-						<Input
+						<input
 							type="password"
 							name="password"
 							placeholder="Password"
 							value={userInfo.password}
-							onChange={passwordChangeHandler}
+							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+							autoComplete="on"
+							onChange={handleUserInput}
 						/>
 						<Input
 							type="password"
 							name="confirmPassword"
 							placeholder="Confirm Password"
 							value={userInfo.confirmPassword}
-							onChange={confirmPasswordChangeHandler}
+							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+							autoComplete="on"
+							onChange={handleUserInput}
 						/>
 						<SolidButton
 							buttonText="Register"
 							buttonType="submit"
-							onClick={onUserSubmitHandler}
+							onClick={handleSignUpRequest}
 						/>
 						<ExistingUserPrompter
 							question="Are you an existing user?"
