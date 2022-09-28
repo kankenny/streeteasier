@@ -1,6 +1,4 @@
-import React, { 
-	Fragment, 
-} from 'react'
+import React from 'react'
 
 import Header from './layout/Header'
 import Body from './layout/Body'
@@ -9,11 +7,11 @@ import './App.css'
 
 function App() {
 	return (
-		<Fragment>
+		<div className="h-screen flex flex-col justify-between">
 			<Header />
 			<Body />
 			<Footer />
-		</Fragment>
+		</div>
 	)
 }
 

@@ -7,7 +7,7 @@ import HamburgerButton from './header/HamburgerButton'
 import MobileMenu from './header/MobileMenu'
 
 const containerClasses =
-	'container min-w-full mx-auto px-6 py-18 pt-3 bg-slate-100'
+	'container min-w-full mx-auto px-6 py-18 pt-3 bg-slate-100 fixed z-40 mb-20'
 const navBarClasses =
 	'flex items-center justify-between font-bold text-slate-800'
 

@@ -13,8 +13,9 @@ function UserLoginSignup() {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
+			className=""
 		>
-			<Card className="mx-auto max-w-[60rem] flex flex-col mb-[100rem]">
+			<Card className="mx-auto max-w-[60rem] flex flex-col my-auto">
 				<Title
 					title="Do you have an account with us?"
 					className="text-center mb-20"

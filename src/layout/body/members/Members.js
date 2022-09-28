@@ -17,6 +17,19 @@ const Members = () => {
 				title="Who are we?"
 				subtitle="We are simply students with a vision for change"
 				paragraph={membersParagraph}
+				className=""
+			/>
+			<Overview
+				title="Who are we?"
+				subtitle="We are simply students with a vision for change"
+				paragraph={membersParagraph}
+				className=""
+			/>
+			<Overview
+				title="Who are we?"
+				subtitle="We are simply students with a vision for change"
+				paragraph={membersParagraph}
+				className=""
 			/>
 			<Overview
 				title="Who are we?"
