@@ -16,18 +16,13 @@ const Login = () => {
 		password: '',
 	})
 
-	const emailChangeHandler = (e) => {
-		setUserInfo((prevState) => ({
-			...prevState,
-			emailAddress: e.target.value,
-		}))
-	}
+	const userInputHandler = (e) => {
+		e.preventDefault()
 
-	const passwordChangeHandler = (e) => {
-		setUserInfo((prevState) => ({
-			...prevState,
-			password: e.target.value,
-		}))
+		const { name: userInputField, value } = e.target
+		setUserInfo((userInput) => {
+			return { ...userInput, [userInputField]: value }
+		})
 	}
 
 	const onUserSubmitHandler = (e) => {
@@ -53,10 +48,10 @@ const Login = () => {
 					<form className="flex flex-col mt-4">
 						<Input
 							type="email"
-							name="email"
+							name="emailAddress"
 							placeholder="Email Address"
 							value={userInfo.emailAddress}
-							onChange={emailChangeHandler}
+							onChange={userInputHandler}
 							required={true}
 						/>
 						<Input
@@ -64,7 +59,7 @@ const Login = () => {
 							name="password"
 							placeholder="Password"
 							value={userInfo.password}
-							onChange={passwordChangeHandler}
+							onChange={userInputHandler}
 							required={true}
 						/>
 						<LoginSignUpPrompter
