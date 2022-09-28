@@ -35,7 +35,7 @@ const SignUp = () => {
 		confirmPassword: '',
 	})
 
-	const [birthday, setBirthday] = useState(new Date('10/28/99'))
+	const [birthday, setBirthday] = useState()
 
 	const userInputHandler = (e) => {
 		e.preventDefault() // Prevents default event from being accept (in this case passing in nothing)
@@ -127,22 +127,22 @@ const SignUp = () => {
 							selected={birthday}
 							onSelect={setBirthday} //when day is clicked
 							onChange={setBirthday} //only when value has changed
-							className="px-4 py-3 text-sm w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500"
+							className="px-4 py-3 text-sm w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500
+							"
+							placeholderText={'MM/DD/YY'}
 						/>
 						<Input
 							type="email"
 							name="email"
 							value={userInfo.email}
 							placeholder="Email Address"
-							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
 							onChange={userInputHandler}
 						/>
-						<input
+						<Input
 							type="password"
 							name="password"
 							placeholder="Password"
 							value={userInfo.password}
-							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
 							autoComplete="on"
 							onChange={userInputHandler}
 						/>
@@ -151,9 +151,8 @@ const SignUp = () => {
 							name="confirmPassword"
 							placeholder="Confirm Password"
 							value={userInfo.confirmPassword}
-							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
-							autoComplete="on"
 							onChange={userInputHandler}
+							autoComplete="on"
 						/>
 						<SolidButton
 							buttonText="Register"
