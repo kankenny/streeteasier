@@ -20,4 +20,4 @@ yarn-error.log*
 
 # Firebase API
 .env
-/src/firebase.js
+firebase.js
