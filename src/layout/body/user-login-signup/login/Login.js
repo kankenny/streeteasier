@@ -40,7 +40,6 @@ const Login = () => {
 			<Overview
 				title="Welcome Back!"
 				subtitle="It's great to see you again!"
-				className="mb-0 pb-0"
 			/>
 			<Card className="max-w-6xl container mx-auto flex flex-col md:flex-row space-x-8">
 				<FormContainer>
