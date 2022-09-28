@@ -20,12 +20,6 @@ const Offerings = () => {
 
 				<OfferingContainer setNumber={1} />
 				<OfferingContainer setNumber={2} />
-
-				<div className="flex justify-center mt-10 md:hidden">
-					<button className="btn w-full md:hidden">
-						See All
-					</button>
-				</div>
 			</div>
 		</section>
 	)
