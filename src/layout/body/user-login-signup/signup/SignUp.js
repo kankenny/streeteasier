@@ -102,7 +102,7 @@ const SignUp = () => {
 			<Overview
 				title="Our team is so excited that you're joining!"
 				subtitle="Only a couple more steps to begin finding your new home and roommates"
-				
+				noParagraph={true}
 			/>
 			<Card className="max-w-6xl mx-auto flex flex-col md:flex-row space-x-8 mt-0">
 				<FormContainer>
