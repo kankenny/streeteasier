@@ -127,7 +127,7 @@ const SignUp = () => {
 							selected={birthday}
 							onSelect={setBirthday} //when day is clicked
 							onChange={setBirthday} //only when value has changed
-							className="px-4 py-3 mt-0 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500"
+							className="px-4 py-3 text-sm w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500"
 						/>
 						<Input
 							type="email"
