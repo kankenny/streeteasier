@@ -10,21 +10,15 @@ import ExistingUserPrompter from '../../../../components/ui/login_signup/LoginSi
 import img from '../../../../assets/signup-login/signup.jpg'
 import { motion } from 'framer-motion'
 
-import {
-	doc,
-	setDoc,
-} from 'firebase/firestore'
+import { doc, setDoc } from 'firebase/firestore'
 
 import {
 	createUserWithEmailAndPassword,
 	sendEmailVerification,
-	updateProfile
+	updateProfile,
 } from 'firebase/auth'
 
-import { 
-	auth,
-	db
-} from '../../../../firebase'
+import { auth, db } from '../../../../firebase'
 
 const signUpContainerClasses =
 	'w-full md:w-1/2 lg:w-1/3 mx-auto my-12 ml-10 min-h-[15rem]'
@@ -32,16 +26,16 @@ const signUpContainerClasses =
 const SignUp = () => {
 	// Storing table below into variable userInfo. setUserInfo is the function name that we call to change the values of the table.
 	const [userInfo, setUserInfo] = useState({
-		firstName: "",
-		lastName: "",
-		age: "",
-		email: "",
-		password: "",
-		confirmPassword: ""
+		firstName: '',
+		lastName: '',
+		age: '',
+		email: '',
+		password: '',
+		confirmPassword: '',
 	})
 
 	const handleUserInput = (e) => {
-		e.preventDefault(); // Prevents default event from being accept (in this case passing in nothing)
+		e.preventDefault() // Prevents default event from being accept (in this case passing in nothing)
 
 		/* 
 		{name} refers to the name of a HTML node property, {value} refers to the actual input.
@@ -49,15 +43,15 @@ const SignUp = () => {
 
 		It is coded this way to support multifunctional handlers. Otherwise, we would have to create a handler for each input field, which is not ideal.
 		*/
-		
-		const {name, value} = e.target; 
+
+		const { name: userInputField, value } = e.target
 		setUserInfo((userInput) => {
-			return {...userInput, [name] : value};
+			return { ...userInput, [userInputField]: value }
 		})
 	}
 
 	const handleSignUpRequest = async (e) => {
-		e.preventDefault();
+		e.preventDefault()
 
 		/*
 		User registeratiion.
@@ -66,30 +60,36 @@ const SignUp = () => {
 		If the user has not been sucessfully created, throw error.
 		*/
 
-		await createUserWithEmailAndPassword(auth, userInfo.email, userInfo.password)
-		.then((userCredentials) => {
-			const user = userCredentials.user; // Details of a user.
-			console.log(user);
+		await createUserWithEmailAndPassword(
+			auth,
+			userInfo.email,
+			userInfo.password
+		)
+			.then((userCredentials) => {
+				const user = userCredentials.user // Details of a user.
+				console.log(user)
 
-			updateProfile(user, {displayName: userInfo.firstName + ' ' + userInfo.lastName})
-			.then(async () => {
-				sendEmailVerification(user);
-					await setDoc(doc(db, "users", user.uid), { // Straight from Firebase documentation: https://firebase.google.com/docs/firestore/manage-data/add-data
-						firstName: userInfo.firstName,
-						lastName: userInfo.lastName,
-						age: userInfo.age,
-						email: userInfo.email
-					});
+				updateProfile(user, {
+					displayName:
+						userInfo.firstName + ' ' + userInfo.lastName,
+				})
+					.then(async () => {
+						sendEmailVerification(user)
+						await setDoc(doc(db, 'users', user.uid), {
+							// Straight from Firebase documentation: https://firebase.google.com/docs/firestore/manage-data/add-data
+							firstName: userInfo.firstName,
+							lastName: userInfo.lastName,
+							age: userInfo.age,
+							email: userInfo.email,
+						})
+					})
+					.catch((err) => {
+						console.log(err.message)
+					})
 			})
 			.catch((err) => {
 				console.log(err.message)
-			}) 
-			
-		})
-		.catch((err) => {
-			console.log(err.message);
-		})
-
+			})
 	}
 
 	return (
