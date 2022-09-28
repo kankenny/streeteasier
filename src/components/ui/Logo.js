@@ -7,7 +7,7 @@ const Logo = ({ className }) => {
 			<img
 				src={LogoImage}
 				alt="Logo"
-				className={`max-h-[5rem] ${className}`}
+				className={`h-16 pt-2 ${className}`}
 			/>
 		</Link>
 	)
