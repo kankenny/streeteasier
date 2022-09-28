@@ -7,12 +7,13 @@ import Paragraph from './Paragraph'
 const containerClasses =
 	'container min-w-full mx-auto mb-10 px-6 pt-24 pb-6 bg-slate-100 flex flex-col'
 
-const Overview = ({ title, subtitle, paragraph, className }) => {
+const Overview = ({ title, subtitle, paragraph, className, noParagraph }) => {
 	return (
 		<div className={`${className} ${containerClasses}`}>
 			<Title title={title} />
 			<Subtitle subtitle={subtitle} />
-			<Paragraph paragraph={paragraph} />
+			{noParagraph ? '' : 
+			<Paragraph paragraph={paragraph} /> }
 		</div>
 	)
 }
