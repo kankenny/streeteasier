@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 
 import Input from '../../../../components/ui/Input'
 import Overview from '../../../../components/ui/Overview'
-
+import DatePicker from 'react-datepicker'
 import Card from '../../../../components/ui/Card'
 import SolidButton from '../../../../components/ui/button/SolidButton'
 import ExistingUserPrompter from '../../../../components/ui/login_signup/LoginSignUpPrompter'
 
 import img from '../../../../assets/signup-login/signup.jpg'
 import { motion } from 'framer-motion'
+import 'react-datepicker/dist/react-datepicker.css'
 
 import { doc, setDoc } from 'firebase/firestore'
 
@@ -28,11 +29,13 @@ const SignUp = () => {
 	const [userInfo, setUserInfo] = useState({
 		firstName: '',
 		lastName: '',
-		age: '',
+		birthday: '',
 		email: '',
 		password: '',
 		confirmPassword: '',
 	})
+
+	const [birthday, setBirthday] = useState(new Date('10/28/99'))
 
 	const userInputHandler = (e) => {
 		e.preventDefault() // Prevents default event from being accept (in this case passing in nothing)
@@ -120,13 +123,11 @@ const SignUp = () => {
 							value={userInfo.lastName}
 							onChange={userInputHandler}
 						/>
-						<Input
-							type="number"
-							name="age"
-							placeholder="Age"
-							className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
-							value={userInfo.age}
-							onChange={userInputHandler}
+						<DatePicker
+							selected={birthday}
+							onSelect={setBirthday} //when day is clicked
+							onChange={setBirthday} //only when value has changed
+							className="px-4 py-3 mt-0 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500"
 						/>
 						<Input
 							type="email"
