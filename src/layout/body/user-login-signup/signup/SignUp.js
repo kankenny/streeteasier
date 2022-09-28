@@ -123,8 +123,8 @@ const SignUp = () => {
 						/>
 						<DatePicker
 							selected={birthday}
-							onSelect={setBirthday} //when day is clicked
-							onChange={setBirthday} //only when value has changed
+							onSelect={setBirthday}
+							onChange={setBirthday}
 							className="px-4 py-3 text-sm w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500
 							"
 							placeholderText={'MM/DD/YY'}

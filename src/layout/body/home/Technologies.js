@@ -5,6 +5,7 @@ import AiFillHtml5 from './tech_stack/HTML'
 import DiCss3 from './tech_stack/CSS'
 import SiTailwindcss from './tech_stack/Tailwind'
 import SiJavascript from './tech_stack/JavaScript'
+import SiFirebase from './tech_stack/Firebase'
 
 import { motion } from 'framer-motion'
 
@@ -30,6 +31,7 @@ const Technologies = () => {
 				<DiCss3 />
 				<SiTailwindcss />
 				<SiJavascript />
+				<SiFirebase />
 			</div>
 		</motion.div>
 	)
