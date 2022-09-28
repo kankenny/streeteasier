@@ -42,8 +42,8 @@ const Login = () => {
 			exit={{ opacity: 0 }}
 		>
 			<Overview
-				title="Our team is so excited that you're joining!"
-				subtitle="Only a couple more steps to find your home and roommates"
+				title="Welcome Back!"
+				subtitle="It's great to see you again!"
 			/>
 			<Card className="max-w-6xl container mx-auto flex flex-col md:flex-row space-x-8">
 				<div className="w-full md:w-1/2 lg:w-1/3 mx-auto my-12 ml-10 min-h-[15rem] max-w-sm">
