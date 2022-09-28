@@ -102,8 +102,9 @@ const SignUp = () => {
 			<Overview
 				title="Our team is so excited that you're joining!"
 				subtitle="Only a couple more steps to begin finding your new home and roommates"
+				className="mb-0 pb-0"
 			/>
-			<Card className="max-w-6xl mx-auto flex flex-col md:flex-row space-x-8">
+			<Card className="max-w-6xl mx-auto flex flex-col md:flex-row space-x-8 mt-0">
 				<FormContainer>
 					<h1 className="text-2xl font-bold">Register</h1>
 					<form className="flex flex-col mt-4 space-y-5">
