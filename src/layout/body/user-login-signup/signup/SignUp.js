@@ -98,13 +98,14 @@ const SignUp = () => {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
+			className=""
 		>
 			<Overview
 				title="Our team is so excited that you're joining!"
 				subtitle="Only a couple more steps to begin finding your new home and roommates"
 				noParagraph={true}
 			/>
-			<Card className="max-w-6xl mx-auto flex flex-col md:flex-row space-x-8 mt-0">
+			<Card className="max-w-5xl h-fit max-h-fit mx-auto flex flex-col md:flex-row space-x-8 mt-0">
 				<FormContainer>
 					<h1 className="text-2xl font-bold">Register</h1>
 					<form className="flex flex-col mt-4 space-y-5">
@@ -170,7 +171,7 @@ const SignUp = () => {
 				<img
 					src={img}
 					alt="bed"
-					className="max-w-lg rounded-xl shadow-2xl sm:mx-auto"
+					className="rounded-xl shadow-2xl sm:mx-auto max-h-[40rem]"
 				/>
 			</Card>
 		</motion.div>

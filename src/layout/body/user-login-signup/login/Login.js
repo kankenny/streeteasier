@@ -42,7 +42,7 @@ const Login = () => {
 				subtitle="It's great to see you again!"
 				noParagraph={true}
 			/>
-			<Card className="max-w-6xl container mx-auto flex flex-col md:flex-row space-x-8">
+			<Card className="max-w-5xl container mx-auto flex flex-col md:flex-row space-x-8">
 				<FormContainer>
 					<h1 className="text-2xl font-bold">
 						Enter User Details
@@ -85,7 +85,7 @@ const Login = () => {
 				<img
 					src={img}
 					alt="bed"
-					className="max-h-[100rem] h-50 max-w-lg rounded-xl shadow-2xl sm:mx-auto"
+					className="rounded-xl shadow-2xl sm:mx-auto max-h-[40rem]"
 				/>
 			</Card>
 		</motion.div>
