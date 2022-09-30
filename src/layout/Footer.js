@@ -14,7 +14,7 @@ const socialAndCopyRightClasses =
 	'flex flex-col items-start justify-between space-y-4'
 
 const Footer = ({ isLoggedIn }) => {
-	const menu = isLoggedIn ? <FooterMenu /> : <ApartmentsMenuFooter />
+	const menu = !isLoggedIn ? <FooterMenu /> : <ApartmentsMenuFooter />
 
 	return (
 		<FooterContainer>

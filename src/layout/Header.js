@@ -18,7 +18,7 @@ const Header = ({ isLoggedIn }) => {
 		setMobileMenuIsOpen((prevState) => !prevState)
 	}
 
-	const header = isLoggedIn ? (
+	const header = !isLoggedIn ? (
 		<div>
 			<DesktopMenu />{' '}
 			<HamburgerButton

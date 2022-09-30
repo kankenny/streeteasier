@@ -1,9 +1,16 @@
 import React from 'react'
 
-import Card from '../ui/Card'
+import ApartmentsContainer from './ApartmentsContainer'
+import ApartmentSearch from './ApartmentSearch'
+import GoogleMaps from './GoogleMaps'
 
 function Apartments() {
-	return <Card className="h-full mx-20 mb-0">Test</Card>
+	return (
+		<ApartmentsContainer>
+			<ApartmentSearch />
+			<GoogleMaps />
+		</ApartmentsContainer>
+	)
 }
 
 export default Apartments
