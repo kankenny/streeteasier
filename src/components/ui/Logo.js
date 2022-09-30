@@ -1,9 +1,17 @@
+import React, { useContext } from 'react'
+
+import UserContext from '../../context/UserContext'
+
 import LogoImage from '../../assets/projectLogo.png'
 import { Link } from 'react-router-dom'
 
 const Logo = ({ className }) => {
+	const { isLoggedIn } = useContext(UserContext)
+
+	const linkPath = isLoggedIn ? '/apartments' : '/welcome'
+
 	return (
-		<Link to="/welcome">
+		<Link to={linkPath}>
 			<img
 				src={LogoImage}
 				alt="Logo"
