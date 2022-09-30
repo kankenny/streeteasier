@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import Heading from '../ui/Heading'
 import ApartmentSearchContainer from './ApartmentSearchContainer'
 import Input from '../ui/Input'
-import SolidButton from '../ui/buttons/SolidButton'
 
 function ApartmentSearch() {
 	const [zipCode, setZipCode] = useState('')
