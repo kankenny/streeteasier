@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useContext } from 'react'
 
 import Input from '../../../../components/ui/Input'
 import SolidButton from '../../../../components/ui/button/SolidButton'
 import LoginSignUpPrompter from '../../../../components/ui/login_signup/LoginSignUpPrompter'
+import UserContext from '../../../../context/UserContext'
 
 import img from '../../../../assets/signup-login/login.jpg'
 import Overview from '../../../../components/ui/Overview'
@@ -13,6 +13,8 @@ import FormContainer from '../../../../components/ui/FormContainer'
 import { motion } from 'framer-motion'
 
 const Login = () => {
+	const { onLogin } = useContext(UserContext)
+
 	const [userInfo, setUserInfo] = useState({
 		emailAddress: '',
 		password: '',
@@ -29,6 +31,7 @@ const Login = () => {
 
 	const onUserSubmitHandler = (e) => {
 		e.preventDefault()
+		onLogin()
 		console.log(userInfo)
 	}
 
@@ -81,7 +84,12 @@ const Login = () => {
 							isLoggingIn={false}
 							isRouterLink={true}
 						/>
-						<Link to="main">Override Login</Link>
+						<SolidButton
+							className="text-primary"
+							onClick={onLogin}
+							buttonText="Override Login (this is a test div to access
+							main app)"
+						></SolidButton>
 					</form>
 				</FormContainer>
 				<img

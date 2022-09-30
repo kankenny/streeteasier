@@ -1,22 +1,26 @@
 import React from 'react'
-import Copyright from './footer/Copyright'
 
 import Logo from '../components/ui/Logo'
 import IconContainer from './footer/IconContainer'
 import FooterMenu from './footer/FooterMenu'
 import FooterContainer from './footer/FooterContainer'
+import ApartmentsMenuFooter from './footer/ApartmentsMenuFooter'
+
+import Copyright from './footer/Copyright'
 
 const menuAndLogoContainerClasses =
 	'flex flex-col items-center space-y-8 md:items-start md:space-y-4'
 const socialAndCopyRightClasses =
 	'flex flex-col items-start justify-between space-y-4'
 
-const Footer = () => {
+const Footer = ({ isLoggedIn }) => {
+	const menu = isLoggedIn ? <FooterMenu /> : <ApartmentsMenuFooter />
+
 	return (
 		<FooterContainer>
 			<div className={menuAndLogoContainerClasses}>
 				<Logo />
-				<FooterMenu />
+				{menu}
 			</div>
 			<div className={socialAndCopyRightClasses}>
 				<IconContainer />

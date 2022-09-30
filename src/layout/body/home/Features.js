@@ -2,7 +2,6 @@ import React from 'react'
 
 import Bed from '../../../assets/home/bed.jpg'
 import Card from '../../../components/ui/Card'
-import Overview from '../../../components/ui/Overview'
 
 const homeContainerClasses =
 	'relative container flex flex-col max-w-6xl m-10 my-16 px-6 md:flex-row mx-auto'
