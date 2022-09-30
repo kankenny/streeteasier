@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Card from '../../../components/ui/Card'
+import Card from '../ui/Card'
 
 function Apartments() {
 	return <Card className="h-full mx-20 mb-0">Test</Card>

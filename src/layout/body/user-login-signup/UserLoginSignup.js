@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import Card from '../../../components/ui/Card'
 import Title from '../../../components/ui/Title'
-import SolidButton from '../../../components/ui/button/SolidButton'
+import SolidButton from '../../../components/ui/buttons/SolidButton'
 
 import { motion } from 'framer-motion'
 
