@@ -8,8 +8,7 @@ import MobileMenu from './header/MobileMenu'
 
 const containerClasses =
 	'container min-w-full mx-auto px-6 bg-slate-100 fixed z-40'
-const navBarClasses =
-	'flex items-center justify-between font-bold text-slate-800'
+const navBarClasses = 'flex items-center justify-between font-bold'
 
 const Header = () => {
 	const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false)

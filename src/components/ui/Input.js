@@ -1,5 +1,8 @@
 import React from 'react'
 
+const inputClasses =
+	'px-4 py-3 mt-4 w-full rounded-md bg-slate-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm'
+
 const Input = ({
 	type,
 	name,
@@ -13,7 +16,7 @@ const Input = ({
 		<input
 			type={type}
 			name={name}
-			className={`px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm ${className}`}
+			className={`${inputClasses} ${className}`}
 			placeholder={placeholder}
 			value={value}
 			onChange={onChange}

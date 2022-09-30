@@ -3,7 +3,7 @@ import React from 'react'
 import OfferingContainer from './OfferingContainer'
 
 const offeringsContainerClasses =
-	'container max-w-6xl mx-auto my-32 px-6 text-gray-900 md:px-0'
+	'container max-w-6xl mx-auto my-32 px-6 md:px-0'
 const offeringsHeaderClasses =
 	'text-4xl text-center uppercase md:text-left md:text-5xl'
 

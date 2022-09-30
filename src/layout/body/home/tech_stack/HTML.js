@@ -20,7 +20,7 @@ function AiFillHtml5(props) {
 			viewBox="0 0 1024 1024"
 			height="6em"
 			width="6em"
-			className="duration-300 hover:text-blue-500"
+			className="duration-300 hover:text-primary"
 			variants={imageAnimate}
 			{...props}
 		>

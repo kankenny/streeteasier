@@ -22,7 +22,7 @@ function SiFirebase(props) {
 			height="5em"
 			width="5em"
 			{...props}
-			className="duration-300 hover:text-blue-500"
+			className="duration-300 hover:text-primary"
 			variants={imageAnimate}
 		>
 			<title />

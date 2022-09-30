@@ -127,7 +127,7 @@ const SignUp = () => {
 							selected={birthday}
 							onSelect={setBirthday}
 							onChange={setBirthday}
-							className="px-4 py-3 text-sm w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500
+							className="px-4 py-3 text-sm w-full rounded-md bg-slate-100 border-transparent focus:border-primary
 							"
 							placeholderText={'MM/DD/YY'}
 						/>
@@ -158,7 +158,7 @@ const SignUp = () => {
 							buttonText="Register"
 							buttonType="submit"
 							onClick={handleSignUpRequest}
-							className="bg-blue-500 hover:bg-blue-900 focus:ring-blue-300"
+							className="bg-primary hover:bg-blue-900 focus:ring-blue-300"
 						/>
 						<ExistingUserPrompter
 							question="Are you an existing user?"
