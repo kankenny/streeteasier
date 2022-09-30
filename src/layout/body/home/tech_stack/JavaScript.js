@@ -21,7 +21,7 @@ function SiJavascript(props) {
 			viewBox="0 0 24 24"
 			height="5em"
 			width="5em"
-			className="duration-300 hover:text-blue-500"
+			className="duration-300 hover:text-primary"
 			variants={imageAnimate}
 			{...props}
 		>

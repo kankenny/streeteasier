@@ -24,13 +24,13 @@ function UserLoginSignup() {
 					<Link to="/signup">
 						<SolidButton
 							buttonText="Register"
-							className="h-15 w-40 text-2xl bg-blue-500 hover:bg-blue-900 focus:ring-blue-300"
+							className="h-15 w-40 text-2xl bg-primary hover:bg-blue-900 focus:ring-blue-300"
 						/>
 					</Link>
 					<Link to="/login">
 						<SolidButton
 							buttonText="Log-in"
-							className="h-15 w-40 text-2xl bg-fuchsia-700 hover:bg-fuchsia-900 focus:ring-fuchsia-500"
+							className="h-15 w-40 text-2xl bg-secondary hover:bg-darkSecondary focus:ring-lightSecondary"
 						/>
 					</Link>
 				</div>

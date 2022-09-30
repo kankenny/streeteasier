@@ -21,7 +21,7 @@ function SiTailwindcss(props) {
 			viewBox="0 0 24 24"
 			height="6em"
 			width="6em"
-			className="duration-300 hover:text-blue-500"
+			className="duration-300 hover:text-primary"
 			variants={imageAnimate}
 			{...props}
 		>
