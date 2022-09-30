@@ -8,7 +8,10 @@ const UserContext = React.createContext({
 })
 
 export const UserContextProvider = (props) => {
-	const [isLoggedIn, setIsLoggedIn] = useState(false)
+	const [isLoggedIn, setIsLoggedIn] = useState(
+		localStorage.getItem('isLoggedIn') !== null
+	)
+
 	const navigate = useNavigate()
 
 	const onLogoutHandler = () => {
