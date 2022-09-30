@@ -85,7 +85,7 @@ const Login = () => {
 							isRouterLink={true}
 						/>
 						<SolidButton
-							className="text-primary"
+							className="bg-primary"
 							onClick={onLogin}
 							buttonText="Override Login (this is a test div to access
 							main app)"

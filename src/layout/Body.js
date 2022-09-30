@@ -10,6 +10,7 @@ import UserLoginSignup from './body/user-login-signup/UserLoginSignup'
 import SignUp from './body/user-login-signup/signup/SignUp'
 import Login from './body/user-login-signup/login/Login'
 import Apartments from '../components/apartments/Apartments'
+import Profile from '../components/profile/Profile'
 
 import { AnimatePresence } from 'framer-motion'
 
@@ -18,11 +19,7 @@ const Body = () => {
 	return (
 		<Fragment>
 			<AnimatePresence>
-				<Routes
-					className="h-screen"
-					location={location}
-					key={location.pathname}
-				>
+				<Routes location={location} key={location.pathname}>
 					<Route path="*" element={<Error404 />}></Route>
 					<Route path="/" element={<Home />}></Route>
 					<Route path="/welcome" element={<Home />}></Route>
@@ -36,6 +33,8 @@ const Body = () => {
 						element={<UserLoginSignup />}
 					/>
 					<Route path="/apartments" element={<Apartments />} />
+					{/* <Route path="/apartments" element={<Apartments />} /> */}
+					<Route path="/profile" element={<Profile />} />
 				</Routes>
 			</AnimatePresence>
 		</Fragment>

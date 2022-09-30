@@ -12,12 +12,13 @@ export const UserContextProvider = (props) => {
 	const navigate = useNavigate()
 
 	const onLogoutHandler = () => {
+		navigate('/welcome')
 		localStorage.removeItem('isLoggedIn')
 		setIsLoggedIn(false)
 	}
 
 	const onLoginHandler = () => {
-		navigate('/central')
+		navigate('/apartments')
 		localStorage.setItem('isLoggedIn', '1')
 		setIsLoggedIn(true)
 	}

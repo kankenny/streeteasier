@@ -11,6 +11,7 @@ const Input = ({
 	value,
 	onChange,
 	required,
+	onSubmit,
 }) => {
 	return (
 		<input
@@ -23,6 +24,7 @@ const Input = ({
 			autoComplete={type === 'password' ? 'on' : 'off'}
 			// autoComplete is for passwords
 			required={required}
+			onSubmit={onSubmit}
 		/>
 	)
 }
