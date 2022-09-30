@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react'
 
 import Input from '../../../../components/ui/Input'
-import SolidButton from '../../../../components/ui/button/SolidButton'
-import LoginSignUpPrompter from '../../../../components/ui/login_signup/LoginSignUpPrompter'
+import SolidButton from '../../../../components/ui/buttons/SolidButton'
+import LoginSignUpPrompter from '../../../../components/ui/LoginSignUpPrompter'
 import UserContext from '../../../../context/UserContext'
 
 import img from '../../../../assets/signup-login/login.jpg'

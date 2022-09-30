@@ -9,7 +9,7 @@ import Contacts from './body/contacts/Contacts'
 import UserLoginSignup from './body/user-login-signup/UserLoginSignup'
 import SignUp from './body/user-login-signup/signup/SignUp'
 import Login from './body/user-login-signup/login/Login'
-import Apartments from './body/apartments/Apartments'
+import Apartments from '../components/apartments/Apartments'
 
 import { AnimatePresence } from 'framer-motion'
 

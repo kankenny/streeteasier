@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { NavLink } from 'react-router-dom'
-import Link from '../../../components/ui/Link'
+import Link from './Link'
 
 const ExistingUserPrompter = ({
 	question,
