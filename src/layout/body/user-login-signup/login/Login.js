@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import Input from '../../../../components/ui/Input'
 import SolidButton from '../../../../components/ui/button/SolidButton'
@@ -80,6 +81,7 @@ const Login = () => {
 							isLoggingIn={false}
 							isRouterLink={true}
 						/>
+						<Link to="main">Override Login</Link>
 					</form>
 				</FormContainer>
 				<img

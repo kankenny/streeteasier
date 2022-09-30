@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 
+import Error404 from '../components/ui/Error404'
 import Home from './body/home/Home'
 import About from './body/about/About'
 import Members from './body/members/Members'
@@ -21,7 +22,8 @@ const Body = () => {
 					location={location}
 					key={location.pathname}
 				>
-					<Route path="*" element={<Home />}></Route>
+					<Route path="*" element={<Error404 />}></Route>
+					<Route path="/" element={<Home />}></Route>
 					<Route path="/welcome" element={<Home />}></Route>
 					<Route path="/about" element={<About />} />
 					<Route path="/members" element={<Members />} />
