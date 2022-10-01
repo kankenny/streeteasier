@@ -21,7 +21,7 @@ function Apartment({
 
 				<p>{address}</p>
 				<h3>{`There are currently ${numPeopleInterested} in this property`}</h3>
-				<p className="inline-block mr-2 text-gray-500">{`${numBedRooms} Bedrooms and ${numBathrooms} Bathrooms`}</p>
+				<p className="text-gray-500">{`${numBedRooms} Bedrooms and ${numBathrooms} Bathrooms`}</p>
 			</div>
 		</div>
 	)
