@@ -1,4 +1,7 @@
-import React, { useState, useCallback, memo, useRef } from 'react'
+import React, { useState, useCallback, memo, useRef, useContext } from 'react'
+
+import GoogleMapsContext from '../../context/GoogleMapsContext'
+
 import {
 	GoogleMap,
 	useJsApiLoader,
@@ -16,11 +19,6 @@ const containerStyle = {
 	overflow: 'hidden',
 }
 
-const manhattan = {
-	lat: 40.78,
-	lng: -73.96,
-}
-
 const mapOptions = {
 	disableDefaultUI: true,
 	styles: mapStyles,
@@ -35,6 +33,8 @@ function GoogleMaps() {
 		googleMapsApiKey: 'AIzaSyC3GbmTmVZ_48oazWqcjczMuS8jV6CRFG0',
 		libraries,
 	})
+
+	const { lat, lng, setCenterHandler } = useContext(GoogleMapsContext)
 
 	const [map, setMap] = useState(null)
 	const [dibs, setDibs] = useState([])
@@ -55,18 +55,26 @@ function GoogleMaps() {
 					time: new Date(),
 				},
 			])
+
+			setCenterHandler({ lat: e.latLng.lat(), lng: e.latLng.lng() })
 		},
-		[dibs]
+		[dibs, setCenterHandler]
 	)
 
 	const mapRef = useRef()
 
-	const onLoad = useCallback(function callback(map) {
-		const bounds = new window.google.maps.LatLngBounds(manhattan)
-		mapRef.current = map
-		map.fitBounds(bounds)
-		setMap(map)
-	}, [])
+	const onLoad = useCallback(
+		function callback(map) {
+			const bounds = new window.google.maps.LatLngBounds({
+				lat: lat,
+				lng: lng,
+			})
+			mapRef.current = map
+			map.fitBounds(bounds)
+			setMap(map)
+		},
+		[lat, lng]
+	)
 
 	const onUnmount = useCallback(function callback(map) {
 		setMap(null)
@@ -82,8 +90,11 @@ function GoogleMaps() {
 	return isLoaded ? (
 		<GoogleMap
 			mapContainerStyle={containerStyle}
-			center={manhattan}
-			zoom={8}
+			center={{
+				lat: lat,
+				lng: lng,
+			}}
+			zoom={20}
 			onLoad={onLoad}
 			onUnmount={onUnmount}
 			options={mapOptions}

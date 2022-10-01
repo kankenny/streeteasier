@@ -3,21 +3,9 @@ import React, { useState } from 'react'
 import ApartmentsContainer from './ApartmentsContainer'
 import Apartment from './Apartment'
 
-const DUMMY_DATA = [
-	{
-		address: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
-		pricePerMonth: 123,
-		numBedrooms: 1,
-		numBathrooms: 3,
-		zipCode: '10000',
-		numPeopleInterested: 3,
-		peopleInterested: {},
-	},
-]
-
 const DUMMY_DATA2 = [
 	{
-		address: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
+		address: 'Lorem ipsum dolor sit amet cons2ectetur adipisicing.',
 		pricePerMonth: 123,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -26,7 +14,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'ex velit magni qui eum, corporis123123 inventore ',
+		address: 'ex velit mag3ni qui eum, corporis123123 inventore ',
 		pricePerMonth: 345,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -35,7 +23,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'praesentium ipsam a libero, blanditii123123s placeat ',
+		address: 'praesentium 5ipsam a libero, blanditii123123s placeat ',
 		pricePerMonth: 234,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -44,7 +32,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'similique sed fugiat hic ea aper123123iam iure ',
+		address: 'similique sed fugiat hic ea 6aper123123iam iure ',
 		pricePerMonth: 34342,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -53,7 +41,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'sunt, placeat amet pariatur, ani123123mi eveniet',
+		address: 'sunt, placeat7 amet pariatur, ani123123mi eveniet',
 		pricePerMonth: 999,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -62,7 +50,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'cupiditate deleniti laboriosam max123123ime ducimus!',
+		address: 'cupiditate deleniti labori8osam max123123ime ducimus!',
 		pricePerMonth: 123,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -71,7 +59,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'at  accusamus cupiditate, atque sed per123123ferendis',
+		address: 'at  accusamus cupiditate, a3tque sed per123123ferendis',
 		pricePerMonth: 69,
 		numBedrooms: 69,
 		numBathrooms: 69,
@@ -80,7 +68,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
+		address: 'Lorem ipsum dolor sit a0met consectetur adipisicing.',
 		pricePerMonth: 123,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -89,7 +77,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'ex velit magni qui eum, corporis123123 inventore ',
+		address: 'ex velit magni qui eum, corporis9123123 inventore ',
 		pricePerMonth: 345,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -98,7 +86,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'praesentium ipsam a libero, blanditii123123s placeat ',
+		address: 'praes5entium 4ipsam a libero, blan8ditii123123s placeat ',
 		pricePerMonth: 234,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -107,7 +95,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'similique sed fugiat hic ea aper123123iam iure ',
+		address: 'similiq3ue sed fug9iat hic ea aper123123iam 1iure ',
 		pricePerMonth: 34342,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -116,7 +104,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'sunt, placeat amet pariatur, ani123123mi eveniet',
+		address: 'sunt, placeat ame2t pariatur, ani123123mi eveniet',
 		pricePerMonth: 999,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -125,7 +113,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'cupiditate deleniti laboriosam max123123ime ducimus!',
+		address: 'cupiditate del8eniti laboriosam max123123ime ducimus!',
 		pricePerMonth: 123,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -134,7 +122,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'at  accusamus cupiditate, atque sed per123123ferendis',
+		address: 'at  accusamus cu9piditate, atque sed per123123ferendis',
 		pricePerMonth: 69,
 		numBedrooms: 69,
 		numBathrooms: 69,
