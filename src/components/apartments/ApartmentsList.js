@@ -4,6 +4,7 @@ import ApartmentsContainer from './ApartmentsContainer'
 import Apartment from './Apartment'
 import Heading from '../ui/Heading'
 import SortingMenu from './sort/SortingMenu'
+import Subtitle from '../ui/Subtitle'
 
 const DUMMY_DATA2 = [
 	{
@@ -140,9 +141,10 @@ function ApartmentsList() {
 	return (
 		<Fragment>
 			<Heading
-				heading="Nearby Apartments in ZipCode 10000:"
+				heading="Search Results"
 				className="text-lg text-primary"
 			/>
+			<Subtitle subtitle="Nearby Apartments in ZipCode 10000:" />
 			<SortingMenu />
 			<ApartmentsContainer>
 				{apartments.map((apartment) => (

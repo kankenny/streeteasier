@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import Modal from '../ui/Modal'
 
 import img from '../../assets/apartments/dummyApartmentImage.jpg'
+import Overview from '../ui/Overview'
 
 function Apartment({
 	address,
@@ -9,8 +12,31 @@ function Apartment({
 	numBathrooms,
 	numPeopleInterested,
 }) {
+	const [apartmentModalIsOpen, setApartmentModalIsOpen] = useState(false)
+
+	const apartmentModalVisibilityHandler = () => {
+		setApartmentModalIsOpen((prevState) => !prevState)
+	}
+
 	return (
-		<div className="bg-secondary text-white flex flex-row space-y-2 space-x-4 rounded-xl shadow-lg h-36 ">
+		<div
+			className="bg-secondary text-white flex flex-row space-y-2 space-x-4 rounded-xl shadow-lg h-36 cursor-pointer"
+			onClick={apartmentModalVisibilityHandler}
+		>
+			{apartmentModalIsOpen && (
+				<Modal>
+					<img
+						src={img}
+						alt="Apartment"
+						className="rounded-2xl"
+					/>
+					<Overview
+						title={`$${pricePerMonth}/mo`}
+						subtitle={address}
+						paragraph={`There are currently ${numPeopleInterested} in this property`}
+					/>
+				</Modal>
+			)}
 			<img
 				src={img}
 				alt="Apartment for rent"
