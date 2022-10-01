@@ -138,28 +138,31 @@ function ApartmentsList() {
 	const [apartments, setApartments] = useState(DUMMY_DATA2)
 
 	return (
-		<Fragment>
-			<Heading
-				heading="Nearby Apartments in ZipCode 10000:"
-				className="text-lg text-primary"
-			/>
-			<SortingMenu />
-			<ApartmentsContainer>
-				{apartments.map((apartment) => (
-					<Apartment
-						key={apartment.address + apartment.address}
-						address={apartment.address}
-						pricePerMonth={apartment.pricePerMonth}
-						numBedRooms={apartment.numBedrooms}
-						numBathrooms={apartment.numBathrooms}
-						numPeopleInterested={
-							apartment.numPeopleInterested
-						}
-					/>
-				))}
-			</ApartmentsContainer>
-		</Fragment>
-	)
+    <Fragment>
+      <Heading
+        heading="Nearby Apartments in ZipCode 10000:"
+        className="text-lg text-primary"
+      />
+      <SortingMenu
+        apartments={apartments}
+        setApartments={setApartments}
+      />
+      <ApartmentsContainer>
+        {apartments.map((apartment) => (
+          <Apartment
+            key={apartment.address + apartment.address}
+            address={apartment.address}
+            pricePerMonth={apartment.pricePerMonth}
+            numBedRooms={apartment.numBedrooms}
+            numBathrooms={apartment.numBathrooms}
+            numPeopleInterested={
+				apartment.numPeopleInterested
+			}
+          />
+        ))}
+      </ApartmentsContainer>
+    </Fragment>
+  )
 }
 
 export default ApartmentsList
