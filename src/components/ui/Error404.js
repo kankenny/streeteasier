@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Card from './Card'
+import LoadingSpinner from './LoadingSpinner'
 import Overview from './Overview'
 
 const errorParagraph =
@@ -9,6 +10,7 @@ const errorParagraph =
 function Error404() {
 	return (
 		<Card className="max-w-6xl mx-auto">
+			<LoadingSpinner />
 			<Overview
 				title="404 Error: Page not found!"
 				subtitle="It looks like you accessed a dead-end url"
