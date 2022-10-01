@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 
 import ApartmentsContainer from './ApartmentsContainer'
 import Apartment from './Apartment'
+import Heading from '../ui/Heading'
+import SortingMenu from './sort/SortingMenu'
 
 const DUMMY_DATA2 = [
 	{
@@ -136,18 +138,27 @@ function ApartmentsList() {
 	const [apartments, setApartments] = useState(DUMMY_DATA2)
 
 	return (
-		<ApartmentsContainer>
-			{apartments.map((apartment) => (
-				<Apartment
-					key={apartment.address + apartment.address}
-					address={apartment.address}
-					pricePerMonth={apartment.pricePerMonth}
-					numBedRooms={apartment.numBedrooms}
-					numBathrooms={apartment.numBathrooms}
-					numPeopleInterested={apartment.numPeopleInterested}
-				/>
-			))}
-		</ApartmentsContainer>
+		<Fragment>
+			<Heading
+				heading="Nearby Apartments in ZipCode 10000:"
+				className="text-lg text-primary"
+			/>
+			<SortingMenu />
+			<ApartmentsContainer>
+				{apartments.map((apartment) => (
+					<Apartment
+						key={apartment.address + apartment.address}
+						address={apartment.address}
+						pricePerMonth={apartment.pricePerMonth}
+						numBedRooms={apartment.numBedrooms}
+						numBathrooms={apartment.numBathrooms}
+						numPeopleInterested={
+							apartment.numPeopleInterested
+						}
+					/>
+				))}
+			</ApartmentsContainer>
+		</Fragment>
 	)
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useCallback, memo, useRef, useContext } from 'react'
 
-import GoogleMapsContext from '../../context/GoogleMapsContext'
+import GoogleMapsContext from '../../../context/GoogleMapsContext'
 
 import {
 	GoogleMap,
@@ -10,7 +10,7 @@ import {
 } from '@react-google-maps/api'
 
 import mapStyles from './mapStyles'
-import dibUrl from '../../assets//google-maps/Marker.svg'
+import dibUrl from '../../../assets/google-maps/Marker.svg'
 
 const containerStyle = {
 	width: '100%',

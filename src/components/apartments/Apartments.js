@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
-import ApartmentsContainer from './GoogleMapsContainer'
-import GoogleMapsContainer from './GoogleMapsContainer'
-import GoogleMaps from './GoogleMaps'
+import ApartmentsContainer from './google-maps/GoogleMapsContainer'
+import GoogleMapsContainer from './google-maps/GoogleMapsContainer'
+import GoogleMaps from './google-maps/GoogleMaps'
 import ApartmentSearch from './ApartmentSearch'
 import ApartmentsList from './ApartmentsList'
 import Overview from '../ui/Overview'
