@@ -11,7 +11,8 @@ function App() {
 	const currentUserCtx = useContext(UserContext)
 
 	return (
-		<div className="h-screen flex flex-col justify-between">
+		// h-screen
+		<div className=" flex flex-col justify-between">
 			<Header isLoggedIn={currentUserCtx.isLoggedIn} />
 			<Body />
 			<Footer isLoggedIn={currentUserCtx.isLoggedIn} />
