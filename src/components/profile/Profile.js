@@ -1,20 +1,40 @@
 import React, { useContext } from 'react'
 
 import UserContext from '../../context/UserContext'
+
+import ProfileContainer from './ProfileContainer'
+import FullName from './FullName'
+import EmailAddress from './EmailAddress'
+import Bio from './Bio'
+import ProfileImage from './ProfileImage'
+
 import SolidButton from '../ui/buttons/SolidButton'
-import Card from '../ui/Card'
 
 function Profile() {
-	const { onLogout } = useContext(UserContext)
+	const { firstName, lastName, emailAddress, bio, onLogout } =
+		useContext(UserContext)
 
 	return (
-		<Card>
+		<div className="flex flex-col min-h-full mt-32 space-y-20 p-32">
+			<ProfileContainer>
+				<div class="px-6">
+					<ProfileImage />
+					<div class="text-center mt-24">
+						<FullName
+							firstName={firstName}
+							lastName={lastName}
+						/>
+						<EmailAddress emailAddress={emailAddress} />
+					</div>
+					<Bio bio={bio} />
+				</div>
+			</ProfileContainer>
 			<SolidButton
 				onClick={onLogout}
 				buttonText="Logout"
 				className="bg-primary"
 			/>
-		</Card>
+		</div>
 	)
 }
 
