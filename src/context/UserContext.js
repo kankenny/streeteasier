@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const UserContext = React.createContext({
+	firstName: '',
+	lastName: '',
+	emailAddress: '',
 	isLoggedIn: false,
 	onLogout: () => {},
 	onLogin: () => {},
