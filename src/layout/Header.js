@@ -8,7 +8,7 @@ import MobileMenu from './header/MobileMenu'
 import ApartmentsMenu from './header/ApartmentsMenu'
 
 const containerClasses =
-	'container min-w-full mx-auto px-6 bg-slate-100 fixed z-40'
+	'container min-w-full mx-auto px-6 bg-slate-100 fixed z-40 mb-10'
 const navBarClasses = 'flex items-center justify-between font-bold'
 
 const Header = ({ isLoggedIn }) => {

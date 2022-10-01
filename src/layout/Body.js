@@ -17,7 +17,7 @@ import { AnimatePresence } from 'framer-motion'
 const Body = () => {
 	const location = useLocation()
 	return (
-		<Fragment>
+		<div className="min-h-[80vh]">
 			<AnimatePresence>
 				<Routes location={location} key={location.pathname}>
 					<Route path="*" element={<Error404 />}></Route>
@@ -37,7 +37,7 @@ const Body = () => {
 					<Route path="/profile" element={<Profile />} />
 				</Routes>
 			</AnimatePresence>
-		</Fragment>
+		</div>
 	)
 }
 
