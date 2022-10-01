@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 
 import Error404 from '../components/ui/Error404'
@@ -10,6 +10,7 @@ import UserLoginSignup from './body/user-login-signup/UserLoginSignup'
 import SignUp from './body/user-login-signup/signup/SignUp'
 import Login from './body/user-login-signup/login/Login'
 import Apartments from '../components/apartments/Apartments'
+import Roommates from '../components/roommates/Roommates'
 import Profile from '../components/profile/Profile'
 
 import { AnimatePresence } from 'framer-motion'
@@ -33,7 +34,7 @@ const Body = () => {
 						element={<UserLoginSignup />}
 					/>
 					<Route path="/apartments" element={<Apartments />} />
-					{/* <Route path="/apartments" element={<Apartments />} /> */}
+					<Route path="/roommates" element={<Roommates />} />
 					<Route path="/profile" element={<Profile />} />
 				</Routes>
 			</AnimatePresence>
