@@ -140,12 +140,15 @@ function ApartmentsList() {
 
 	return (
 		<Fragment>
+			<SortingMenu />
 			<Heading
 				heading="Search Results"
 				className="text-lg text-primary"
 			/>
-			<Subtitle subtitle="Nearby Apartments in ZipCode 10000:" />
-			<SortingMenu />
+			<Subtitle
+				subtitle="Nearby Apartments in ZipCode 10000:"
+				className="pb-5"
+			/>
 			<ApartmentsContainer>
 				{apartments.map((apartment) => (
 					<Apartment
