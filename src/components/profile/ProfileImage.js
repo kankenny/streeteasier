@@ -4,10 +4,10 @@ import profileImg from '../../assets/profile/dummy-profile-pic.jpg'
 
 function ProfileImage() {
 	return (
-		<div class="flex flex-wrap justify-center">
-			<div class="w-full flex justify-center">
+		<div className="flex flex-wrap justify-center hover:scale-110 duration-200 ">
+			<div className="w-full flex justify-center">
 				white
-				<div class="relative">
+				<div className="relative">
 					<img
 						src={profileImg}
 						alt="PFP"

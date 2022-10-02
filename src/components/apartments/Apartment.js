@@ -20,7 +20,7 @@ function Apartment({
 
 	return (
 		<div
-			className="bg-secondary text-white flex flex-row space-y-2 space-x-4 rounded-xl shadow-lg h-36 cursor-pointer"
+			className="bg-secondary text-white flex flex-row space-y-2 space-x-4 rounded-xl shadow-lg h-36 cursor-pointer hover:scale-105 duration-200"
 			onClick={apartmentModalVisibilityHandler}
 		>
 			{apartmentModalIsOpen && (
@@ -40,7 +40,7 @@ function Apartment({
 			<img
 				src={img}
 				alt="Apartment for rent"
-				className="w-32 block object-cover rounded-[5.5rem] rounded-tl-xl rounded-bl-xl hover:scale-110 overflow-hidden"
+				className="w-32 block object-cover rounded-[5.5rem] rounded-tl-xl rounded-bl-xl overflow-hidden"
 			/>
 			<div className="flex flex-col text-xs space-y-2 pb-2">
 				<h1 className="text-lg font-extrabold mb-2">{`$${pricePerMonth}/mo`}</h1>
