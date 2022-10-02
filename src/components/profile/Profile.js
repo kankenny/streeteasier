@@ -17,9 +17,9 @@ function Profile() {
 	return (
 		<div className="flex flex-col min-h-full mt-32 space-y-20 p-32">
 			<ProfileContainer>
-				<div class="px-6">
+				<div className="px-6">
 					<ProfileImage />
-					<div class="text-center mt-24">
+					<div className="text-center mt-24">
 						<FullName
 							firstName={firstName}
 							lastName={lastName}
@@ -32,7 +32,7 @@ function Profile() {
 			<SolidButton
 				onClick={onLogout}
 				buttonText="Logout"
-				className="bg-primary"
+				className="bg-primary hover:scale-110 duration-200"
 			/>
 		</div>
 	)
