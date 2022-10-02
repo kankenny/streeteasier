@@ -4,7 +4,6 @@ import GoogleMapsContainer from './google-maps/GoogleMapsContainer'
 import GoogleMaps from './google-maps/GoogleMaps'
 import ApartmentSearch from './ApartmentSearch'
 import ApartmentsList from './ApartmentsList'
-import Overview from '../ui/Overview'
 
 import { motion } from 'framer-motion'
 
