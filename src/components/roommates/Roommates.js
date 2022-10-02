@@ -5,9 +5,16 @@ import RoommatesList from './RoommatesList'
 import Overview from '../ui/Overview'
 import Heading from '../ui/Heading'
 
+import { motion } from 'framer-motion'
+
 function Roommates() {
 	return (
-		<div className="min-h-full space-y-10">
+		<motion.div
+			className="min-h-full space-y-10"
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
 			<Overview
 				title="Roommates"
 				subtitle="Match with the right people"
@@ -21,7 +28,7 @@ function Roommates() {
 			<div>
 				<RoommatesList />
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 

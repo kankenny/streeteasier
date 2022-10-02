@@ -10,12 +10,19 @@ import ProfileImage from './ProfileImage'
 
 import SolidButton from '../ui/buttons/SolidButton'
 
+import { motion } from 'framer-motion'
+
 function Profile() {
 	const { firstName, lastName, emailAddress, bio, onLogout } =
 		useContext(UserContext)
 
 	return (
-		<div className="flex flex-col min-h-full mt-32 space-y-20 p-32">
+		<motion.div
+			className="flex flex-col min-h-full mt-32 space-y-20 p-32"
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
 			<ProfileContainer>
 				<div className="px-6">
 					<ProfileImage />
@@ -34,7 +41,7 @@ function Profile() {
 				buttonText="Logout"
 				className="bg-primary hover:scale-110 duration-200"
 			/>
-		</div>
+		</motion.div>
 	)
 }
 
