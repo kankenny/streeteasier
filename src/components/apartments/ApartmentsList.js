@@ -4,6 +4,9 @@ import ApartmentsContainer from './ApartmentsContainer'
 import Apartment from './Apartment'
 import Heading from '../ui/Heading'
 import SortingMenu from './sort/SortingMenu'
+import Subtitle from '../ui/Subtitle'
+
+import { motion } from 'framer-motion'
 
 const DUMMY_DATA2 = [
 	{
@@ -138,31 +141,42 @@ function ApartmentsList() {
 	const [apartments, setApartments] = useState(DUMMY_DATA2)
 
 	return (
-    <Fragment>
-      <Heading
-        heading="Nearby Apartments in ZipCode 10000:"
-        className="text-lg text-primary"
-      />
-      <SortingMenu
-        apartments={apartments}
-        setApartments={setApartments}
-      />
-      <ApartmentsContainer>
-        {apartments.map((apartment) => (
-          <Apartment
-            key={apartment.address + apartment.address}
-            address={apartment.address}
-            pricePerMonth={apartment.pricePerMonth}
-            numBedRooms={apartment.numBedrooms}
-            numBathrooms={apartment.numBathrooms}
-            numPeopleInterested={
-				apartment.numPeopleInterested
-			}
-          />
-        ))}
-      </ApartmentsContainer>
-    </Fragment>
-  )
+		<Fragment>
+			<SortingMenu 
+				apartments={apartments}
+				setApartments={setApartments}	
+			/>
+			<Heading
+				heading="Search Results"
+				className="text-lg text-primary"
+			/>
+			<Subtitle
+				subtitle="Nearby Apartments in ZipCode 10000:"
+				className="pb-5"
+			/>
+			<motion.div
+				initial={'offscreen'}
+				whileInView={'onscreen'}
+				viewport={{ once: false, amount: 0.2 }}
+				transition={{ staggerChildren: 0.3 }}
+			>
+				<ApartmentsContainer>
+					{apartments.map((apartment) => (
+						<Apartment
+							key={apartment.address + apartment.address}
+							address={apartment.address}
+							pricePerMonth={apartment.pricePerMonth}
+							numBedRooms={apartment.numBedrooms}
+							numBathrooms={apartment.numBathrooms}
+							numPeopleInterested={
+								apartment.numPeopleInterested
+							}
+						/>
+					))}
+				</ApartmentsContainer>
+			</motion.div>
+		</Fragment>
+	)
 }
 
 export default ApartmentsList
