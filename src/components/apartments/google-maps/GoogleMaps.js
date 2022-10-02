@@ -94,7 +94,7 @@ function GoogleMaps() {
 				lat: lat,
 				lng: lng,
 			}}
-			zoom={20}
+			zoom={32}
 			onLoad={onLoad}
 			onUnmount={onUnmount}
 			options={mapOptions}
