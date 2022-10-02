@@ -64,7 +64,6 @@ const SignUp = () => {
 
 	const handleSignUpRequest = async (e) => {
 		e.preventDefault()
-		console.log(userInfo)
 		/*
 		User registeratiion.
 		This is a promise. When we attempt to create a user, need to use then and catch for the promise.
