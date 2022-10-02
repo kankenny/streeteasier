@@ -6,6 +6,8 @@ import Heading from '../ui/Heading'
 import SortingMenu from './sort/SortingMenu'
 import Subtitle from '../ui/Subtitle'
 
+import { motion } from 'framer-motion'
+
 const DUMMY_DATA2 = [
 	{
 		address: 'Lorem ipsum dolor sit amet cons2ectetur adipisicing.',
@@ -149,20 +151,27 @@ function ApartmentsList() {
 				subtitle="Nearby Apartments in ZipCode 10000:"
 				className="pb-5"
 			/>
-			<ApartmentsContainer>
-				{apartments.map((apartment) => (
-					<Apartment
-						key={apartment.address + apartment.address}
-						address={apartment.address}
-						pricePerMonth={apartment.pricePerMonth}
-						numBedRooms={apartment.numBedrooms}
-						numBathrooms={apartment.numBathrooms}
-						numPeopleInterested={
-							apartment.numPeopleInterested
-						}
-					/>
-				))}
-			</ApartmentsContainer>
+			<motion.div
+				initial={'offscreen'}
+				whileInView={'onscreen'}
+				viewport={{ once: false, amount: 0.2 }}
+				transition={{ staggerChildren: 0.3 }}
+			>
+				<ApartmentsContainer>
+					{apartments.map((apartment) => (
+						<Apartment
+							key={apartment.address + apartment.address}
+							address={apartment.address}
+							pricePerMonth={apartment.pricePerMonth}
+							numBedRooms={apartment.numBedrooms}
+							numBathrooms={apartment.numBathrooms}
+							numPeopleInterested={
+								apartment.numPeopleInterested
+							}
+						/>
+					))}
+				</ApartmentsContainer>
+			</motion.div>
 		</Fragment>
 	)
 }

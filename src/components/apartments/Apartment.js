@@ -5,6 +5,17 @@ import Modal from '../ui/Modal'
 import img from '../../assets/apartments/dummyApartmentImage.jpg'
 import Overview from '../ui/Overview'
 
+import { motion } from 'framer-motion'
+
+const imageAnimate = {
+	offscreen: { x: -125, opacity: 0 },
+	onscreen: {
+		x: 0,
+		opacity: 1,
+		transition: { type: 'spring', bounce: 0.1, duration: 0.4 },
+	},
+}
+
 function Apartment({
 	address,
 	pricePerMonth,
@@ -19,9 +30,10 @@ function Apartment({
 	}
 
 	return (
-		<div
+		<motion.div
 			className="bg-secondary text-white flex flex-row space-y-2 space-x-4 rounded-xl shadow-lg h-36 cursor-pointer hover:scale-105 duration-200"
 			onClick={apartmentModalVisibilityHandler}
+			variants={imageAnimate}
 		>
 			{apartmentModalIsOpen && (
 				<Modal>
@@ -49,7 +61,7 @@ function Apartment({
 				<h3>{`There are currently ${numPeopleInterested} in this property`}</h3>
 				<p className="text-gray-500">{`${numBedRooms} Bedrooms and ${numBathrooms} Bathrooms`}</p>
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 

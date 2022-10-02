@@ -4,6 +4,17 @@ import Modal from '../ui/Modal'
 import img from '../../assets/roommates/anonymous-person.jpg'
 import Overview from '../ui/Overview'
 
+import { motion } from 'framer-motion'
+
+const imageAnimate = {
+	offscreen: { x: -125, opacity: 0 },
+	onscreen: {
+		x: 0,
+		opacity: 1,
+		transition: { type: 'spring', bounce: 0.1, duration: 0.4 },
+	},
+}
+
 function Roommate({ firstName, lastName, emailAddress }) {
 	const [roommateModalIsOpen, setRoommateModalIsOpen] = useState(false)
 
@@ -12,8 +23,9 @@ function Roommate({ firstName, lastName, emailAddress }) {
 	}
 
 	return (
-		<div
+		<motion.div
 			className="bg-secondary text-white flex flex-row space-y-2 space-x-4 rounded-xl shadow-xl h-20 cursor-pointer hover:scale-105 duration-200"
+			variants={imageAnimate}
 			onClick={roommateModalVisibilityHandler}
 		>
 			{roommateModalIsOpen && (
@@ -38,7 +50,7 @@ function Roommate({ firstName, lastName, emailAddress }) {
 				<h1 className="text-lg font-extrabold mb-2">{`${firstName} ${lastName}`}</h1>
 				<p className="text-gray-500">{`${emailAddress}`}</p>
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 
