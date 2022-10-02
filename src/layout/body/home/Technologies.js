@@ -8,6 +8,7 @@ import SiJavascript from './tech_stack/JavaScript'
 import SiFirebase from './tech_stack/Firebase'
 
 import { motion } from 'framer-motion'
+import SiFramer from './tech_stack/FramerMotion'
 
 const headerClasses = 'text-2xl text-center uppercase '
 
@@ -31,6 +32,7 @@ const Technologies = () => {
 				<DiCss3 />
 				<SiTailwindcss />
 				<SiJavascript />
+				<SiFramer />
 				<SiFirebase />
 			</div>
 		</motion.div>
