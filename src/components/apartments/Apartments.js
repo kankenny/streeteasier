@@ -8,15 +8,6 @@ import Overview from '../ui/Overview'
 
 import { motion } from 'framer-motion'
 
-const imageAnimate = {
-	offscreen: { x: -100, opacity: 0 },
-	onscreen: {
-		x: 0,
-		opacity: 1,
-		transition: { type: 'spring', bounce: 0.1, duration: 0.4 },
-	},
-}
-
 function Apartments() {
 	return (
 		<motion.div
@@ -25,11 +16,6 @@ function Apartments() {
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 		>
-			<Overview
-				title="StreetEasier Apartments"
-				subtitle="Search for your next home"
-				paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim similique iure sit voluptate excepturi tenetur. Corrupti sed asperiores nesciunt quibusdam."
-			/>
 			<GoogleMapsContainer>
 				<ApartmentSearch />
 				<GoogleMaps />
