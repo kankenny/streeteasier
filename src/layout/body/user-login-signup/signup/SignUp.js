@@ -1,18 +1,17 @@
 import React, { useState } from 'react'
+import * as Yup from 'yup'
 
-import Input from '../../../../components/ui/Input'
 import Overview from '../../../../components/ui/Overview'
-import DatePicker from 'react-datepicker'
 import Card from '../../../../components/ui/Card'
 import SolidButton from '../../../../components/ui/buttons/SolidButton'
 import ExistingUserPrompter from '../../../../components/ui/LoginSignUpPrompter'
 import FormContainer from '../../../../components/ui/FormContainer'
-import 'react-datepicker/dist/react-datepicker.css'
 
 import img from '../../../../assets/signup-login/signup.jpg'
 import { motion } from 'framer-motion'
 
 import { doc, setDoc } from 'firebase/firestore'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 import {
 	createUserWithEmailAndPassword,
@@ -21,60 +20,62 @@ import {
 } from 'firebase/auth'
 
 import { auth, db } from '../../../../firebase'
+import { useForm } from 'react-hook-form'
+import RHFTextField from '../../../../components/RHFTextField'
+import RHFDatePicker from '../../../../components/RHFDatePicker'
+import { Regex } from '../../../../utility/regex'
+
+const defaultValues = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+  birthday: null,
+}
+
+const signUpSchema = Yup.object().shape({
+  firstName: Yup.string().trim().required('First name is required'),
+  lastName: Yup.string().trim().required('Last name is required'),
+  email: Yup.string().trim()
+    .required('Email is required')
+    .matches(Regex.Email, 'Please enter valid email address.'),
+  birthday: Yup.date().nullable()
+    .required('Birthday is required')
+    .min(new Date(1950, 0, 0), 'Please enter valid birthday starting from year 1950')  
+    .max(new Date(), 'Please enter valid birthday starting from year 1950'),
+  password: Yup.string().trim().required('Password is required')
+    .matches(/[A-Z]/, 'Password must have at least one uppercase character')
+    .matches(/[a-z]/, 'Password must have at least one lower character')
+    .matches(/[0-9]/, 'Password must have at least one number')
+    .matches(Regex.Password, 'Password must have at least one special character')
+    .min(8, 'Password must be at least 8 characters long'),
+  confirmPassword: Yup.string().trim().required('Confirm password is required')
+    .oneOf([Yup.ref('password')], 'Passwords do not match'),
+})
+
 
 const SignUp = () => {
-	// Storing table below into variable userInfo. setUserInfo is the function name that we call to change the values of the table.
-	const [userInfo, setUserInfo] = useState({
-		firstName: '',
-		lastName: '',
-		birthday: '',
-		email: '',
-		password: '',
-		confirmPassword: '',
-	})
+  const [isLoading, setIsLoading] = useState(false)
 
-	const [birthday, setBirthday] = useState()
+  const { control, handleSubmit, reset } = useForm({
+    defaultValues,
+    mode: 'all',
+    resolver: yupResolver(signUpSchema)
+  })
 
-	const birthdayChangeHandler = (date) => {
-		// I have to write another change handler for the date since the parameter when a change event happens on the reactdate-picker is not an event (which has a preventDefault() method, instead it is a Date object which does not have preventDefault() method)
-
-		setBirthday(date)
-		setUserInfo((userInput) => {
-			return {
-				...userInput,
-				birthday: date.toISOString().split('T')[0],
-			}
-		})
-	}
-
-	const userInputHandler = (e) => {
-		e.preventDefault() // Prevents default event from being accept (in this case passing in nothing)
-
-		/* 
-		{name} refers to the name of a HTML node property, {value} refers to the actual input.
-		Needed to target and grab the appropriate node (in our case, specific use input fields) and destructuring it. 
-
-		It is coded this way to support multifunctional handlers. Otherwise, we would have to create a handler for each input field, which is not ideal.
-		*/
-		const { name: userInputField, value } = e.target
-		setUserInfo((userInput) => {
-			return { ...userInput, [userInputField]: value }
-		})
-	}
-
-	const handleSignUpRequest = async (e) => {
-		e.preventDefault()
+	const processSignUp = async (data) => {
 		/*
-		User registeratiion.
+		User registration.
 		This is a promise. When we attempt to create a user, need to use then and catch for the promise.
-		If the user has been sucessfully created, we create a user object with the respective information and place it in our DB. We can use this in a callback later to grab the data.
-		If the user has not been sucessfully created, throw error.
+		If the user has been successfully created, we create a user object with the respective information and place it in our DB. We can use this in a callback later to grab the data.
+		If the user has not been successfully created, throw error.
 		*/
-
+    setIsLoading(true)
 		await createUserWithEmailAndPassword(
 			auth,
-			userInfo.email,
-			userInfo.password
+			data.email,
+			data.password
 		)
 			.then((userCredentials) => {
 				const user = userCredentials.user // Details of a user.
@@ -82,23 +83,34 @@ const SignUp = () => {
 
 				updateProfile(user, {
 					displayName:
-						userInfo.firstName + ' ' + userInfo.lastName,
+          data.firstName + ' ' + data.lastName,
 				})
 					.then(async () => {
 						sendEmailVerification(user)
 						await setDoc(doc(db, 'users', user.uid), {
 							// Straight from Firebase documentation: https://firebase.google.com/docs/firestore/manage-data/add-data
-							firstName: userInfo.firstName,
-							lastName: userInfo.lastName,
-							age: userInfo.age,
-							email: userInfo.email,
+							firstName: data.firstName,
+							lastName: data.lastName,
+							age: data.age,
+							email: data.email,
 						})
+            .then((err) => {
+              setIsLoading(false)
+              reset()
+              console.log(err.message)
+            })
+            .catch((err) => {
+              setIsLoading(false)
+              console.log(err.message)
+            })
 					})
 					.catch((err) => {
+            setIsLoading(false)
 						console.log(err.message)
 					})
 			})
 			.catch((err) => {
+        setIsLoading(false)
 				console.log(err.message)
 			})
 	}
@@ -118,57 +130,54 @@ const SignUp = () => {
 			<Card className="max-w-5xl h-fit max-h-fit mx-auto flex flex-col md:flex-row space-x-8 mt-0">
 				<FormContainer>
 					<h1 className="text-2xl font-bold">Register</h1>
-					<form className="flex flex-col mt-4 space-y-5">
-						<Input
-							type="text"
-							name="firstName"
-							placeholder="First Name"
-							value={userInfo.firstName}
-							onChange={userInputHandler}
-						/>
-						<Input
-							type="text"
-							name="lastName"
-							placeholder="Last Name"
-							value={userInfo.lastName}
-							onChange={userInputHandler}
-						/>
-						<DatePicker
-							dateFormat="MM/dd/yyyy"
-							selected={birthday}
-							onSelect={birthdayChangeHandler}
-							onChange={birthdayChangeHandler}
-							className="px-4 py-3 text-sm w-full rounded-md bg-slate-100 border-transparent focus:border-primary
-							"
-							placeholderText={'MM/DD/YYYY'}
-						/>
-						<Input
-							type="email"
-							name="email"
-							value={userInfo.email}
-							placeholder="Email Address"
-							onChange={userInputHandler}
-						/>
-						<Input
+					<form 
+            noValidate 
+            className="flex flex-col mt-4 space-y-5" 
+            onSubmit={handleSubmit(processSignUp)}
+          >
+            <RHFTextField 
+              control={control} 
+              type="text" 
+              name="firstName" 
+              placeholder="First Name" 
+            />
+            <RHFTextField 
+              control={control} 
+              type="text" 
+              name="lastName" 
+              placeholder="First Name" 
+            />
+            <RHFDatePicker 
+              control={control}
+              name="birthday"
+              placeholderText="MM/DD/YYYY"
+              maxDate={new Date()}
+              
+            />
+						<RHFTextField 
+              control={control} 
+              type="email" 
+              name="email" 
+              placeholder="Email Address" 
+            />
+						<RHFTextField
+              control={control}
 							type="password"
 							name="password"
 							placeholder="Password"
-							value={userInfo.password}
 							autoComplete="on"
-							onChange={userInputHandler}
 						/>
-						<Input
+						<RHFTextField
+              control={control}
 							type="password"
 							name="confirmPassword"
 							placeholder="Confirm Password"
-							value={userInfo.confirmPassword}
-							onChange={userInputHandler}
 							autoComplete="on"
 						/>
 						<SolidButton
 							buttonText="Register"
 							buttonType="submit"
-							onClick={handleSignUpRequest}
+              disabled={isLoading}
 							className="bg-primary hover:bg-blue-900 focus:ring-blue-300"
 						/>
 						<ExistingUserPrompter

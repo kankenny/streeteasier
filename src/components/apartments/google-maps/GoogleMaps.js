@@ -36,7 +36,7 @@ function GoogleMaps() {
 
 	const { lat, lng, setCenterHandler } = useContext(GoogleMapsContext)
 
-	const [map, setMap] = useState(null)
+	const [, setMap] = useState(null)
 	const [dibs, setDibs] = useState([])
 	const [selected, setSelected] = useState(null)
 
