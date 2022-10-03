@@ -34,10 +34,6 @@ const SignUp = () => {
 	})
 
 	const [birthday, setBirthday] = useState()
-
-	const birthdayChangeHandler = (date) => {
-        // I have to write another change handler for the date since the parameter when a change event happens on the reactdate-picker is not an event (which has a preventDefault() method, instead it is a Date object which does not have preventDefault() method)
-
         setBirthday(date)
         setUserInfo((userInput) => {
             return {
@@ -58,7 +54,6 @@ const SignUp = () => {
 
 		It is coded this way to support multifunctional handlers. Otherwise, we would have to create a handler for each input field, which is not ideal.
 		*/
-
 		const { name: userInputField, value } = e.target
 		setUserInfo((userInput) => {
 			return { ...userInput, [userInputField]: value }
@@ -67,7 +62,6 @@ const SignUp = () => {
 
 	const handleSignUpRequest = async (e) => {
 		e.preventDefault()
-
 		/*
 		User registeratiion.
 		This is a promise. When we attempt to create a user, need to use then and catch for the promise.
@@ -138,12 +132,13 @@ const SignUp = () => {
 							onChange={userInputHandler}
 						/>
 						<DatePicker
+							dateFormat="MM/dd/yyyy"
 							selected={birthday}
-							onSelect={setBirthday}
-							onChange={setBirthday}
+							onSelect={birthdayChangeHandler}
+							onChange={birthdayChangeHandler}
 							className="px-4 py-3 text-sm w-full rounded-md bg-slate-100 border-transparent focus:border-primary
 							"
-							placeholderText={'MM/DD/YY'}
+							placeholderText={'MM/DD/YYYY'}
 						/>
 						<Input
 							type="email"

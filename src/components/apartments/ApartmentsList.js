@@ -142,7 +142,10 @@ function ApartmentsList() {
 
 	return (
 		<Fragment>
-			<SortingMenu />
+			<SortingMenu 
+				apartments={apartments}
+				setApartments={setApartments}	
+			/>
 			<Heading
 				heading="Search Results"
 				className="text-lg text-primary"

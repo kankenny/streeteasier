@@ -15,16 +15,14 @@ function Roommates() {
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 		>
-			<Overview
-				title="Roommates"
-				subtitle="Match with the right people"
-				paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim similique iure sit voluptate excepturi tenetur. Corrupti sed asperiores nesciunt quibusdam."
+			<Heading
+				heading="Matched Roommates"
+				className="mt-16 text-primary"
 			/>
-			<Heading heading="Matched Roommates" />
 			<div>
 				<RoommatesList />
 			</div>
-			<Heading heading="Explore Roommates" />
+			<Heading heading="Explore Roommates" className="text-primary" />
 			<div>
 				<RoommatesList />
 			</div>
