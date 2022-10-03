@@ -45,6 +45,8 @@ const SignUp = () => {
                 birthday: date.toISOString().split('T')[0],
             }
         })
+
+		return date.toISOString().split('T')[0] // Need to implement a return so date can be written in both DB and the React state
     }
 
 	const userInputHandler = (e) => {
@@ -98,12 +100,10 @@ const SignUp = () => {
 					})
 					.catch((err) => {
 						console.log(err.message)
-						return
 					})
 			})
 			.catch((err) => {
 				console.log(err.message)
-				return
 			})
 	}
 
