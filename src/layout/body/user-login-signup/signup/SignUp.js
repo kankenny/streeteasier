@@ -23,7 +23,7 @@ import {
 import { auth, db } from '../../../../firebase'
 
 const SignUp = () => {
-	// Storing table below into variable userInfo. setUserInfo is the function name that we call to change the values of the table.
+	// Storing table below into variable userInfo. setUserInfo is the function name that we call to change the values of the table. Find more info here: https://reactjs.org/docs/hooks-state.html
 	const [userInfo, setUserInfo] = useState({
 		firstName: '',
 		lastName: '',
@@ -34,6 +34,18 @@ const SignUp = () => {
 	})
 
 	const [birthday, setBirthday] = useState()
+
+	const birthdayChangeHandler = (date) => {
+        // I have to write another change handler for the date since the parameter when a change event happens on the reactdate-picker is not an event (which has a preventDefault() method, instead it is a Date object which does not have preventDefault() method)
+
+        setBirthday(date)
+        setUserInfo((userInput) => {
+            return {
+                ...userInput,
+                birthday: date.toISOString().split('T')[0],
+            }
+        })
+    }
 
 	const userInputHandler = (e) => {
 		e.preventDefault() // Prevents default event from being accept (in this case passing in nothing)
@@ -80,16 +92,18 @@ const SignUp = () => {
 							// Straight from Firebase documentation: https://firebase.google.com/docs/firestore/manage-data/add-data
 							firstName: userInfo.firstName,
 							lastName: userInfo.lastName,
-							age: userInfo.age,
+							birthday: birthdayChangeHandler(birthday),
 							email: userInfo.email,
 						})
 					})
 					.catch((err) => {
 						console.log(err.message)
+						return
 					})
 			})
 			.catch((err) => {
 				console.log(err.message)
+				return
 			})
 	}
 
@@ -158,7 +172,7 @@ const SignUp = () => {
 							buttonText="Register"
 							buttonType="submit"
 							onClick={handleSignUpRequest}
-							className="bg-primary hover:bg-blue-900 focus:ring-blue-300"
+							className="bg-blue-500 hover:bg-blue-900 focus:ring-blue-300"
 						/>
 						<ExistingUserPrompter
 							question="Are you an existing user?"
