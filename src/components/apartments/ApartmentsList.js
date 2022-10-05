@@ -138,7 +138,7 @@ const DUMMY_DATA2 = [
 ]
 
 function ApartmentsList() {
-	const [apartments, ] = useState(DUMMY_DATA2)
+	const [apartments, setApartments] = useState(DUMMY_DATA2)
 
 	return (
 		<Fragment>
