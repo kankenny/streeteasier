@@ -87,7 +87,7 @@ const SignUp = () => {
 				})
 					.then(async () => {
 						sendEmailVerification(user)
-            const age = new Date().getFullYear() - data?.birthday?.getFullYear()
+            			const age = new Date().getFullYear() - data?.birthday?.getFullYear()
 						await setDoc(doc(db, 'users', user.uid), {
 							// Straight from Firebase documentation: https://firebase.google.com/docs/firestore/manage-data/add-data
 							firstName: data.firstName,
