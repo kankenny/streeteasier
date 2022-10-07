@@ -1,9 +1,10 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
+import * as Yup from 'yup'
 
-import Input from '../../../../components/ui/Input'
 import SolidButton from '../../../../components/ui/buttons/SolidButton'
 import LoginSignUpPrompter from '../../../../components/ui/LoginSignUpPrompter'
 import UserContext from '../../../../context/UserContext'
+import RHFTextField from '../../../../components/RHFTextField'
 
 import img from '../../../../assets/signup-login/login.jpg'
 import Overview from '../../../../components/ui/Overview'
@@ -11,28 +12,33 @@ import Card from '../../../../components/ui/Card'
 import FormContainer from '../../../../components/ui/FormContainer'
 
 import { motion } from 'framer-motion'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Regex } from '../../../../utility/regex'
+
+const loginSchema = Yup.object().shape({
+  email: Yup.string().trim().required('Email is required')
+    .matches(Regex.Email, 'Please enter valid email address.'),
+  password: Yup.string().trim().required('Password is required')
+})
+
+const defaultValues = {
+  email: '',
+  password: '',
+}
 
 const Login = () => {
 	const { onLogin } = useContext(UserContext)
 
-	const [userInfo, setUserInfo] = useState({
-		emailAddress: '',
-		password: '',
-	})
+  const { handleSubmit, control } = useForm({
+    defaultValues,
+    mode: 'all',
+    resolver: yupResolver(loginSchema)
+  })
 
-	const userInputHandler = (e) => {
-		e.preventDefault()
-
-		const { name: userInputField, value } = e.target
-		setUserInfo((userInput) => {
-			return { ...userInput, [userInputField]: value }
-		})
-	}
-
-	const onUserSubmitHandler = (e) => {
-		e.preventDefault()
+	const processLogin = (data) => {
 		onLogin()
-		console.log(userInfo)
+		console.log(data)
 	}
 
 	return (
@@ -51,22 +57,22 @@ const Login = () => {
 					<h1 className="text-2xl font-bold">
 						Enter User Details
 					</h1>
-					<form className="flex flex-col mt-4 space-y-4">
-						<Input
+					<form
+            noValidate
+            onSubmit={handleSubmit(processLogin)}
+            className="flex flex-col mt-4 space-y-4"
+          >
+						<RHFTextField
+              control={control}
 							type="email"
-							name="emailAddress"
+							name="email"
 							placeholder="Email Address"
-							value={userInfo.emailAddress}
-							onChange={userInputHandler}
-							required={true}
 						/>
-						<Input
+						<RHFTextField
+              control={control}
 							type="password"
 							name="password"
 							placeholder="Password"
-							value={userInfo.password}
-							onChange={userInputHandler}
-							required={true}
 						/>
 						<LoginSignUpPrompter
 							question="Forgot Password?"
@@ -76,7 +82,6 @@ const Login = () => {
 							buttonType="submit"
 							buttonText="Login"
 							className="my-4 bg-primary hover:bg-blue-900 focus:ring-blue-300"
-							onClick={onUserSubmitHandler}
 						/>
 						<LoginSignUpPrompter
 							question="Don't have an account?"
@@ -89,7 +94,7 @@ const Login = () => {
 							onClick={onLogin}
 							buttonText="Override Login (this is a test div to access
 							main app)"
-						></SolidButton>
+						/>
 					</form>
 				</FormContainer>
 				<img

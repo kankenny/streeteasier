@@ -54,7 +54,7 @@ const DUMMY_DATA2 = [
 ]
 
 function RoommatesList() {
-	const [roommates, setRoommates] = useState(DUMMY_DATA2)
+	const [roommates, ] = useState(DUMMY_DATA2)
 
 	return (
 		<motion.div
