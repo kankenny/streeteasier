@@ -2,7 +2,6 @@ import React from 'react'
 
 import RoommatesList from './RoommatesList'
 
-import Overview from '../ui/Overview'
 import Heading from '../ui/Heading'
 
 import { motion } from 'framer-motion'
