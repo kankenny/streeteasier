@@ -2,6 +2,8 @@ import React from 'react'
 
 import Offering from './Offering'
 
+import { motion } from 'framer-motion'
+
 const OfferingContainer = ({ setNumber }) => {
 	let offering = {}
 
@@ -16,7 +18,7 @@ const OfferingContainer = ({ setNumber }) => {
 				fileName: 'offering2.jpg',
 			},
 			offering3: {
-				desc: 'Assists in Home Searching',
+				desc: 'Find Your Home',
 				fileName: 'offering3.jpg',
 			},
 			offering4: {
@@ -39,14 +41,20 @@ const OfferingContainer = ({ setNumber }) => {
 				fileName: 'offering7.jpg',
 			},
 			offering4: {
-				desc: 'Own a Cozy Place',
+				desc: 'Home Sweet Home',
 				fileName: 'offering8.jpg',
 			},
 		}
 	}
 
 	return (
-		<div className="item-container mb-10 mx-auto">
+		<motion.div
+			className="item-container mb-8 mx-auto"
+			initial={'offscreen'}
+			whileInView={'onscreen'}
+			viewport={{ once: false, amount: 0.2 }}
+			transition={{ staggerChildren: 0.3 }}
+		>
 			<Offering
 				offeringName={offering.offering1.desc}
 				fileName={offering.offering1.fileName}
@@ -63,7 +71,7 @@ const OfferingContainer = ({ setNumber }) => {
 				offeringName={offering.offering4.desc}
 				fileName={offering.offering4.fileName}
 			/>
-		</div>
+		</motion.div>
 	)
 }
 
