@@ -19,12 +19,12 @@ const Offering = ({ offeringName, fileName }) => {
 			<img
 				src={require(`../../../assets/home/${fileName}`)}
 				alt=""
-				className="hidden w-full duration-200 md:block group-hover:scale-110"
+				className="hidden w-full duration-200 md:block group-hover:scale-110 object-fill"
 			/>
 			<img
 				src={require(`../../../assets/home/${fileName}`)}
 				alt=""
-				className="w-full md:hidden"
+				className="w-full md:hidden object-fill"
 			/>
 			<div className="item-gradient"></div>
 			<h5>{offeringName}</h5>

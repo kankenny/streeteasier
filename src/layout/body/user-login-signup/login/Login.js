@@ -17,14 +17,16 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Regex } from '../../../../utility/regex'
 
 const loginSchema = Yup.object().shape({
-  email: Yup.string().trim().required('Email is required')
-    .matches(Regex.Email, 'Please enter valid email address.'),
-  password: Yup.string().trim().required('Password is required')
+	email: Yup.string()
+		.trim()
+		.required('Email is required')
+		.matches(Regex.Email, 'Please enter valid email address.'),
+	password: Yup.string().trim().required('Password is required'),
 })
 
 const defaultValues = {
-  email: '',
-  password: '',
+	email: '',
+	password: '',
 }
 
 const Login = () => {
@@ -73,6 +75,7 @@ const Login = () => {
 							type="password"
 							name="password"
 							placeholder="Password"
+							autoComplete="on"
 						/>
 						<LoginSignUpPrompter
 							question="Forgot Password?"

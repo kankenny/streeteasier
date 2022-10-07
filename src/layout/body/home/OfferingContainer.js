@@ -18,7 +18,7 @@ const OfferingContainer = ({ setNumber }) => {
 				fileName: 'offering2.jpg',
 			},
 			offering3: {
-				desc: 'Assists in Home Searching',
+				desc: 'Find Your Home',
 				fileName: 'offering3.jpg',
 			},
 			offering4: {
