@@ -30,11 +30,11 @@ const defaultValues = {
 const Login = () => {
 	const { onLogin } = useContext(UserContext)
 
-  const { handleSubmit, control } = useForm({
-    defaultValues,
-    mode: 'all',
-    resolver: yupResolver(loginSchema)
-  })
+	const { handleSubmit, control } = useForm({
+		defaultValues,
+		mode: 'all',
+		resolver: yupResolver(loginSchema)
+	})
 
 	const processLogin = (data) => {
 		onLogin()
@@ -58,18 +58,18 @@ const Login = () => {
 						Enter User Details
 					</h1>
 					<form
-            noValidate
-            onSubmit={handleSubmit(processLogin)}
-            className="flex flex-col mt-4 space-y-4"
-          >
+						noValidate
+						onSubmit={handleSubmit(processLogin)}
+						className="flex flex-col mt-4 space-y-4"
+					>
 						<RHFTextField
-              control={control}
+             				control={control}
 							type="email"
 							name="email"
 							placeholder="Email Address"
 						/>
 						<RHFTextField
-              control={control}
+              				control={control}
 							type="password"
 							name="password"
 							placeholder="Password"
