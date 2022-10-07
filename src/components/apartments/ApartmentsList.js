@@ -138,13 +138,13 @@ const DUMMY_DATA2 = [
 ]
 
 function ApartmentsList() {
-	const [apartments, ] = useState(DUMMY_DATA2)
+	const [apartments, setApartments] = useState(DUMMY_DATA2)
 
 	return (
 		<Fragment>
-			<SortingMenu 
+			<SortingMenu
 				apartments={apartments}
-				setApartments={setApartments}	
+				setApartments={setApartments}
 			/>
 			<Heading
 				heading="Search Results"
