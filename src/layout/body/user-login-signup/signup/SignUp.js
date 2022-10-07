@@ -71,49 +71,43 @@ const SignUp = () => {
 		If the user has been successfully created, we create a user object with the respective information and place it in our DB. We can use this in a callback later to grab the data.
 		If the user has not been successfully created, throw error.
 		*/
-    setIsLoading(true)
+    	setIsLoading(true)
 		await createUserWithEmailAndPassword(
 			auth,
 			data.email,
 			data.password
-		)
-			.then((userCredentials) => {
-				const user = userCredentials.user // Details of a user.
-				console.log(user)
+		).then((userCredentials) => {
+			const user = userCredentials.user // Details of a user.
+			console.log(user)
 
-				updateProfile(user, {
-					displayName:
-          data.firstName + ' ' + data.lastName,
-				})
-					.then(async () => {
-						sendEmailVerification(user)
-            const age = new Date().getFullYear() - data?.birthday?.getFullYear()
-						await setDoc(doc(db, 'users', user.uid), {
-							// Straight from Firebase documentation: https://firebase.google.com/docs/firestore/manage-data/add-data
-							firstName: data.firstName,
-							lastName: data.lastName,
-							age,
-							email: data.email,
-						})
-            .then((err) => {
-              setIsLoading(false)
-              reset()
-              console.log(err.message)
-            })
-            .catch((err) => {
-              setIsLoading(false)
-              console.log(err.message)
-            })
+			updateProfile(user, {displayName: data.firstName + ' ' + data.lastName,})
+				.then(async () => {
+					sendEmailVerification(user)
+					const age = new Date().getFullYear() - data?.birthday?.getFullYear()
+					await setDoc(doc(db, 'users', user.uid), {
+						// Straight from Firebase documentation: https://firebase.google.com/docs/firestore/manage-data/add-data
+						firstName: data.firstName,
+						lastName: data.lastName,
+						age,
+						email: data.email,
 					})
-					.catch((err) => {
-            setIsLoading(false)
-						console.log(err.message)
-					})
-			})
-			.catch((err) => {
-        setIsLoading(false)
+				.then((err) => {
+					setIsLoading(false)
+					reset()
+					console.log(err.message)
+            	})
+            	.catch((err) => {
+					setIsLoading(false)
+					console.log(err.message)
+            	})
+			}).catch((err) => {
+            	setIsLoading(false)
 				console.log(err.message)
 			})
+		}).catch((err) => {
+        	setIsLoading(false)
+			console.log(err.message)
+		})
 	}
 
 	return (
@@ -132,44 +126,44 @@ const SignUp = () => {
 				<FormContainer>
 					<h1 className="text-2xl font-bold">Register</h1>
 					<form 
-            noValidate 
-            className="flex flex-col mt-4 space-y-5" 
-            onSubmit={handleSubmit(processSignUp)}
-          >
-            <RHFTextField 
-              control={control} 
-              type="text" 
-              name="firstName" 
-              placeholder="First Name" 
-            />
-            <RHFTextField 
-              control={control} 
-              type="text" 
-              name="lastName" 
-              placeholder="First Name" 
-            />
-            <RHFDatePicker 
-              control={control}
-              name="birthday"
-              placeholderText="MM/DD/YYYY"
-              maxDate={new Date()}
-              
-            />
+						noValidate 
+						className="flex flex-col mt-4 space-y-5" 
+						onSubmit={handleSubmit(processSignUp)}
+					>
 						<RHFTextField 
-              control={control} 
-              type="email" 
-              name="email" 
-              placeholder="Email Address" 
-            />
+							control={control} 
+							type="text" 
+							name="firstName" 
+							placeholder="First Name" 
+						/>
+						<RHFTextField 
+							control={control} 
+							type="text" 
+							name="lastName" 
+							placeholder="First Name" 
+						/>
+						<RHFDatePicker 
+							control={control}
+							name="birthday"
+							placeholderText="MM/DD/YYYY"
+							maxDate={new Date()}
+						
+						/>
+						<RHFTextField 
+							control={control} 
+							type="email" 
+							name="email" 
+							placeholder="Email Address" 
+						/>
 						<RHFTextField
-              control={control}
+							control={control}
 							type="password"
 							name="password"
 							placeholder="Password"
 							autoComplete="on"
 						/>
 						<RHFTextField
-              control={control}
+							control={control}
 							type="password"
 							name="confirmPassword"
 							placeholder="Confirm Password"
@@ -178,7 +172,7 @@ const SignUp = () => {
 						<SolidButton
 							buttonText="Register"
 							buttonType="submit"
-              disabled={isLoading}
+							disabled={isLoading}
 							className="bg-primary hover:bg-blue-900 focus:ring-blue-300"
 						/>
 						<ExistingUserPrompter

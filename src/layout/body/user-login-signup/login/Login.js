@@ -35,7 +35,7 @@ const Login = () => {
 	const { handleSubmit, control } = useForm({
 		defaultValues,
 		mode: 'all',
-		resolver: yupResolver(loginSchema),
+		resolver: yupResolver(loginSchema)
 	})
 
 	const processLogin = (data) => {
@@ -65,13 +65,13 @@ const Login = () => {
 						className="flex flex-col mt-4 space-y-4"
 					>
 						<RHFTextField
-							control={control}
+             				control={control}
 							type="email"
 							name="email"
 							placeholder="Email Address"
 						/>
 						<RHFTextField
-							control={control}
+              				control={control}
 							type="password"
 							name="password"
 							placeholder="Password"
