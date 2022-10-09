@@ -39,7 +39,7 @@ function Profile() {
 			<SolidButton
 				onClick={onLogout}
 				buttonText="Logout"
-				className="bg-primary hover:scale-110 duration-200"
+				className="bg-primary text-2xl hover:scale-110 duration-200"
 			/>
 		</motion.div>
 	)

@@ -7,11 +7,11 @@ import Overview from '../ui/Overview'
 import { motion } from 'framer-motion'
 
 const imageAnimate = {
-	offscreen: { x: -125, opacity: 0 },
+	offscreen: { x: -150, opacity: 0 },
 	onscreen: {
 		x: 0,
 		opacity: 1,
-		transition: { type: 'spring', bounce: 0.1, duration: 0.4 },
+		transition: { ease: 'linear', type: 'tween', duration: 0.2 },
 	},
 }
 
