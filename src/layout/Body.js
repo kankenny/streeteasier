@@ -18,27 +18,25 @@ import { AnimatePresence } from 'framer-motion'
 const Body = () => {
 	const location = useLocation()
 	return (
-		<div className="min-h-[80vh]">
-			<AnimatePresence>
-				<Routes location={location} key={location.pathname}>
-					<Route path="*" element={<Error404 />}></Route>
-					<Route path="/" element={<Home />}></Route>
-					<Route path="/welcome" element={<Home />}></Route>
-					<Route path="/about" element={<About />} />
-					<Route path="/members" element={<Members />} />
-					<Route path="/contact" element={<Contacts />} />
-					<Route path="/signup" element={<SignUp />} />
-					<Route path="/login" element={<Login />} />
-					<Route
-						path="/user-login-signup"
-						element={<UserLoginSignup />}
-					/>
-					<Route path="/apartments" element={<Apartments />} />
-					<Route path="/roommates" element={<Roommates />} />
-					<Route path="/profile" element={<Profile />} />
-				</Routes>
-			</AnimatePresence>
-		</div>
+		<AnimatePresence>
+			<Routes location={location} key={location.pathname}>
+				<Route path="*" element={<Error404 />}></Route>
+				<Route path="/" element={<Home />}></Route>
+				<Route path="/welcome" element={<Home />}></Route>
+				<Route path="/about" element={<About />} />
+				<Route path="/members" element={<Members />} />
+				<Route path="/contact" element={<Contacts />} />
+				<Route path="/signup" element={<SignUp />} />
+				<Route path="/login" element={<Login />} />
+				<Route
+					path="/user-login-signup"
+					element={<UserLoginSignup />}
+				/>
+				<Route path="/apartments" element={<Apartments />} />
+				<Route path="/roommates" element={<Roommates />} />
+				<Route path="/profile" element={<Profile />} />
+			</Routes>
+		</AnimatePresence>
 	)
 }
 

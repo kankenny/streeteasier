@@ -9,19 +9,16 @@ import {
 	InfoWindow,
 } from '@react-google-maps/api'
 
-import mapStyles from './mapStyles'
 import dibUrl from '../../../assets/google-maps/Marker.svg'
 
 const containerStyle = {
 	width: '100%',
 	height: '100%',
-	borderRadius: 16,
 	overflow: 'hidden',
 }
 
 const mapOptions = {
 	disableDefaultUI: true,
-	styles: mapStyles,
 	zoomControl: true,
 }
 
@@ -94,7 +91,7 @@ function GoogleMaps() {
 				lat: lat,
 				lng: lng,
 			}}
-			zoom={32}
+			zoom={5}
 			onLoad={onLoad}
 			onUnmount={onUnmount}
 			options={mapOptions}

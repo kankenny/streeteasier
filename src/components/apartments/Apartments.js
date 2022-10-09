@@ -10,7 +10,7 @@ import { motion } from 'framer-motion'
 function Apartments() {
 	return (
 		<motion.div
-			className="min-h-full bg-transparent"
+			className="bg-transparent"
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
