@@ -36,7 +36,7 @@ function Apartment({
 
 	return (
 		<motion.div
-			className="bg-secondary text-white flex flex-row space-y-2 space-x-4 rounded-xl shadow-lg h-36 cursor-pointer hover:scale-105 duration-200"
+			className="bg-secondary text-white flex space-y-2 space-x-4 rounded-xl shadow-lg h-36 cursor-pointer hover:bg-primary duration-200"
 			onClick={apartmentModalVisibilityHandler}
 			variants={imageAnimate}
 		>
@@ -60,13 +60,13 @@ function Apartment({
 			<img
 				src={img}
 				alt="Apartment for rent"
-				className="w-32 block object-cover rounded-tl-xl rounded-bl-xl overflow-hidden"
+				className="w-32 block object-cover rounded-tl-xl rounded-bl-2xl overflow-hidden "
 			/>
-			<div className="flex flex-col text-xs space-y-2">
+			<div className="flex flex-col text-right p-2 text-xs space-y-2">
 				<h1 className="text-lg font-bold mb-2">{`$${pricePerMonth}/mo`}</h1>
 
 				<p>{truncateAddressString(address)}</p>
-				<p>{`There are currently ${numPeopleInterested} in this property`}</p>
+				<p>{`${numPeopleInterested} people are interested`}</p>
 			</div>
 		</motion.div>
 	)
