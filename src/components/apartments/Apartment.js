@@ -4,6 +4,7 @@ import Modal from '../ui/Modal'
 
 import img from '../../assets/apartments/dummyApartmentImage.jpg'
 import Overview from '../ui/Overview'
+import Roommates from '../roommates/Roommates'
 
 import { motion } from 'framer-motion'
 
@@ -29,7 +30,7 @@ function Apartment({
 }) {
 	const [apartmentModalIsOpen, setApartmentModalIsOpen] = useState(false)
 
-	const apartmentModalVisibilityHandler = () => {
+	const apartmentModalVisibilityHandler = (e) => {
 		setApartmentModalIsOpen((prevState) => !prevState)
 	}
 
@@ -40,17 +41,20 @@ function Apartment({
 			variants={imageAnimate}
 		>
 			{apartmentModalIsOpen && (
-				<Modal>
-					<img
-						src={img}
-						alt="Apartment"
-						className="rounded-2xl"
-					/>
-					<Overview
-						title={`$${pricePerMonth}/mo`}
-						subtitle={address}
-						paragraph={`There are currently ${numPeopleInterested} in this property`}
-					/>
+				<Modal onClose={apartmentModalVisibilityHandler}>
+					<div className="flex flex-col">
+						<img
+							src={img}
+							alt="Apartment"
+							className="rounded-2xl w-full aspect-auto"
+						/>
+						<Overview
+							title={`$${pricePerMonth}/mo`}
+							subtitle={address}
+							paragraph={`There are currently ${numPeopleInterested} in this property`}
+						/>
+					</div>
+					<Roommates />
 				</Modal>
 			)}
 			<img
