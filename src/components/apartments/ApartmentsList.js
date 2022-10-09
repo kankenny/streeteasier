@@ -2,7 +2,6 @@ import React, { useState, Fragment } from 'react'
 
 import ApartmentsContainer from './ApartmentsContainer'
 import Apartment from './Apartment'
-import Heading from '../ui/Heading'
 import SortingMenu from './sort/SortingMenu'
 import Subtitle from '../ui/Subtitle'
 
@@ -146,10 +145,9 @@ function ApartmentsList() {
 				apartments={apartments}
 				setApartments={setApartments}
 			/>
-			<Heading
-				heading="Search Results"
-				className="text-lg text-primary"
-			/>
+			<h1 className="text-md font-bold text-center p-2">
+				Search Results:
+			</h1>
 			<Subtitle
 				subtitle="Nearby Apartments in ZipCode 10000:"
 				className="pb-5"
@@ -157,7 +155,6 @@ function ApartmentsList() {
 			<motion.div
 				initial={'offscreen'}
 				whileInView={'onscreen'}
-				viewport={{ once: false, amount: 0.2 }}
 				transition={{ staggerChildren: 0.3 }}
 			>
 				<ApartmentsContainer>

@@ -35,7 +35,7 @@ const Login = () => {
 	const { handleSubmit, control } = useForm({
 		defaultValues,
 		mode: 'all',
-		resolver: yupResolver(loginSchema)
+		resolver: yupResolver(loginSchema),
 	})
 
 	const processLogin = (data) => {
@@ -65,13 +65,13 @@ const Login = () => {
 						className="flex flex-col mt-4 space-y-4"
 					>
 						<RHFTextField
-             				control={control}
+							control={control}
 							type="email"
 							name="email"
 							placeholder="Email Address"
 						/>
 						<RHFTextField
-              				control={control}
+							control={control}
 							type="password"
 							name="password"
 							placeholder="Password"
@@ -84,7 +84,7 @@ const Login = () => {
 						<SolidButton
 							buttonType="submit"
 							buttonText="Login"
-							className="my-4 bg-primary hover:bg-blue-900 focus:ring-blue-300"
+							className="my-4 bg-primary  text-xl  hover:bg-blue-900 focus:ring-blue-300"
 						/>
 						<LoginSignUpPrompter
 							question="Don't have an account?"
@@ -93,7 +93,7 @@ const Login = () => {
 							isRouterLink={true}
 						/>
 						<SolidButton
-							className="bg-primary"
+							className="bg-primary  text-xl "
 							onClick={onLogin}
 							buttonText="Override Login (this is a test div to access
 							main app)"

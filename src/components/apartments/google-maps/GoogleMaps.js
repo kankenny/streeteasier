@@ -19,7 +19,6 @@ const containerStyle = {
 
 const mapOptions = {
 	disableDefaultUI: true,
-	zoomControl: true,
 }
 
 const libraries = ['places']
@@ -103,9 +102,9 @@ function GoogleMaps() {
 					position={{ lat: dib.lat, lng: dib.lng }}
 					icon={{
 						url: dibUrl,
-						scaledSize: new window.google.maps.Size(22, 22),
+						scaledSize: new window.google.maps.Size(30, 30),
 						origin: new window.google.maps.Point(0, 0),
-						anchor: new window.google.maps.Point(11, 11),
+						anchor: new window.google.maps.Point(15, 15),
 					}}
 					onClick={() => {
 						setSelected(dib)
