@@ -7,8 +7,7 @@ import HamburgerButton from './header/HamburgerButton'
 import MobileMenu from './header/MobileMenu'
 import ApartmentsMenu from './header/ApartmentsMenu'
 
-const containerClasses =
-	'container min-w-full mx-auto px-6 bg-slate-100 fixed z-40 mb-10'
+const containerClasses = 'min-w-full px-6 bg-slate-100 fixed z-40'
 const navBarClasses = 'flex items-center justify-between font-bold'
 
 const Header = ({ isLoggedIn }) => {
@@ -20,7 +19,7 @@ const Header = ({ isLoggedIn }) => {
 
 	const header = !isLoggedIn ? (
 		<div>
-			<DesktopMenu />{' '}
+			<DesktopMenu />
 			<HamburgerButton
 				onClick={toggleMenuHandler}
 				isMobileOpen={mobileMenuIsOpen}
@@ -32,13 +31,15 @@ const Header = ({ isLoggedIn }) => {
 
 	return (
 		<section id="header">
-			<div className={containerClasses}>
-				<nav className={navBarClasses}>
-					<Logo />
-					{header}
-				</nav>
-				<MobileMenu isMobileOpen={mobileMenuIsOpen} />
-			</div>
+			<nav>
+				<div className={containerClasses}>
+					<nav className={navBarClasses}>
+						<Logo />
+						{header}
+					</nav>
+					<MobileMenu isMobileOpen={mobileMenuIsOpen} />
+				</div>
+			</nav>
 		</section>
 	)
 }
