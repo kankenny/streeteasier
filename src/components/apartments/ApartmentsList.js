@@ -18,7 +18,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'ex velit mag3ni qui eum, corporis123123 inventore ',
+		address: 'ex velit mag3ni qui eum, corpor123 inventore ',
 		pricePerMonth: 345,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -27,7 +27,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'praesentium 5ipsam a libero, blanditii123123s placeat ',
+		address: 'praeseium 5ipsam a libero, bditi23123s placeat ',
 		pricePerMonth: 234,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -36,7 +36,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'similique sed fugiat hic ea 6aper123123iam iure ',
+		address: 'siique sed fugiat hic ea 6a23123iam iure ',
 		pricePerMonth: 34342,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -45,7 +45,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'sunt, placeat7 amet pariatur, ani123123mi eveniet',
+		address: 'sunt, plaat7 amet pariatur, ani123123mi eveniet',
 		pricePerMonth: 999,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -54,7 +54,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'cupiditate deleniti labori8osam max123123ime ducimus!',
+		address: 'cupiate deiti labori8m x123123ime ducimus!',
 		pricePerMonth: 123,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -63,7 +63,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'at  accusamus cupiditate, a3tque sed per123123ferendis',
+		address: 'at  accuus cuptate, a3t sed pr12erendis',
 		pricePerMonth: 69,
 		numBedrooms: 69,
 		numBathrooms: 69,
@@ -72,7 +72,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'Lorem ipsum dolor sit a0met consectetur adipisicing.',
+		address: 'Lorem ipsum dolor sit a0met consetur adipisicing.',
 		pricePerMonth: 123,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -81,7 +81,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'ex velit magni qui eum, corporis9123123 inventore ',
+		address: 'ex velit magni qui eum, corporis923 inventore ',
 		pricePerMonth: 345,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -90,7 +90,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'praes5entium 4ipsam a libero, blan8ditii123123s placeat ',
+		address: 'prenum 4psam a liber blan8tii123123s placeat ',
 		pricePerMonth: 234,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -99,7 +99,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'similiq3ue sed fug9iat hic ea aper123123iam 1iure ',
+		address: 'simi3ue sed fug9iat hic ea aper12am 1iure ',
 		pricePerMonth: 34342,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -108,7 +108,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'sunt, placeat ame2t pariatur, ani123123mi eveniet',
+		address: 'sunt, placeat ame2t paiatur, ani123123mi eveniet',
 		pricePerMonth: 999,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -117,7 +117,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'cupiditate del8eniti laboriosam max123123ime ducimus!',
+		address: 'cupate del8ti lasam a13ime ducimus!',
 		pricePerMonth: 123,
 		numBedrooms: 1,
 		numBathrooms: 3,
@@ -126,7 +126,7 @@ const DUMMY_DATA2 = [
 		peopleInterested: {},
 	},
 	{
-		address: 'at  accusamus cu9piditate, atque sed per123123ferendis',
+		address: 'at  acus cu9tate, atque sed per123123ferendis',
 		pricePerMonth: 69,
 		numBedrooms: 69,
 		numBathrooms: 69,

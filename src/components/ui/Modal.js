@@ -10,7 +10,7 @@ const ModalOverlay = (props) => {
 		<div className="modal">
 			<div
 				onClick={(e) => e.stopPropagation()}
-				className="h-full w-full overflow-scroll"
+				className="h-full w-full overflow-scroll overflow-x-hidden"
 			>
 				{props.children}
 			</div>

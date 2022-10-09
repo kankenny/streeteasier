@@ -2,7 +2,6 @@ import React from 'react'
 
 import RoommatesList from './RoommatesList'
 
-
 // import Overview from '../ui/Overview'
 import Heading from '../ui/Heading'
 
@@ -17,13 +16,9 @@ function Roommates() {
 			exit={{ opacity: 0 }}
 		>
 			<Heading
-				heading="Matched Roommates"
-				className="mt-16 text-primary"
+				heading="Interested Roommates"
+				className="text-primary"
 			/>
-			<div>
-				<RoommatesList />
-			</div>
-			<Heading heading="Explore Roommates" className="text-primary" />
 			<div>
 				<RoommatesList />
 			</div>
