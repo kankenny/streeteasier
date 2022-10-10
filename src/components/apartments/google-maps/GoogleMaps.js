@@ -52,7 +52,7 @@ function GoogleMaps() {
 				},
 			])
 
-			setCenterHandler({ lat: e.latLng.lat(), lng: e.latLng.lng() })
+			setCenterHandler(e.latLng.lat(), e.latLng.lng())
 		},
 		[dibs, setCenterHandler]
 	)

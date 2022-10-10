@@ -10,9 +10,9 @@ export const GoogleMapsContextProvider = (props) => {
 	const [latitude, setLatitude] = useState(40.776676)
 	const [longitude, setLongitude] = useState(-73.971321)
 
-	const setCenterHandler = (center) => {
-		setLatitude(center.lat)
-		setLongitude(center.lng)
+	const setCenterHandler = (lat, lng) => {
+		setLatitude(lat)
+		setLongitude(lng)
 	}
 
 	return (
