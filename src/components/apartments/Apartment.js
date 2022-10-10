@@ -46,7 +46,7 @@ function Apartment({
 						<img
 							src={img}
 							alt="Apartment"
-							className="rounded-2xl w-full aspect-auto"
+							className="rounded-2xl w-full  max-h-[90%] aspect-auto"
 						/>
 						<Overview
 							title={`$${pricePerMonth}/mo`}

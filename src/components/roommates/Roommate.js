@@ -33,7 +33,7 @@ function Roommate({ firstName, lastName, emailAddress }) {
 						<img
 							src={img}
 							alt="Roommate"
-							className="rounded-2xl w-full aspect-auto max-h-[85%]"
+							className="rounded-2xl w-full aspect-auto max-h-[90%]"
 						/>
 						<Overview
 							title={`${firstName} ${lastName}`}

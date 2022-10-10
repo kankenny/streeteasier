@@ -10,11 +10,12 @@ import { motion } from 'framer-motion'
 function Roommates() {
 	return (
 		<motion.div
-			className="min-h-full space-y-10"
+			className="space-y-10"
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 		>
+			<div className="border border-solid border-gray-500 w-full"></div>
 			<Heading
 				heading="Interested Roommates"
 				className="text-primary"
