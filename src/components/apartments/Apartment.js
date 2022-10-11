@@ -17,15 +17,11 @@ const imageAnimate = {
 	},
 }
 
-function truncateAddressString(address) {
-	return address.split(' ').splice(0, 4).join(' ')
-}
-
 function Apartment({
-	address,
-	pricePerMonth,
-	// numBedRooms,
-	// numBathrooms,
+	streetAddress,
+	price,
+	// bedrooms,
+	// bathrooms,
 	numPeopleInterested,
 }) {
 	const [apartmentModalIsOpen, setApartmentModalIsOpen] = useState(false)
@@ -49,8 +45,8 @@ function Apartment({
 							className="rounded-2xl w-full  max-h-[90%] aspect-auto"
 						/>
 						<Overview
-							title={`$${pricePerMonth}/mo`}
-							subtitle={address}
+							title={`$${price}/mo`}
+							subtitle={streetAddress}
 							paragraph={`There are currently ${numPeopleInterested} in this property`}
 						/>
 					</div>
@@ -63,9 +59,9 @@ function Apartment({
 				className="w-32 block object-cover rounded-tl-xl rounded-bl-2xl overflow-hidden "
 			/>
 			<div className="flex flex-col text-right p-2 text-xs space-y-2">
-				<h1 className="text-lg font-bold mb-2">{`$${pricePerMonth}/mo`}</h1>
+				<h1 className="text-lg font-bold mb-2">{`$${price}/mo`}</h1>
 
-				<p>{truncateAddressString(address)}</p>
+				<p>{streetAddress}</p>
 				<p>{`${numPeopleInterested} people are interested`}</p>
 			</div>
 		</motion.div>
