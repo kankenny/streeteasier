@@ -4,10 +4,10 @@ import Heading from '../ui/Heading'
 import ApartmentSearchContainer from './ApartmentSearchContainer'
 import Input from '../ui/Input'
 import ApartmentsList from './ApartmentsList'
-import getApartments from '../../api/getApartments'
 
 function ApartmentSearch() {
 	const [zipCode, setZipCode] = useState('')
+	const [queriedZipCode, setQueriedZipCode] = useState('10000')
 
 	const zipCodeChangeHandler = (e) => {
 		setZipCode(e.target.value)
@@ -15,8 +15,7 @@ function ApartmentSearch() {
 
 	const searchZipCodeHandler = (e) => {
 		e.preventDefault()
-		console.log(zipCode)
-		getApartments(zipCode)
+		setQueriedZipCode(zipCode)
 	}
 
 	return (
@@ -30,7 +29,7 @@ function ApartmentSearch() {
 					className="text-black text-md focus:outline-none"
 				/>
 			</form>
-			<ApartmentsList />
+			<ApartmentsList queriedZipCode={queriedZipCode} />
 		</ApartmentSearchContainer>
 	)
 }

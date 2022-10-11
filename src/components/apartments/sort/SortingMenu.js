@@ -21,7 +21,7 @@ function SortingMenu({ apartments, setApartments }) {
 				<SolidButton
 					buttonText="Price"
 					className="bg-primary w-36 text-lg lg:text-2xl"
-					onClick={() => sortByKey('pricePerMonth')}
+					onClick={() => sortByKey('price')}
 				/>
 				<SolidButton
 					buttonText="People Interested"

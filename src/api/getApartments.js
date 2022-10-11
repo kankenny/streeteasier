@@ -1,63 +1,31 @@
-//JQuery
-import React from "react";
-import $ from "jquery";
+import $ from 'jquery'
 
-let streetAddress,city,state,zipcode,lotAreaValue,lotAreaUnit,homeType,homeStatus,bathroom,bedrooms,price;
-function getApartment(zipCode){
+function getApartment(zipCode) {
 	const settings = {
-		"async": true,
-		"crossDomain": true,
-		//"url": "https://zillow56.p.rapidapi.com/search?location=houston%2C%20tx"
-		"url": "https://zillow56.p.rapidapi.com/search?location="+zipCode,
-		"method": "GET",
-		"headers": {
-			"X-RapidAPI-Key": "60a2ffb178msh52804e6d695b5ebp1c4d20jsne4945580ae1d",
-			"X-RapidAPI-Host": "zillow56.p.rapidapi.com"
-		
-		}
-		
-	};
+		async: true,
+		crossDomain: true,
+		url: 'https://zillow56.p.rapidapi.com/search?location=' + zipCode,
+		method: 'GET',
+		headers: {
+			'X-RapidAPI-Key':
+				'60a2ffb178msh52804e6d695b5ebp1c4d20jsne4945580ae1d',
+			'X-RapidAPI-Host': 'zillow56.p.rapidapi.com',
+		},
+	}
 
 	$.ajax(settings).done(function (response) {
-		
-		console.log(response);
-		//const data=JSON.stringify(response);
-		//const{streetAddress,city,state,zipcode,lotAreaValue,lotAreaUnit,homeType,homeStatus,bathroom,bedrooms,price}=data;
-		//console.log(data);
-		/*return(			
-			<div>
-				<p>
-					Bedrooms:<span id="bedrooms"></span><br/>
-					Bathrooms:<span id="bathrooms"></span><br/>
-					Price:<span id="price"></span><br/>
-					Address:<span id="StreetAddress"></span><br/>
-					Home Type:<span id="homeType"></span><br/>
-					Home Status:<span id="homeStatus"></span><br/>
-					Area:<span id="Area"></span><br/>
-				</p>
-			</div>
-		)*/
-	});
+		return response.results
+	})
 }
 
 export default getApartment
-	
-/*
-						//Full address
-		document.getElementById("StreetAddress").textContent=streetAddress+city+state+zipcode;
-		document.getElementById("city").textContent=city;
-		document.getElementById("state").textContent=state;
-		document.getElementById("zipcode").textContent=zipcode;
-						//Area size
-		document.getElementById("Area").textContent=lotAreaValue+lotAreaUnit;
-		document.getElementById("lotAreaValue").textContent=lotAreaValue;
-		document.getElementById("lotAreaUnit").textContent=lotAreaUnit;
-						//Independent
-		document.getElementById("homeType").textContent=homeType;
-		document.getElementById("homeStatus").textContent=homeStatus;
-		document.getElementById("bathroom").textContent=bathroom;
-		document.getElementById("bedrooms").textContent=bedrooms;
-		document.getElementById("price").textContent=price;
+
+/**data example given for JQuery
+ 
+API keys:
+ - 60a2ffb178msh52804e6d695b5ebp1c4d20jsne4945580ae1d (Expired October)
+ - f672cb55d2msh156ceafe66ad2d1p1fb5c8jsnc445b85e1291 (Invalid)
+ - 9cd1df1404mshab9e960cc07c31ap11aaefjsn2ffb38fba050 (Invalid)
 */
 
 /**data example given for JQuery
@@ -100,4 +68,3 @@ zipcode: "77006"
 zpid: 126260205
 
 */
-

@@ -1,143 +1,148 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, Fragment, useEffect } from 'react'
 
 import ApartmentsContainer from './ApartmentsContainer'
 import Apartment from './Apartment'
 import SortingMenu from './sort/SortingMenu'
 import Subtitle from '../ui/Subtitle'
+import getApartments from '../../api/getApartments'
 
 import { motion } from 'framer-motion'
 
 const DUMMY_DATA2 = [
 	{
-		address: 'Lorem ipsum dolor sit amet cons2ectetur adipisicing.',
-		pricePerMonth: 123,
-		numBedrooms: 1,
-		numBathrooms: 3,
+		streetAddress: 'Lorem ipsum dolor sit amet cons2ectetur adipisicing.',
+		price: 123,
+		bedrooms: 1,
+		bathrooms: 3,
 		zipCode: '10000',
 		numPeopleInterested: 3,
 		peopleInterested: {},
 	},
 	{
-		address: 'ex velit mag3ni qui eum, corpor123 inventore ',
-		pricePerMonth: 345,
-		numBedrooms: 1,
-		numBathrooms: 3,
+		streetAddress: 'ex velit mag3ni qui eum, corpor123 inventore ',
+		price: 345,
+		bedrooms: 1,
+		bathrooms: 3,
 		zipCode: '10000',
 		numPeopleInterested: 32,
 		peopleInterested: {},
 	},
 	{
-		address: 'praeseium 5ipsam a libero, bditi23123s placeat ',
-		pricePerMonth: 234,
-		numBedrooms: 1,
-		numBathrooms: 3,
+		streetAddress: 'praeseium 5ipsam a libero, bditi23123s placeat ',
+		price: 234,
+		bedrooms: 1,
+		bathrooms: 3,
 		zipCode: '10000',
 		numPeopleInterested: 20,
 		peopleInterested: {},
 	},
 	{
-		address: 'siique sed fugiat hic ea 6a23123iam iure ',
-		pricePerMonth: 34342,
-		numBedrooms: 1,
-		numBathrooms: 3,
+		streetAddress: 'siique sed fugiat hic ea 6a23123iam iure ',
+		price: 34342,
+		bedrooms: 1,
+		bathrooms: 3,
 		zipCode: '10000',
 		numPeopleInterested: 31,
 		peopleInterested: {},
 	},
 	{
-		address: 'sunt, plaat7 amet pariatur, ani123123mi eveniet',
-		pricePerMonth: 999,
-		numBedrooms: 1,
-		numBathrooms: 3,
+		streetAddress: 'sunt, plaat7 amet pariatur, ani123123mi eveniet',
+		price: 999,
+		bedrooms: 1,
+		bathrooms: 3,
 		zipCode: '10000',
 		numPeopleInterested: 30,
 		peopleInterested: {},
 	},
 	{
-		address: 'cupiate deiti labori8m x123123ime ducimus!',
-		pricePerMonth: 123,
-		numBedrooms: 1,
-		numBathrooms: 3,
+		streetAddress: 'cupiate deiti labori8m x123123ime ducimus!',
+		price: 123,
+		bedrooms: 1,
+		bathrooms: 3,
 		zipCode: '10000',
 		numPeopleInterested: 23,
 		peopleInterested: {},
 	},
 	{
-		address: 'at  accuus cuptate, a3t sed pr12erendis',
-		pricePerMonth: 69,
-		numBedrooms: 69,
-		numBathrooms: 69,
+		streetAddress: 'at  accuus cuptate, a3t sed pr12erendis',
+		price: 69,
+		bedrooms: 69,
+		bathrooms: 69,
 		zipCode: '69696',
 		numPeopleInterested: 69,
 		peopleInterested: {},
 	},
 	{
-		address: 'Lorem ipsum dolor sit a0met consetur adipisicing.',
-		pricePerMonth: 123,
-		numBedrooms: 1,
-		numBathrooms: 3,
+		streetAddress: 'Lorem ipsum dolor sit a0met consetur adipisicing.',
+		price: 123,
+		bedrooms: 1,
+		bathrooms: 3,
 		zipCode: '10000',
 		numPeopleInterested: 3,
 		peopleInterested: {},
 	},
 	{
-		address: 'ex velit magni qui eum, corporis923 inventore ',
-		pricePerMonth: 345,
-		numBedrooms: 1,
-		numBathrooms: 3,
+		streetAddress: 'ex velit magni qui eum, corporis923 inventore ',
+		price: 345,
+		bedrooms: 1,
+		bathrooms: 3,
 		zipCode: '10000',
 		numPeopleInterested: 32,
 		peopleInterested: {},
 	},
 	{
-		address: 'prenum 4psam a liber blan8tii123123s placeat ',
-		pricePerMonth: 234,
-		numBedrooms: 1,
-		numBathrooms: 3,
+		streetAddress: 'prenum 4psam a liber blan8tii123123s placeat ',
+		price: 234,
+		bedrooms: 1,
+		bathrooms: 3,
 		zipCode: '10000',
 		numPeopleInterested: 20,
 		peopleInterested: {},
 	},
 	{
-		address: 'simi3ue sed fug9iat hic ea aper12am 1iure ',
-		pricePerMonth: 34342,
-		numBedrooms: 1,
-		numBathrooms: 3,
+		streetAddress: 'simi3ue sed fug9iat hic ea aper12am 1iure ',
+		price: 34342,
+		bedrooms: 1,
+		bathrooms: 3,
 		zipCode: '10000',
 		numPeopleInterested: 31,
 		peopleInterested: {},
 	},
 	{
-		address: 'sunt, placeat ame2t paiatur, ani123123mi eveniet',
-		pricePerMonth: 999,
-		numBedrooms: 1,
-		numBathrooms: 3,
+		streetAddress: 'sunt, placeat ame2t paiatur, ani123123mi eveniet',
+		price: 999,
+		bedrooms: 1,
+		bathrooms: 3,
 		zipCode: '10000',
 		numPeopleInterested: 30,
 		peopleInterested: {},
 	},
 	{
-		address: 'cupate del8ti lasam a13ime ducimus!',
-		pricePerMonth: 123,
-		numBedrooms: 1,
-		numBathrooms: 3,
+		streetAddress: 'cupate del8ti lasam a13ime ducimus!',
+		price: 123,
+		bedrooms: 1,
+		bathrooms: 3,
 		zipCode: '10000',
 		numPeopleInterested: 23,
 		peopleInterested: {},
 	},
 	{
-		address: 'at  acus cu9tate, atque sed per123123ferendis',
-		pricePerMonth: 69,
-		numBedrooms: 69,
-		numBathrooms: 69,
+		streetAddress: 'at  acus cu9tate, atque sed per123123ferendis',
+		price: 69,
+		bedrooms: 69,
+		bathrooms: 69,
 		zipCode: '69696',
 		numPeopleInterested: 69,
 		peopleInterested: {},
 	},
 ]
 
-function ApartmentsList() {
+function ApartmentsList({ queriedZipCode }) {
 	const [apartments, setApartments] = useState(DUMMY_DATA2)
+
+	useEffect(() => {
+		getApartments(queriedZipCode)
+	}, [queriedZipCode])
 
 	return (
 		<Fragment>
@@ -160,11 +165,14 @@ function ApartmentsList() {
 				<ApartmentsContainer>
 					{apartments.map((apartment) => (
 						<Apartment
-							key={apartment.address + apartment.address}
-							address={apartment.address}
-							pricePerMonth={apartment.pricePerMonth}
-							numBedRooms={apartment.numBedrooms}
-							numBathrooms={apartment.numBathrooms}
+							key={
+								apartment.streetAddress +
+								apartment.streetAddress
+							}
+							address={apartment.streetAddress}
+							price={apartment.price}
+							bedrooms={apartment.bedrooms}
+							bathrooms={apartment.bathrooms}
 							numPeopleInterested={
 								apartment.numPeopleInterested
 							}
