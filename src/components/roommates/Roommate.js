@@ -7,11 +7,11 @@ import Overview from '../ui/Overview'
 import { motion } from 'framer-motion'
 
 const imageAnimate = {
-	offscreen: { x: -125, opacity: 0 },
+	offscreen: { x: -150, opacity: 0 },
 	onscreen: {
 		x: 0,
 		opacity: 1,
-		transition: { type: 'spring', bounce: 0.1, duration: 0.4 },
+		transition: { ease: 'linear', type: 'tween', duration: 0.2 },
 	},
 }
 
@@ -24,31 +24,32 @@ function Roommate({ firstName, lastName, emailAddress }) {
 
 	return (
 		<motion.div
-			className="bg-secondary text-white flex flex-row space-y-2 space-x-4 rounded-xl shadow-xl h-20 cursor-pointer hover:scale-105 duration-200"
 			variants={imageAnimate}
 			onClick={roommateModalVisibilityHandler}
 		>
-			{roommateModalIsOpen && (
-				<Modal>
-					<img
-						src={img}
-						alt="Roommate"
-						className="rounded-2xl mx-auto"
-					/>
-					<Overview
-						title={`${firstName} ${lastName}`}
-						subtitle={`Contact: ${emailAddress}`}
-					/>
-				</Modal>
-			)}
-			<img
-				src={img}
-				alt="Roommate PFP"
-				className="w-32 block object-cover rounded-[5.5rem] rounded-tl-xl rounded-bl-xl overflow-hidden"
-			/>
-			<div className="flex flex-col text-xs space-y-2 pb-2">
-				<h1 className="text-lg font-extrabold mb-2">{`${firstName} ${lastName}`}</h1>
-				<p className="text-gray-500">{`${emailAddress}`}</p>
+			<div className="bg-secondary text-white flex flex-row space-y-2 space-x-4 rounded-xl shadow-xl h-20 cursor-pointer hover:scale-105 duration-200">
+				{roommateModalIsOpen && (
+					<Modal>
+						<img
+							src={img}
+							alt="Roommate"
+							className="rounded-2xl w-full aspect-auto max-h-[90%]"
+						/>
+						<Overview
+							title={`${firstName} ${lastName}`}
+							subtitle={`Contact: ${emailAddress}`}
+						/>
+					</Modal>
+				)}
+				<img
+					src={img}
+					alt="Roommate PFP"
+					className="w-32 block object-cover rounded-[5.5rem] rounded-tl-2xl rounded-bl-2xl overflow-hidden"
+				/>
+				<div className="flex flex-col text-xs space-y-2 pb-2">
+					<h1 className="text-lg font-extrabold mb-2">{`${firstName} ${lastName}`}</h1>
+					<p className="text-gray-500">{`${emailAddress}`}</p>
+				</div>
 			</div>
 		</motion.div>
 	)

@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 
 const GoogleMapsContext = React.createContext({
-	lat: 40.78,
-	lng: -73.96,
+	lat: 40.776676,
+	lng: -73.971321,
 	setCenterHandler: () => {},
 })
 
 export const GoogleMapsContextProvider = (props) => {
-	const [latitude, setLatitude] = useState(40.78)
-	const [longitude, setLongitude] = useState(-73.96)
+	const [latitude, setLatitude] = useState(40.776676)
+	const [longitude, setLongitude] = useState(-73.971321)
 
-	const setCenterHandler = (center) => {
-		setLatitude(center.lat)
-		setLongitude(center.lng)
+	const setCenterHandler = (lat, lng) => {
+		setLatitude(lat)
+		setLongitude(lng)
 	}
 
 	return (

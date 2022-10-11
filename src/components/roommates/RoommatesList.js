@@ -54,14 +54,13 @@ const DUMMY_DATA2 = [
 ]
 
 function RoommatesList() {
-	const [roommates, ] = useState(DUMMY_DATA2)
+	const [roommates] = useState(DUMMY_DATA2)
 
 	return (
 		<motion.div
 			initial={'offscreen'}
 			whileInView={'onscreen'}
-			viewport={{ once: false, amount: 0.2 }}
-			transition={{ staggerChildren: 0.3 }}
+			transition={{ staggerChildren: 0.2 }}
 		>
 			<RoommatesContainer>
 				{roommates.map((roommate) => (
