@@ -4,6 +4,7 @@ import Heading from '../ui/Heading'
 import ApartmentSearchContainer from './ApartmentSearchContainer'
 import Input from '../ui/Input'
 import ApartmentsList from './ApartmentsList'
+import getApartments from '../../api/getApartments'
 
 function ApartmentSearch() {
 	const [zipCode, setZipCode] = useState('')
@@ -15,6 +16,7 @@ function ApartmentSearch() {
 	const searchZipCodeHandler = (e) => {
 		e.preventDefault()
 		console.log(zipCode)
+		getApartments(zipCode)
 	}
 
 	return (
