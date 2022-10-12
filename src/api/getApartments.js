@@ -1,6 +1,6 @@
 import $ from 'jquery'
 
-function getApartment(zipCode) {
+function getApartment(zipCode, setQueriedApartments) {
 	const settings = {
 		async: true,
 		crossDomain: true,
@@ -8,12 +8,13 @@ function getApartment(zipCode) {
 		method: 'GET',
 		headers: {
 			'X-RapidAPI-Key':
-				'60a2ffb178msh52804e6d695b5ebp1c4d20jsne4945580ae1d',
+				'a954f4b1ccmsh063af435951a9edp1bb841jsn7a2e564cc0aa',
 			'X-RapidAPI-Host': 'zillow56.p.rapidapi.com',
 		},
 	}
 
 	$.ajax(settings).done(function (response) {
+		setQueriedApartments(response.results)
 		return response.results
 	})
 }
@@ -23,11 +24,10 @@ export default getApartment
 /**data example given for JQuery
  
 API keys:
- - 60a2ffb178msh52804e6d695b5ebp1c4d20jsne4945580ae1d (Expired October)
- - f672cb55d2msh156ceafe66ad2d1p1fb5c8jsnc445b85e1291 (Invalid)
- - 9cd1df1404mshab9e960cc07c31ap11aaefjsn2ffb38fba050 (Invalid)
-*/
-
+ - 60a2ffb178msh52804e6d695b5ebp1c4d20jsne4945580ae1d (Exhausted October)
+ - 1c58ef4586msh9c8ef5f65dd2a5bp190bedjsn85a2675be955 (Exhausted October)
+ - a954f4b1ccmsh063af435951a9edp1bb841jsn7a2e564cc0aa
+ 
 /**data example given for JQuery
  
 bathrooms: 4
