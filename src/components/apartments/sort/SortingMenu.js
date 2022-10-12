@@ -33,4 +33,4 @@ function SortingMenu({ apartments, setApartments }) {
 	)
 }
 
-export default SortingMenu
+export default React.memo(SortingMenu)
