@@ -4,16 +4,16 @@ import ApartmentsContainer from './ApartmentsContainer'
 import Apartment from './Apartment'
 import SortingMenu from './sort/SortingMenu'
 import Subtitle from '../ui/Subtitle'
-
 import { motion } from 'framer-motion'
+
 
 const DUMMY_DATA2 = [
 	{
-		address: 'Lorem ipsum dolor sit amet cons2ectetur adipisicing.',
-		pricePerMonth: 123,
-		numBedrooms: 1,
-		numBathrooms: 3,
-		zipCode: '10000',
+		address:'Lorem ipsuimdjsap dsjfopa',
+		pricePerMonth: 322,
+		numBedrooms:2,
+		numBathrooms: 1,
+		zipCode: '34323',
 		numPeopleInterested: 3,
 		peopleInterested: {},
 	},
@@ -138,7 +138,7 @@ const DUMMY_DATA2 = [
 
 function ApartmentsList() {
 	const [apartments, setApartments] = useState(DUMMY_DATA2)
-
+	
 	return (
 		<Fragment>
 			<SortingMenu

@@ -2,102 +2,86 @@
 import React from "react";
 import $ from "jquery";
 
-let streetAddress,city,state,zipcode,lotAreaValue,lotAreaUnit,homeType,homeStatus,bathroom,bedrooms,price;
+
+ let streetAddress, bathroom, bedrooms, price, zip, img, url, longitude, latitude, homeStatus;
+ 
 function getApartment(zipCode){
-	const settings = {
+	 let settings = {
 		"async": true,
 		"crossDomain": true,
-		//"url": "https://zillow56.p.rapidapi.com/search?location=houston%2C%20tx"
-		"url": "https://zillow56.p.rapidapi.com/search?location="+zipCode,
+		"url": "https://zillow-data.p.rapidapi.com/search?location="+zipCode+"&page=1&status=ForRent",
 		"method": "GET",
 		"headers": {
-			"X-RapidAPI-Key": "60a2ffb178msh52804e6d695b5ebp1c4d20jsne4945580ae1d",
-			"X-RapidAPI-Host": "zillow56.p.rapidapi.com"
-		
+			"X-RapidAPI-Key": "9cd1df1404mshab9e960cc07c31ap11aaefjsn2ffb38fba050",
+			"X-RapidAPI-Host": "zillow-data.p.rapidapi.com"
 		}
-		
 	};
-
+	
 	$.ajax(settings).done(function (response) {
 		
-		console.log(response);
-		//const data=JSON.stringify(response);
-		//const{streetAddress,city,state,zipcode,lotAreaValue,lotAreaUnit,homeType,homeStatus,bathroom,bedrooms,price}=data;
-		//console.log(data);
-		/*return(			
-			<div>
-				<p>
-					Bedrooms:<span id="bedrooms"></span><br/>
-					Bathrooms:<span id="bathrooms"></span><br/>
-					Price:<span id="price"></span><br/>
-					Address:<span id="StreetAddress"></span><br/>
-					Home Type:<span id="homeType"></span><br/>
-					Home Status:<span id="homeStatus"></span><br/>
-					Area:<span id="Area"></span><br/>
-				</p>
-			</div>
-		)*/
+		setApartments(response);
 	});
 }
-
+function setApartments(response){
+	for(let i=0;i<response.data.length;i++){
+		 streetAddress=response.data[i].address;
+		 bathroom=response.data[i].baths;
+		 bedrooms=response.data[i].beds;
+		 price=response.data[i].price;
+		 zip=response.data[i].addressZipcode;
+		 img=response.data[i].imgSrc;
+		 url=response.data[i].detailUrl;
+		 longitude=response.data[i].longitude;
+		 latitude=response.data[i].latitude;
+		 homeStatus=response.data[i].statusText;
+		console.log("\nImage:"+img+"\nDetails:"+url+"\nAddress: "+streetAddress+"\nBathrooms:"+bathroom+"\nBedrooms:"+bedrooms+"\nPrice:"+price+"\nZipcode:"+zip+"\nHome Status:"+homeStatus);
+	}
+}
 export default getApartment
-	
-/*
-						//Full address
-		document.getElementById("StreetAddress").textContent=streetAddress+city+state+zipcode;
-		document.getElementById("city").textContent=city;
-		document.getElementById("state").textContent=state;
-		document.getElementById("zipcode").textContent=zipcode;
-						//Area size
-		document.getElementById("Area").textContent=lotAreaValue+lotAreaUnit;
-		document.getElementById("lotAreaValue").textContent=lotAreaValue;
-		document.getElementById("lotAreaUnit").textContent=lotAreaUnit;
-						//Independent
-		document.getElementById("homeType").textContent=homeType;
-		document.getElementById("homeStatus").textContent=homeStatus;
-		document.getElementById("bathroom").textContent=bathroom;
-		document.getElementById("bedrooms").textContent=bedrooms;
-		document.getElementById("price").textContent=price;
-*/
 
 /**data example given for JQuery
  
-bathrooms: 4
-bedrooms: 3
-city: "Houston"
-country: "USA"
-currency: "USD"
-datePriceChanged: 1664607600000
-daysOnZillow: -1
-homeStatus: "FOR_SALE"
-homeStatusForHDP: "FOR_SALE"
-homeType: "SINGLE_FAMILY"
-isFeatured: false
-isNonOwnerOccupied: true
-isPreforeclosureAuction: false
-isPremierBuilder: false
-isUnmappable: false
-isZillowOwned: false
-latitude: 29.745394
-listing_sub_type: {is_FSBA: true, is_openHouse: true}
-livingArea: 2759
-longitude: -95.39548
-lotAreaUnit: "sqft"
-lotAreaValue: 1524.6
-openHouse: "Sun. 3-5pm"
-open_house_info: {open_house_showing: Array(1)}
-price: 599000
-priceChange: -9000
-priceForHDP: 599000
-priceReduction: "$9,000 (Oct 1)"
-rentZestimate: 3851
-shouldHighlight: false
-state: "TX"
-streetAddress: "1505 Missouri St"
-taxAssessedValue: 538200
-zestimate: 588216
-zipcode: "77006"
-zpid: 126260205
-
+address:"821 County Road 43830, Paris, TX 75462"
+addressCity:"Paris"
+addressState:"TX"
+addressStreet:"821 County Road 43830"
+addressZipcode:"75462"
+area:2242
+availabilityDate:null
+badgeInfo:null
+baths:2
+beds:4
+countryCurrency:"$"
+detailUrl:"https://www.zillow.com/homedetails/821-County-Road-43830-Paris-TX-75462/299627571_zpid/"
+has3DModel:true
+hasAdditionalAttributions:false
+hasImage:true
+hasVideo:false
+hdpData:
+id:"299627571"
+imgSrc:"https://photos.zillowstatic.com/fp/5dbd920255aef7d9cfb66d6cf17fe00e-p_e.jpg"
+isFeaturedListing:false
+isHomeRec:false
+isSaved:false
+isUndisclosedAddress:false
+isUserClaimingOwner:false
+isUserConfirmedClaim:false
+isZillowOwned:false
+latLong:
+list:true
+pgapt:"ForSale"
+price:"$625,000"
+providerListingId:null
+relaxed:false
+sgapt:"For Sale (Broker)"
+shouldShowZestimateAsPrice:false
+statusText:"House for sale"
+statusType:"FOR_SALE"
+unformattedPrice:625000
+variableData:
+text:"3D Tour"
+type:"3D_HOME"
+zestimate:462000
+zpid:"299627571"
 */
 
