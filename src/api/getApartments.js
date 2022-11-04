@@ -12,7 +12,7 @@ function getApartment(zipCode){
 		"url": "https://zillow-data.p.rapidapi.com/search?location="+zipCode+"&page=1&status=ForRent",
 		"method": "GET",
 		"headers": {
-			"X-RapidAPI-Key": "9cd1df1404mshab9e960cc07c31ap11aaefjsn2ffb38fba050",
+			"X-RapidAPI-Key": "fc99c463demsh7f956285a9d0189p195365jsncb051133cf78",
 			"X-RapidAPI-Host": "zillow-data.p.rapidapi.com"
 		}
 	};
@@ -83,5 +83,10 @@ text:"3D Tour"
 type:"3D_HOME"
 zestimate:462000
 zpid:"299627571"
+
+Api site
+https://rapidapi.com/ntd119/api/zillow-data/
+Temporary gmail
+https://tempmail.dev/en/Gmail
 */
 
