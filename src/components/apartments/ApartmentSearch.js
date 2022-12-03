@@ -29,8 +29,17 @@ function ApartmentSearch() {
 			clearSuggestions,
 		} = usePlacesAutocomplete();
 
+		const handleSelect = async (address) => {
+			setValue(address, false);
+			clearSuggestions();
+
+			const geocode = await getGeocode({ address });
+			const { lat, lng } = getLatLng(geocode[0]);
+			setSelected(lat, lng);
+		};
+
 		return (
-			<Combobox style={{ position: "relative"}}>
+			<Combobox>
 				<ComboboxInput
 					value={value}
 					onChange={(e) => setValue(e.target.value)}
