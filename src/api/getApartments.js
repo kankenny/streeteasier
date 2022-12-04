@@ -26,40 +26,7 @@ function getApartment(zipCode, setQueriedApartments) {
 
 	$.ajax(settings).done(function (response) {
 		setQueriedApartments(response.data)
-		console.log(response)
 	})
-}
-function setApartments(response) {
-	for (let i = 0; i < response.data.length; i++) {
-		streetAddress = response.data[i].address
-		bathroom = response.data[i].baths
-		bedrooms = response.data[i].beds
-		price = response.data[i].price
-		zip = response.data[i].addressZipcode
-		img = response.data[i].imgSrc
-		url = response.data[i].detailUrl
-		longitude = response.data[i].longitude
-		latitude = response.data[i].latitude
-		homeStatus = response.data[i].statusText
-		console.log(
-			'\nImage:' +
-				img +
-				'\nDetails:' +
-				url +
-				'\nAddress: ' +
-				streetAddress +
-				'\nBathrooms:' +
-				bathroom +
-				'\nBedrooms:' +
-				bedrooms +
-				'\nPrice:' +
-				price +
-				'\nZipcode:' +
-				zip +
-				'\nHome Status:' +
-				homeStatus
-		)
-	}
 }
 
 export default getApartment
