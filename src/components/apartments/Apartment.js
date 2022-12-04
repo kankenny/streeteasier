@@ -9,15 +9,19 @@ import Roommates from '../roommates/Roommates'
 function Apartment({
 	address,
 	price,
-	// bedrooms,
-	// bathrooms,
-	// numPeopleInterested,
+	bedrooms,
+	bathrooms,
+	numPeopleInterested,
+	imgSrc,
+	url,
 }) {
 	const [apartmentModalIsOpen, setApartmentModalIsOpen] = useState(false)
 
 	const apartmentModalVisibilityHandler = () => {
 		setApartmentModalIsOpen((prevState) => !prevState)
 	}
+
+	console.log(imgSrc)
 
 	return (
 		<div
@@ -28,30 +32,30 @@ function Apartment({
 				<Modal onClose={apartmentModalVisibilityHandler}>
 					<div className="flex flex-col">
 						<img
-							src={img}
+							src={imgSrc}
 							alt="Apartment"
 							className="rounded-2xl w-full  max-h-[90%] aspect-auto"
 						/>
 						<Overview
-							title={`$${price}/mo`}
+							title={price}
 							subtitle={address}
-							paragraph={`There are currently ${0} in this property`}
+							paragraph={`There are currently 0 in this property`}
 						/>
 					</div>
 					<Roommates />
 				</Modal>
 			)}
 			<img
-				src={img}
+				src={imgSrc}
 				alt="Apartment for rent"
 				className="w-32 block object-cover rounded-tl-xl rounded-bl-2xl overflow-hidden "
 			/>
 			<div className="flex flex-col text-right p-2 space-y-2">
-				<h1 className="text-md font-bold mb-2">{`$${price}/mo`}</h1>
+				<h1 className="text-md font-bold mb-2">{price}</h1>
 
 				<div className="text-xs">
 					<p>{address}</p>
-					<p>{`${0} people are interested`}</p>
+					<p>{`0 people are interested`}</p>
 				</div>
 			</div>
 		</div>

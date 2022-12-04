@@ -9,19 +9,17 @@ import getApartments from '../../api/getApartments'
 
 function ApartmentSearch() {
 	const zipCodeRef = useRef('')
-	const zipCode = zipCodeRef.current.value
 	const [queriedApartments, setQueriedApartments] = useState(DUMMY_DATA2)
 
 	const zipCodeOnSubmitHandler = (e) => {
 		e.preventDefault()
-		getApartments(zipCode, setQueriedApartments)
-		console.log(queriedApartments)
+		getApartments(zipCodeRef.current.value, setQueriedApartments)
 	}
 
 	return (
 		<ApartmentSearchContainer>
 			<Heading heading="Apartment Search" />
-			<form action="submit" onSubmit={zipCodeOnSubmitHandler}>
+			<form onSubmit={zipCodeOnSubmitHandler}>
 				<Input
 					ref={zipCodeRef}
 					placeholder="Zipcode"
