@@ -5,6 +5,8 @@ import Modal from '../ui/Modal'
 import dummyImage from '../../assets/apartments/dummyApartmentImage.jpg'
 import Overview from '../ui/Overview'
 import Roommates from '../roommates/Roommates'
+import ApartmentDetails from './ApartmentDetails'
+import ApartmentButtons from './ApartmentButtons'
 
 function Apartment({
 	address,
@@ -14,6 +16,7 @@ function Apartment({
 	numPeopleInterested,
 	image,
 	url,
+	brokerName,
 }) {
 	const [apartmentModalIsOpen, setApartmentModalIsOpen] = useState(false)
 
@@ -32,7 +35,7 @@ function Apartment({
 						<img
 							src={image ? image : dummyImage}
 							alt="Apartment"
-							className="rounded-2xl w-full  max-h-[90%] aspect-auto"
+							className="rounded-2xl w-full aspect-auto"
 						/>
 						<Overview
 							title={price}
@@ -41,8 +44,17 @@ function Apartment({
 								numPeopleInterested || 0
 							} in this property`}
 						/>
+						<div className="flex flex-col justify-between md:flex-row ">
+							<ApartmentDetails
+								beds={bedrooms}
+								baths={bathrooms}
+								brokerName={brokerName}
+								url={url}
+							/>
+							<ApartmentButtons />
+						</div>
+						<Roommates />
 					</div>
-					<Roommates />
 				</Modal>
 			)}
 			<img
