@@ -21,8 +21,6 @@ function Apartment({
 		setApartmentModalIsOpen((prevState) => !prevState)
 	}
 
-	console.log(image)
-
 	return (
 		<div
 			className="bg-secondary text-white flex space-y-2 space-x-4 rounded-xl shadow-lg h-36 cursor-pointer hover:bg-primary duration-200"
