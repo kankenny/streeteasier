@@ -30,20 +30,27 @@ function ApartmentsList({ apartments, setApartments }) {
 			>
 				<ApartmentsContainer>
 					{apartments ? (
-						apartments.map((apartment, index) => (
-							<Apartment
-								key={index}
-								address={truncateAddressString(
-									apartment.streetAddress
-								)}
-								price={(apartment.price / 12).toFixed()}
-								bedrooms={apartment.bedrooms}
-								bathrooms={apartment.bathrooms}
-								numPeopleInterested={
-									apartment.numPeopleInterested
-								}
-							/>
-						))
+						apartments.map(
+							(apartment, index) => (
+								console.log(apartment.imgSrc),
+								(
+									<Apartment
+										key={index}
+										// address={truncateAddressString(
+										// 	apartment.streetAddress
+										// )}
+										price={apartment.price}
+										bedrooms={apartment.beds}
+										bathrooms={apartment.baths}
+										numPeopleInterested={
+											apartment.numPeopleInterested
+										}
+										image={apartment.imgSrc}
+										url={apartment.detailUrl}
+									/>
+								)
+							)
+						)
 					) : (
 						<p>No Apartments Found!</p>
 					)}
