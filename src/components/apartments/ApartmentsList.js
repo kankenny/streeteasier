@@ -5,8 +5,6 @@ import Apartment from './Apartment'
 import SortingMenu from './sort/SortingMenu'
 import Subtitle from '../ui/Subtitle'
 
-import truncateAddressString from '../../utility/truncateAddress'
-
 import { motion } from 'framer-motion'
 
 function ApartmentsList({ apartments, setApartments }) {
@@ -30,27 +28,25 @@ function ApartmentsList({ apartments, setApartments }) {
 			>
 				<ApartmentsContainer>
 					{apartments ? (
-						apartments.map(
-							(apartment, index) => (
-								console.log(apartment.imgSrc),
-								(
-									<Apartment
-										key={index}
-										// address={truncateAddressString(
-										// 	apartment.streetAddress
-										// )}
-										price={apartment.price}
-										bedrooms={apartment.beds}
-										bathrooms={apartment.baths}
-										numPeopleInterested={
-											apartment.numPeopleInterested
-										}
-										image={apartment.imgSrc}
-										url={apartment.detailUrl}
-									/>
-								)
+						apartments
+							.filter(
+								(apartment) =>
+									apartment.price !== undefined
 							)
-						)
+							.map((apartment, index) => (
+								<Apartment
+									key={index}
+									address={apartment.address}
+									price={apartment.price}
+									bedrooms={apartment.beds}
+									bathrooms={apartment.baths}
+									numPeopleInterested={
+										apartment.numPeopleInterested
+									}
+									image={apartment.imgSrc}
+									url={apartment.detailUrl}
+								/>
+							))
 					) : (
 						<p>No Apartments Found!</p>
 					)}

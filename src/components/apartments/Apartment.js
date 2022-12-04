@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import Modal from '../ui/Modal'
 
-import img from '../../assets/apartments/dummyApartmentImage.jpg'
+import dummyImage from '../../assets/apartments/dummyApartmentImage.jpg'
 import Overview from '../ui/Overview'
 import Roommates from '../roommates/Roommates'
 
@@ -12,7 +12,7 @@ function Apartment({
 	bedrooms,
 	bathrooms,
 	numPeopleInterested,
-	imgSrc,
+	image,
 	url,
 }) {
 	const [apartmentModalIsOpen, setApartmentModalIsOpen] = useState(false)
@@ -21,7 +21,7 @@ function Apartment({
 		setApartmentModalIsOpen((prevState) => !prevState)
 	}
 
-	console.log(imgSrc)
+	console.log(image)
 
 	return (
 		<div
@@ -32,21 +32,23 @@ function Apartment({
 				<Modal onClose={apartmentModalVisibilityHandler}>
 					<div className="flex flex-col">
 						<img
-							src={imgSrc}
+							src={image ? image : dummyImage}
 							alt="Apartment"
 							className="rounded-2xl w-full  max-h-[90%] aspect-auto"
 						/>
 						<Overview
 							title={price}
 							subtitle={address}
-							paragraph={`There are currently 0 in this property`}
+							paragraph={`There are currently ${
+								numPeopleInterested || 0
+							} in this property`}
 						/>
 					</div>
 					<Roommates />
 				</Modal>
 			)}
 			<img
-				src={imgSrc}
+				src={image ? image : dummyImage}
 				alt="Apartment for rent"
 				className="w-32 block object-cover rounded-tl-xl rounded-bl-2xl overflow-hidden "
 			/>
@@ -55,7 +57,9 @@ function Apartment({
 
 				<div className="text-xs">
 					<p>{address}</p>
-					<p>{`0 people are interested`}</p>
+					<p>{`${
+						numPeopleInterested || 0
+					} people are interested`}</p>
 				</div>
 			</div>
 		</div>
