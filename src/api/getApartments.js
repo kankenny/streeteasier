@@ -15,7 +15,6 @@ function getApartment(zipCode, setQueriedApartments) {
 
 	$.ajax(settings).done(function (response) {
 		setQueriedApartments(response.data)
-		console.log(response.data)
 	})
 }
 
