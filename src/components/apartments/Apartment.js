@@ -11,8 +11,8 @@ import ApartmentButtons from './ApartmentButtons'
 function Apartment({
 	address,
 	price,
-	bedrooms,
-	bathrooms,
+	beds,
+	baths,
 	numPeopleInterested,
 	image,
 	url,
@@ -46,8 +46,8 @@ function Apartment({
 						/>
 						<div className="flex flex-col justify-between md:flex-row ">
 							<ApartmentDetails
-								beds={bedrooms}
-								baths={bathrooms}
+								beds={beds}
+								baths={baths}
 								brokerName={brokerName}
 								url={url}
 							/>

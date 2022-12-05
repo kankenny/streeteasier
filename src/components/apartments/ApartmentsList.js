@@ -7,7 +7,7 @@ import Subtitle from '../ui/Subtitle'
 
 import { motion } from 'framer-motion'
 
-function ApartmentsList({ apartments, setApartments }) {
+function ApartmentsList({ apartments, setApartments, queriedZipCode }) {
 	return (
 		<Fragment>
 			<SortingMenu
@@ -18,7 +18,7 @@ function ApartmentsList({ apartments, setApartments }) {
 				Search Results:
 			</h1>
 			<Subtitle
-				subtitle="Nearby Apartments in ZipCode 10000:"
+				subtitle={`Nearby Apartments in ZipCode ${queriedZipCode}:`}
 				className="pb-5"
 			/>
 			<motion.div
@@ -38,8 +38,8 @@ function ApartmentsList({ apartments, setApartments }) {
 									key={index}
 									address={apartment.address}
 									price={apartment.price}
-									bedrooms={apartment.beds}
-									bathrooms={apartment.baths}
+									beds={apartment.beds}
+									baths={apartment.baths}
 									numPeopleInterested={
 										apartment.numPeopleInterested
 									}
