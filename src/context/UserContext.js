@@ -47,17 +47,17 @@ export const UserContextProvider = (props) => {
 
 	const onFirstNameChange = (email) => {
 		get_data_first(setFirstName, email);
-		localStorage.setItem("firstName", holder);
+		localStorage.setItem("firstName", firstName);
 	};
 
 	const onLastNameChange = (email) => {
 		get_data_last(setLastName, email);
-		localStorage.setItem("lastName", holder);
+		localStorage.setItem("lastName", lastName);
 	};
 
 	const onEmailChange = (email) => {
 		get_email(setEmail, email);
-		localStorage.setItem("emailAddress", holder);
+		localStorage.setItem("emailAddress", email);
 	};
 
 	const onRefershHandler = () => {};
