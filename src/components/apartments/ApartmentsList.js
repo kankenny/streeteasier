@@ -45,6 +45,7 @@ function ApartmentsList({ apartments, setApartments }) {
 									}
 									image={apartment.imgSrc}
 									url={apartment.detailUrl}
+									brokerName={apartment.brokerName}
 								/>
 							))
 					) : (

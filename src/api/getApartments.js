@@ -1,16 +1,5 @@
 import $ from 'jquery'
 
-let streetAddress,
-	bathroom,
-	bedrooms,
-	price,
-	zip,
-	img,
-	url,
-	longitude,
-	latitude,
-	homeStatus
-
 function getApartment(zipCode, setQueriedApartments) {
 	const settings = {
 		async: true,
@@ -19,13 +8,14 @@ function getApartment(zipCode, setQueriedApartments) {
 		method: 'GET',
 		headers: {
 			'X-RapidAPI-Key':
-				'93d00f8f47mshc391b80aa686764p1bd833jsn58157fd197fa',
+				'a0dd950b6emshb142b06496c7606p1e8090jsn8106a3332dee',
 			'X-RapidAPI-Host': 'zillow-data.p.rapidapi.com',
 		},
 	}
 
 	$.ajax(settings).done(function (response) {
 		setQueriedApartments(response.data)
+		console.log(response.data)
 	})
 }
 
@@ -82,6 +72,7 @@ Temporary gmail
 https://tempmail.dev/en/Gmail
 */
 
-// [a0dd950b6emshb142b06496c7606p1e8090jsn8106a3332dee]
-// [870a59beb1msha5db8952ea5e5a8p107537jsn889f34ce2d59]
-// [4bb1c13341mshbafc97ff2108b12p1e8668jsne08301ebd75d]
+// 93d00f8f47mshc391b80aa686764p1bd833jsn58157fd197fa expired
+// a0dd950b6emshb142b06496c7606p1e8090jsn8106a3332dee
+// 870a59beb1msha5db8952ea5e5a8p107537jsn889f34ce2d59
+// 4bb1c13341mshbafc97ff2108b12p1e8668jsne08301ebd75d
