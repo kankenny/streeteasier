@@ -2,7 +2,11 @@ import React, { useState, useCallback, memo, useRef, useContext } from "react";
 
 import GoogleMapsContext from "../../../context/GoogleMapsContext";
 
+<<<<<<< Updated upstream
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow, useLoadScript } from "@react-google-maps/api";
+=======
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from "@react-google-maps/api";
+>>>>>>> Stashed changes
 
 import dibUrl from "../../../assets/google-maps/Marker.svg";
 
@@ -28,7 +32,10 @@ function GoogleMaps() {
 	const { lat, lng, setCenterHandler } = useContext(GoogleMapsContext);
 
 	const [, setMap] = useState(null);
+<<<<<<< Updated upstream
 	const [dibs, setDibs] = useState([]);
+=======
+>>>>>>> Stashed changes
 	const [selected, setSelected] = useState(null);
 
 	const mapRef = useRef();
@@ -58,6 +65,7 @@ function GoogleMaps() {
 	}
 
 	return isLoaded ? (
+<<<<<<< Updated upstream
 		<>
 			<GoogleMap
 				mapContainerStyle={containerStyle}
@@ -74,6 +82,34 @@ function GoogleMaps() {
 				<></>
 			</GoogleMap>
 		</>
+=======
+		<GoogleMap
+			mapContainerStyle={containerStyle}
+			center={{
+				lat: lat,
+				lng: lng,
+			}}
+			zoom={5}
+			onLoad={onLoad}
+			onUnmount={onUnmount}
+			options={mapOptions}
+		>
+			{selected ? (
+				<InfoWindow
+					position={{ lat: selected.lat, lng: selected.lng }}
+					onCloseClick={() => {
+						setSelected(null);
+					}}
+				>
+					<div>
+						<h1>Selected</h1>
+						<h1>Dibs on this</h1>
+					</div>
+				</InfoWindow>
+			) : null}
+			<></>
+		</GoogleMap>
+>>>>>>> Stashed changes
 	) : (
 		<></>
 	);
