@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { get_data_first, get_data_last, get_email, get_email_holder } from "../api/getUserProfile";
 
-let holder;
 const UserContext = React.createContext({
 	firstName: "",
 	lastName: "",
