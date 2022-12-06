@@ -138,8 +138,8 @@ const SignUp = () => {
 			className=""
 		>
 			<Overview
-				title="Our team is so excited that you're joining!"
-				subtitle="Only a couple more steps to begin finding your new home and roommates"
+				title="The start of your journey towards your next home"
+				subtitle="Let us know about you more. Enter your user details."
 				noParagraph={true}
 			/>
 			<Card className="max-w-5xl h-fit max-h-fit mx-auto flex flex-col md:flex-row space-x-8 mt-0">
