@@ -18,7 +18,7 @@ function ApartmentsList({ apartments, setApartments, queriedZipCode }) {
 				Search Results:
 			</h1>
 			<Subtitle
-				subtitle={`Nearby Apartments in ZipCode ${queriedZipCode}:`}
+				subtitle={`Nearby Apartments in Zipcode ${queriedZipCode}:`}
 				className="pb-5"
 			/>
 			<motion.div
