@@ -6,7 +6,6 @@ function ProfileImage() {
 	return (
 		<div className="flex flex-wrap justify-center hover:scale-110 duration-200 ">
 			<div className="w-full flex justify-center">
-				white
 				<div className="relative">
 					<img
 						src={profileImg}

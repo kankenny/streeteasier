@@ -26,7 +26,7 @@ function Apartment({
 
 	return (
 		<div
-			className="bg-secondary text-white flex space-y-2 space-x-4 rounded-xl shadow-lg h-36 cursor-pointer hover:bg-primary duration-200"
+			className="bg-primary text-white flex space-y-2 space-x-4 rounded-xl shadow-lg h-42 cursor-pointer hover:bg-primary duration-200"
 			onClick={apartmentModalVisibilityHandler}
 		>
 			{apartmentModalIsOpen && (
@@ -51,7 +51,18 @@ function Apartment({
 								brokerName={brokerName}
 								url={url}
 							/>
-							<ApartmentButtons />
+							<ApartmentButtons
+								address={address}
+								price={price}
+								beds={beds}
+								baths={baths}
+								numPeopleInterested={
+									numPeopleInterested
+								}
+								image={image}
+								url={url}
+								brokerName={brokerName}
+							/>
 						</div>
 						<Roommates />
 					</div>

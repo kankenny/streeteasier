@@ -7,6 +7,8 @@ import FullName from './FullName'
 import EmailAddress from './EmailAddress'
 import Bio from './Bio'
 import ProfileImage from './ProfileImage'
+import LikedApartments from './LikedApartments'
+import LikedRoommates from './LikedRoommates'
 
 import SolidButton from '../ui/buttons/SolidButton'
 
@@ -36,6 +38,10 @@ function Profile() {
 					<Bio bio={bio} />
 				</div>
 			</ProfileContainer>
+			<div className="flex flex-row justify-between">
+				<LikedApartments />
+				<LikedRoommates />
+			</div>
 			<SolidButton
 				onClick={onLogout}
 				buttonText="Logout"
