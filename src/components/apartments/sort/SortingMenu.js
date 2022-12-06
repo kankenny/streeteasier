@@ -17,15 +17,15 @@ function SortingMenu({ apartments, setApartments }) {
 	return (
 		<div className="flex flex-col text-white my-10">
 			<h1 className="text-md font-bold text-center p-2">Sort by:</h1>
-			<div className="flex flex-col space-y-3 mx-auto xl:flex-row xl:space-x-5 xl:space-y-0">
+			<div className="flex flex-col space-y-3 w-full mx-auto">
 				<SolidButton
 					buttonText="Price"
-					className="bg-primary w-36 text-lg lg:text-2xl"
+					className="bg-primary text-lg xl:text-lg"
 					onClick={() => sortByKey('price')}
 				/>
 				<SolidButton
 					buttonText="People Interested"
-					className="bg-primary w-36 text-lg lg:text-2xl"
+					className="bg-primary text-lg xl:text-lg"
 					onClick={() => sortByKey('numPeopleInterested')}
 				/>
 			</div>

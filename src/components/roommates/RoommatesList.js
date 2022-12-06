@@ -29,6 +29,7 @@ function RoommatesList() {
 						lastName={roommate.lastName}
 						emailAddress={roommate.emailAddress}
 						profilePictureSrc={index + 1}
+						bio={roommate.bio}
 					/>
 				))}
 			</RoommatesContainer>

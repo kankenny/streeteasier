@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import Modal from '../ui/Modal'
 import Overview from '../ui/Overview'
+import RoommateButtons from './RoommateButtons'
+import Bio from '../profile/Bio'
 
 import { motion } from 'framer-motion'
 
@@ -14,7 +16,13 @@ const imageAnimate = {
 	},
 }
 
-function Roommate({ firstName, lastName, emailAddress, profilePictureSrc }) {
+function Roommate({
+	firstName,
+	lastName,
+	emailAddress,
+	profilePictureSrc,
+	bio,
+}) {
 	const [roommateModalIsOpen, setRoommateModalIsOpen] = useState(false)
 
 	const roommateModalVisibilityHandler = () => {
@@ -35,15 +43,27 @@ function Roommate({ firstName, lastName, emailAddress, profilePictureSrc }) {
 							className="rounded-2xl w-full aspect-auto"
 						/>
 						<Overview title={`${firstName} ${lastName}`}>
-							<a
-								className="text-center text-primary"
-								href={`mailto: ${emailAddress}`}
-							>
-								Contact:
-								<p className="underline">
-									{emailAddress}
-								</p>
-							</a>
+							<div className="flex flex-row justify-center mx-auto gap-20">
+								<a
+									className="text-center text-primary"
+									href={`mailto: ${emailAddress}`}
+								>
+									Contact:
+									<p className="underline">
+										{emailAddress}
+									</p>
+								</a>
+								<RoommateButtons
+									firstName={firstName}
+									lastName={lastName}
+									emailAddress={emailAddress}
+									profilePictureSrc={
+										profilePictureSrc
+									}
+									bio={bio}
+								/>
+							</div>
+							<Bio bio={bio} />
 						</Overview>
 					</Modal>
 				)}
