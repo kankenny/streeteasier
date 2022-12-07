@@ -6,6 +6,7 @@ import RoommateButtons from './RoommateButtons'
 import Bio from '../profile/Bio'
 
 import { motion } from 'framer-motion'
+import Subtitle from '../ui/Subtitle'
 
 const imageAnimate = {
 	offscreen: { x: -150, opacity: 0 },
@@ -46,7 +47,7 @@ function Roommate({
 							<div className="flex flex-row justify-center mx-auto gap-20">
 								<a
 									className="text-center text-primary"
-									href={`mailto: ${emailAddress}`}
+									href={`mailto: ${emailAddress}?subject=Saw you on StreetEasier, Nice to meet you!}`}
 								>
 									Contact:
 									<p className="underline">
@@ -63,7 +64,10 @@ function Roommate({
 									bio={bio}
 								/>
 							</div>
-							<Bio bio={bio} />
+							<div className="border-t border-slate-600 py-10" />
+							<h6 className="text-md text-center pb-10">
+								{bio}
+							</h6>
 						</Overview>
 					</Modal>
 				)}
