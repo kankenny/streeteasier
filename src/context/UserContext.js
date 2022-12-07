@@ -5,7 +5,8 @@ const UserContext = React.createContext({
 	firstName: '',
 	lastName: '',
 	emailAddress: '',
-	bio: '',
+	userContextBio: '',
+	setUserContextBio: () => {},
 	isLoggedIn: false,
 	onLogout: () => {},
 	onLogin: () => {},
@@ -19,10 +20,12 @@ export const UserContextProvider = (props) => {
 	const emailAddress = 'jdoe@nyit.edu'
 	const [likedApartments] = useState([])
 	const [likedRoommates] = useState([])
-	const bio = 'I like people who are quiet and cleans up after themselves'
+	const [bio, setBio] = useState('')
 	const [isLoggedIn, setIsLoggedIn] = useState(
 		localStorage.getItem('isLoggedIn') !== null
 	)
+
+	console.log(bio)
 
 	const navigate = useNavigate()
 
@@ -38,18 +41,23 @@ export const UserContextProvider = (props) => {
 		setIsLoggedIn(true)
 	}
 
+	const setUserContextBio = (newBio) => {
+		setBio(newBio)
+	}
+
 	return (
 		<UserContext.Provider
 			value={{
 				firstName: firstName,
 				lastName: lastName,
 				emailAddress: emailAddress,
-				bio: bio,
+				userContextBio: bio,
 				isLoggedIn: isLoggedIn,
 				onLogout: onLogoutHandler,
 				onLogin: onLoginHandler,
 				likedApartments: likedApartments,
 				likedRoommates: likedRoommates,
+				setUserContextBio: setUserContextBio,
 			}}
 		>
 			{props.children}

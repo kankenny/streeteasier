@@ -18,6 +18,7 @@ const Input = React.forwardRef((props, ref) => {
 			maxLength={props.maxLength}
 			minLength={props.minLength}
 			ref={ref}
+			value={props.inputValue}
 		/>
 	)
 })

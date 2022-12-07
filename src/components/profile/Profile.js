@@ -15,8 +15,14 @@ import SolidButton from '../ui/buttons/SolidButton'
 import { motion } from 'framer-motion'
 
 function Profile() {
-	const { firstName, lastName, emailAddress, bio, onLogout } =
-		useContext(UserContext)
+	const {
+		firstName,
+		lastName,
+		emailAddress,
+		userContextBio,
+		setUserContextBio,
+		onLogout,
+	} = useContext(UserContext)
 
 	return (
 		<motion.div
@@ -35,7 +41,10 @@ function Profile() {
 						/>
 						<EmailAddress emailAddress={emailAddress} />
 					</div>
-					<Bio bio={bio} />
+					<Bio
+						userContextBio={userContextBio}
+						setUserContextBio={setUserContextBio}
+					/>
 				</div>
 			</ProfileContainer>
 			<div className="flex flex-row justify-between">
