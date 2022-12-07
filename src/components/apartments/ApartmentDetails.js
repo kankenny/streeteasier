@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 function ApartmentDetails({ beds, baths, brokerName, url }) {
 	return (

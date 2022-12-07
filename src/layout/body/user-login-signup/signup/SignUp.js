@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
 
 import Overview from '../../../../components/ui/Overview'
@@ -74,6 +75,7 @@ const signUpSchema = Yup.object().shape({
 
 const SignUp = () => {
 	const [isLoading, setIsLoading] = useState(false)
+	const navigate = useNavigate()
 
 	const { control, handleSubmit, reset } = useForm({
 		defaultValues,
@@ -128,6 +130,7 @@ const SignUp = () => {
 				setIsLoading(false)
 				console.log(err.message)
 			})
+		navigate(-1, 'login')
 	}
 
 	return (

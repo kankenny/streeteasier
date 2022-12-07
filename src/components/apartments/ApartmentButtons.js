@@ -40,7 +40,6 @@ function ApartmentButtons({
 			url: url,
 			brokerName: brokerName,
 		}
-		console.log(apartment)
 		likedApartments.push(apartment)
 	}
 

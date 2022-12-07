@@ -28,8 +28,8 @@ function LikedApartments() {
 								numPeopleInterested={
 									apartment.numPeopleInterested
 								}
-								image={apartment.imgSrc}
-								url={apartment.detailUrl}
+								image={apartment.image}
+								url={apartment.url}
 								brokerName={apartment.brokerName}
 							/>
 						))
