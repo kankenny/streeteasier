@@ -5,11 +5,9 @@ import Apartment from './Apartment'
 import SortingMenu from './sort/SortingMenu'
 import Subtitle from '../ui/Subtitle'
 
-import truncateAddressString from '../../utility/truncateAddress'
-
 import { motion } from 'framer-motion'
 
-function ApartmentsList({ apartments, setApartments }) {
+function ApartmentsList({ apartments, setApartments, queriedZipCode }) {
 	return (
 		<Fragment>
 			<SortingMenu
@@ -20,7 +18,7 @@ function ApartmentsList({ apartments, setApartments }) {
 				Search Results:
 			</h1>
 			<Subtitle
-				subtitle="Nearby Apartments in ZipCode 10000:"
+				subtitle={`Nearby Apartments in ZipCode ${queriedZipCode}:`}
 				className="pb-5"
 			/>
 			<motion.div
@@ -30,20 +28,26 @@ function ApartmentsList({ apartments, setApartments }) {
 			>
 				<ApartmentsContainer>
 					{apartments ? (
-						apartments.map((apartment, index) => (
-							<Apartment
-								key={index}
-								address={truncateAddressString(
-									apartment.streetAddress
-								)}
-								price={(apartment.price / 12).toFixed()}
-								bedrooms={apartment.bedrooms}
-								bathrooms={apartment.bathrooms}
-								numPeopleInterested={
-									apartment.numPeopleInterested
-								}
-							/>
-						))
+						apartments
+							.filter(
+								(apartment) =>
+									apartment.price !== undefined
+							)
+							.map((apartment, index) => (
+								<Apartment
+									key={index}
+									address={apartment.address}
+									price={apartment.price}
+									beds={apartment.beds}
+									baths={apartment.baths}
+									numPeopleInterested={
+										apartment.numPeopleInterested
+									}
+									image={apartment.imgSrc}
+									url={apartment.detailUrl}
+									brokerName={apartment.brokerName}
+								/>
+							))
 					) : (
 						<p>No Apartments Found!</p>
 					)}

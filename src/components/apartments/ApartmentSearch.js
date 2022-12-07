@@ -2,115 +2,74 @@ import React, { useRef, useState } from "react";
 
 import Heading from "../ui/Heading";
 import ApartmentSearchContainer from "./ApartmentSearchContainer";
-<<<<<<< Updated upstream
-import ApartmentsList from "./ApartmentsList";
-import DUMMY_DATA2 from "./DUMMY_APARTMENTS";
-import getApartments from "../../api/getApartments";
-import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
-import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox";
-=======
 import Input from "../ui/Input";
 import ApartmentsList from "./ApartmentsList";
 import DUMMY_DATA2 from "./DUMMY_APARTMENTS";
 import getApartments from "../../api/getApartments";
 import { db } from "../../firebase";
-import { doc, setDoc, collection, query, getDocs } from "firebase/firestore";
->>>>>>> Stashed changes
+import { doc, setDoc, collection, query, getDocs, addDoc } from "firebase/firestore";
 
 function ApartmentSearch() {
 	const zipCodeRef = useRef("");
-	const zipCode = zipCodeRef.current.value;
 	const [queriedApartments, setQueriedApartments] = useState(DUMMY_DATA2);
-<<<<<<< Updated upstream
-	const [selected, setSelected] = useState(null);
+	const [queriedZipCode, setQueriedZipCode] = useState(10021);
 
-	const zipCodeOnSubmitHandler = (e) => {
-		e.preventDefault();
-		getApartments(zipCode, setQueriedApartments);
+	const storeDefaultApartments = async (zipCode, queriedApartments) => {
 		console.log(queriedApartments);
-	};
+		const queriedApartmentsCollectionReference = collection(db, "apartments", `${zipCode}`, "listings"); // Reference to the collection where apartments will be stored
 
-	const PlacesAutoComplete = ({ setSelected }) => {
-		const {
-			ready,
-			value,
-			setValue,
-			suggestions: { status, data },
-			clearSuggestions,
-		} = usePlacesAutocomplete();
+		// const listingQuery = await getDocs(queriedApartmentsCollectionReference);
+		// listingQuery.forEach((listing) => {
+		// 	console.log(listing.id)
+		// })
 
-		const handleSelect = async (address) => {
-			setValue(address, false);
-			clearSuggestions();
+		for (let i = 0; i < Object.getOwnPropertyNames(queriedApartments).length; i++) {
+			// console.log(queriedApartments[i].id);
+			console.log(queriedApartments.i.address);
+			console.log(queriedApartments.i.price);
+			console.log(queriedApartments.i.beds);
+			console.log(queriedApartments.i.baths);
 
-			const geocode = await getGeocode({ address });
-			const { lat, lng } = getLatLng(geocode[0]);
-			setSelected(lat, lng);
-		};
+			const data = {
+				address: queriedApartments.i.address,
+				price: queriedApartments.i.price,
+				bedrooms: queriedApartments.i.beds,
+				bathrooms: queriedApartments.i.baths,
+				numPeopleInterested: 0,
+				interestedUsers: [],
+			};
 
-		return (
-			<Combobox>
-				<ComboboxInput
-					value={value}
-					onChange={(e) => setValue(e.target.value)}
-					disabled={!ready}
-					className="combobox-input"
-					placeholder="Search an address"
-				/>
-
-				<ComboboxPopover>
-					<ComboboxList>
-						{status === "OK" &&
-							data.map(({ place_id, description }) => (
-								<ComboboxOption key={place_id} value={description} />
-							))}
-					</ComboboxList>
-				</ComboboxPopover>
-			</Combobox>
-		);
-=======
-
-	const storeApartments = (zipCode, apartmentListings) => {
-		console.log(apartmentListings)
-		const apartmentListingsCollectionReference = collection(db, "apartments", `${zipCode}`, "listings"); // Reference to the collection where apartments will be stored
-
-		for (let i = 0; i < apartmentListings.length; i++) {
-			setDoc(doc(db, apartmentListingsCollectionReference, i + ""), {
-				interestedUsers: [] 
-			});
+			try {
+				setDoc(doc(db, queriedApartmentsCollectionReference, queriedApartments[i].id), data);
+			} catch (error) {
+				console.error();
+			}
 		}
+
 	};
 
 	const zipCodeOnSubmitHandler = async (e) => {
 		e.preventDefault();
-
-		const apartmentListings = getApartments(zipCode, setQueriedApartments);
-		console.log(queriedApartments);
-		storeApartments(zipCode, apartmentListings);
->>>>>>> Stashed changes
+		getApartments(zipCodeRef.current.value, setQueriedApartments);
+		storeDefaultApartments(zipCodeRef.current.value, queriedApartments);
 	};
 
 	return (
 		<ApartmentSearchContainer>
 			<Heading heading="Apartment Search" />
-			{/* <form action="submit" onSubmit={zipCodeOnSubmitHandler}>
+			<form onSubmit={zipCodeOnSubmitHandler}>
 				<Input
 					ref={zipCodeRef}
 					placeholder="Zipcode"
 					className="text-black text-md focus:outline-none"
 					maxLength={5}
 				/>
-<<<<<<< Updated upstream
-			</form> */}
-
-			<div className="search-container">
-				<PlacesAutoComplete setSelected={setSelected} />
-			</div>
-
-=======
 			</form>
->>>>>>> Stashed changes
-			<ApartmentsList apartments={queriedApartments} setApartments={setQueriedApartments} />
+			<ApartmentsList
+				apartments={queriedApartments}
+				setApartments={setQueriedApartments}
+				queriedZipCode={queriedZipCode}
+			/>
 		</ApartmentSearchContainer>
 	);
 }

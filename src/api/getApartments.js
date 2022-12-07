@@ -4,18 +4,17 @@ function getApartment(zipCode, setQueriedApartments) {
 	const settings = {
 		async: true,
 		crossDomain: true,
-		url: 'https://zillow56.p.rapidapi.com/search?location=' + zipCode,
+		url: `https://zillow-data.p.rapidapi.com/search?location=${zipCode}&page=1&status=ForRent`,
 		method: 'GET',
 		headers: {
 			'X-RapidAPI-Key':
-				'a954f4b1ccmsh063af435951a9edp1bb841jsn7a2e564cc0aa',
-			'X-RapidAPI-Host': 'zillow56.p.rapidapi.com',
+				'a0dd950b6emshb142b06496c7606p1e8090jsn8106a3332dee',
+			'X-RapidAPI-Host': 'zillow-data.p.rapidapi.com',
 		},
 	}
 
 	$.ajax(settings).done(function (response) {
-		setQueriedApartments(response.results)
-		return response.results
+		setQueriedApartments(response.data)
 	})
 }
 
@@ -23,48 +22,56 @@ export default getApartment
 
 /**data example given for JQuery
  
-API keys:
- - 60a2ffb178msh52804e6d695b5ebp1c4d20jsne4945580ae1d (Exhausted October)
- - 1c58ef4586msh9c8ef5f65dd2a5bp190bedjsn85a2675be955 (Exhausted October)
- - a954f4b1ccmsh063af435951a9edp1bb841jsn7a2e564cc0aa
- 
-/**data example given for JQuery
- 
-bathrooms: 4
-bedrooms: 3
-city: "Houston"
-country: "USA"
-currency: "USD"
-datePriceChanged: 1664607600000
-daysOnZillow: -1
-homeStatus: "FOR_SALE"
-homeStatusForHDP: "FOR_SALE"
-homeType: "SINGLE_FAMILY"
-isFeatured: false
-isNonOwnerOccupied: true
-isPreforeclosureAuction: false
-isPremierBuilder: false
-isUnmappable: false
-isZillowOwned: false
-latitude: 29.745394
-listing_sub_type: {is_FSBA: true, is_openHouse: true}
-livingArea: 2759
-longitude: -95.39548
-lotAreaUnit: "sqft"
-lotAreaValue: 1524.6
-openHouse: "Sun. 3-5pm"
-open_house_info: {open_house_showing: Array(1)}
-price: 599000
-priceChange: -9000
-priceForHDP: 599000
-priceReduction: "$9,000 (Oct 1)"
-rentZestimate: 3851
-shouldHighlight: false
-state: "TX"
-streetAddress: "1505 Missouri St"
-taxAssessedValue: 538200
-zestimate: 588216
-zipcode: "77006"
-zpid: 126260205
+address:"821 County Road 43830, Paris, TX 75462"
+addressCity:"Paris"
+addressState:"TX"
+addressStreet:"821 County Road 43830"
+addressZipcode:"75462"
+area:2242
+availabilityDate:null
+badgeInfo:null
+baths:2
+beds:4
+countryCurrency:"$"
+detailUrl:"https://www.zillow.com/homedetails/821-County-Road-43830-Paris-TX-75462/299627571_zpid/"
+has3DModel:true
+hasAdditionalAttributions:false
+hasImage:true
+hasVideo:false
+hdpData:
+id:"299627571"
+imgSrc:"https://photos.zillowstatic.com/fp/5dbd920255aef7d9cfb66d6cf17fe00e-p_e.jpg"
+isFeaturedListing:false
+isHomeRec:false
+isSaved:false
+isUndisclosedAddress:false
+isUserClaimingOwner:false
+isUserConfirmedClaim:false
+isZillowOwned:false
+latLong:
+list:true
+pgapt:"ForSale"
+price:"$625,000"
+providerListingId:null
+relaxed:false
+sgapt:"For Sale (Broker)"
+shouldShowZestimateAsPrice:false
+statusText:"House for sale"
+statusType:"FOR_SALE"
+unformattedPrice:625000
+variableData:
+text:"3D Tour"
+type:"3D_HOME"
+zestimate:462000
+zpid:"299627571"
 
+Api site
+https://rapidapi.com/ntd119/api/zillow-data/
+Temporary gmail
+https://tempmail.dev/en/Gmail
 */
+
+// 93d00f8f47mshc391b80aa686764p1bd833jsn58157fd197fa expired
+// a0dd950b6emshb142b06496c7606p1e8090jsn8106a3332dee
+// 870a59beb1msha5db8952ea5e5a8p107537jsn889f34ce2d59
+// 4bb1c13341mshbafc97ff2108b12p1e8668jsne08301ebd75d

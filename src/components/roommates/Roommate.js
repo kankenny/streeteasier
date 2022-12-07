@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 import Modal from '../ui/Modal'
-import img from '../../assets/roommates/anonymous-person.jpg'
 import Overview from '../ui/Overview'
 
 import { motion } from 'framer-motion'
@@ -15,7 +14,7 @@ const imageAnimate = {
 	},
 }
 
-function Roommate({ firstName, lastName, emailAddress }) {
+function Roommate({ firstName, lastName, emailAddress, profilePictureSrc }) {
 	const [roommateModalIsOpen, setRoommateModalIsOpen] = useState(false)
 
 	const roommateModalVisibilityHandler = () => {
@@ -27,28 +26,35 @@ function Roommate({ firstName, lastName, emailAddress }) {
 			variants={imageAnimate}
 			onClick={roommateModalVisibilityHandler}
 		>
-			<div className="bg-secondary text-white flex flex-row space-y-2 space-x-4 rounded-xl shadow-xl h-20 cursor-pointer hover:scale-105 duration-200">
+			<div className="bg-primary text-white flex flex-row space-y-2 space-x-4 rounded-xl shadow-xl h-20 cursor-pointer hover:scale-105 duration-200">
 				{roommateModalIsOpen && (
 					<Modal>
 						<img
-							src={img}
+							src={require(`../../assets/roommates/anonymous-person${profilePictureSrc}.jpg`)}
 							alt="Roommate"
-							className="rounded-2xl w-full aspect-auto max-h-[90%]"
+							className="rounded-2xl w-full aspect-auto"
 						/>
-						<Overview
-							title={`${firstName} ${lastName}`}
-							subtitle={`Contact: ${emailAddress}`}
-						/>
+						<Overview title={`${firstName} ${lastName}`}>
+							<a
+								className="text-center text-primary"
+								href={`mailto: ${emailAddress}`}
+							>
+								Contact:
+								<p className="underline">
+									{emailAddress}
+								</p>
+							</a>
+						</Overview>
 					</Modal>
 				)}
 				<img
-					src={img}
-					alt="Roommate PFP"
+					src={require(`../../assets/roommates/anonymous-person${profilePictureSrc}.jpg`)}
+					alt="Roommate"
 					className="w-32 block object-cover rounded-[5.5rem] rounded-tl-2xl rounded-bl-2xl overflow-hidden"
 				/>
 				<div className="flex flex-col text-xs space-y-2 pb-2">
 					<h1 className="text-lg font-extrabold mb-2">{`${firstName} ${lastName}`}</h1>
-					<p className="text-gray-500">{`${emailAddress}`}</p>
+					<p>{`${emailAddress}`}</p>
 				</div>
 			</div>
 		</motion.div>
