@@ -10,9 +10,11 @@ import getApartments from '../../api/getApartments'
 function ApartmentSearch() {
 	const zipCodeRef = useRef('')
 	const [queriedApartments, setQueriedApartments] = useState(DUMMY_DATA2)
+	const [queriedZipCode, setQueriedZipCode] = useState(10021)
 
 	const zipCodeOnSubmitHandler = (e) => {
 		e.preventDefault()
+		setQueriedZipCode(zipCodeRef.current.value)
 		getApartments(zipCodeRef.current.value, setQueriedApartments)
 	}
 
@@ -30,6 +32,7 @@ function ApartmentSearch() {
 			<ApartmentsList
 				apartments={queriedApartments}
 				setApartments={setQueriedApartments}
+				queriedZipCode={queriedZipCode}
 			/>
 		</ApartmentSearchContainer>
 	)

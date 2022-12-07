@@ -9,14 +9,17 @@ const UserContext = React.createContext({
 	isLoggedIn: false,
 	onLogout: () => {},
 	onLogin: () => {},
+	likedApartments: [],
+	likedRoommates: [],
 })
 
 export const UserContextProvider = (props) => {
-	const firstName = 'Kan'
-	const lastName = 'Ken'
-	const emailAddress = 'kmaddela@nyit.edu'
-	const bio =
-		'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dolores nam rem enim amet, veniam minima facere nobis magni, tempora, expedita magnam architecto pariatur quas?'
+	const firstName = 'John'
+	const lastName = 'Doe'
+	const emailAddress = 'jdoe@nyit.edu'
+	const [likedApartments] = useState([])
+	const [likedRoommates] = useState([])
+	const bio = 'I like people who are quiet and cleans up after themselves'
 	const [isLoggedIn, setIsLoggedIn] = useState(
 		localStorage.getItem('isLoggedIn') !== null
 	)
@@ -45,6 +48,8 @@ export const UserContextProvider = (props) => {
 				isLoggedIn: isLoggedIn,
 				onLogout: onLogoutHandler,
 				onLogin: onLoginHandler,
+				likedApartments: likedApartments,
+				likedRoommates: likedRoommates,
 			}}
 		>
 			{props.children}
