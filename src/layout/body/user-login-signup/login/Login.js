@@ -92,12 +92,6 @@ const Login = () => {
 							isLoggingIn={false}
 							isRouterLink={true}
 						/>
-						<SolidButton
-							className="bg-primary  text-xl "
-							onClick={onLogin}
-							buttonText="Override Login (this is a test div to access
-							main app)"
-						/>
 					</form>
 				</FormContainer>
 				<img
