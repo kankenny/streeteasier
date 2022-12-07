@@ -83,6 +83,7 @@ const SignUp = () => {
 						const age = new Date().getFullYear() - data?.birthday?.getFullYear();
 						await setDoc(doc(db, "users", user.uid), {
 							// Straight from Firebase documentation: https://firebase.google.com/docs/firestore/manage-data/add-data
+							uid: user.uid,
 							firstName: data.firstName,
 							lastName: data.lastName,
 							age,
