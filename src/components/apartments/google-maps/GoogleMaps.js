@@ -2,11 +2,7 @@ import React, { useState, useCallback, memo, useRef, useContext } from "react";
 
 import GoogleMapsContext from "../../../context/GoogleMapsContext";
 
-<<<<<<< Updated upstream
-import { GoogleMap, useJsApiLoader, Marker, InfoWindow, useLoadScript } from "@react-google-maps/api";
-=======
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from "@react-google-maps/api";
->>>>>>> Stashed changes
 
 import dibUrl from "../../../assets/google-maps/Marker.svg";
 
@@ -32,10 +28,6 @@ function GoogleMaps() {
 	const { lat, lng, setCenterHandler } = useContext(GoogleMapsContext);
 
 	const [, setMap] = useState(null);
-<<<<<<< Updated upstream
-	const [dibs, setDibs] = useState([]);
-=======
->>>>>>> Stashed changes
 	const [selected, setSelected] = useState(null);
 
 	const mapRef = useRef();
@@ -65,24 +57,6 @@ function GoogleMaps() {
 	}
 
 	return isLoaded ? (
-<<<<<<< Updated upstream
-		<>
-			<GoogleMap
-				mapContainerStyle={containerStyle}
-				center={{
-					lat: lat,
-					lng: lng,
-				}}
-				zoom={10}
-				onLoad={onLoad}
-				onUnmount={onUnmount}
-				options={mapOptions}
-			>
-				{selected && <Marker position={selected} />}
-				<></>
-			</GoogleMap>
-		</>
-=======
 		<GoogleMap
 			mapContainerStyle={containerStyle}
 			center={{
@@ -109,7 +83,6 @@ function GoogleMaps() {
 			) : null}
 			<></>
 		</GoogleMap>
->>>>>>> Stashed changes
 	) : (
 		<></>
 	);
