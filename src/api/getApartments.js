@@ -8,7 +8,7 @@ function getApartment(zipCode, setQueriedApartments) {
 		method: 'GET',
 		headers: {
 			'X-RapidAPI-Key':
-				'870a59beb1msha5db8952ea5e5a8p107537jsn889f34ce2d59',
+				'832013e4ffmsh5b217b65299e63ap19e20fjsne988a718a15e',
 			'X-RapidAPI-Host': 'zillow-data.p.rapidapi.com',
 		},
 	}
@@ -73,5 +73,6 @@ https://tempmail.dev/en/Gmail
 
 // 93d00f8f47mshc391b80aa686764p1bd833jsn58157fd197fa expired
 // a0dd950b6emshb142b06496c7606p1e8090jsn8106a3332dee expired
-// 870a59beb1msha5db8952ea5e5a8p107537jsn889f34ce2d59
+// 870a59beb1msha5db8952ea5e5a8p107537jsn889f34ce2d59 expired
 // 4bb1c13341mshbafc97ff2108b12p1e8668jsne08301ebd75d
+// 832013e4ffmsh5b217b65299e63ap19e20fjsne988a718a15e
