@@ -1,6 +1,6 @@
 # StreetEasier
 
-A hub to search for apartments and roommate matching
+A hub to search for apartments and roommate matching. Our team aims to provide a platform that allows users to search for apartments and match with roommates as a solution for the rising cost of housing.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
