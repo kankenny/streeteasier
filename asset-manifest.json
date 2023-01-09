@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/StreetEasier/static/css/main.e2cb7034.css",
-    "main.js": "/StreetEasier/static/js/main.7ce4ec55.js",
+    "main.js": "/StreetEasier/static/js/main.2c680dd8.js",
     "static/media/anonymous-person2.jpg": "/StreetEasier/static/media/anonymous-person2.58c725026993c6e9b7f8.jpg",
     "static/media/offering1.jpg": "/StreetEasier/static/media/offering1.ffe33981ecb206a04fa7.jpg",
     "static/media/anonymous-person4.jpg": "/StreetEasier/static/media/anonymous-person4.95de1fa7ee5da84cbe51.jpg",
@@ -28,10 +28,10 @@
     "index.html": "/StreetEasier/index.html",
     "static/media/Marker.svg": "/StreetEasier/static/media/Marker.05ec2a8bb60ea3e905a2157763400a0c.svg",
     "main.e2cb7034.css.map": "/StreetEasier/static/css/main.e2cb7034.css.map",
-    "main.7ce4ec55.js.map": "/StreetEasier/static/js/main.7ce4ec55.js.map"
+    "main.2c680dd8.js.map": "/StreetEasier/static/js/main.2c680dd8.js.map"
   },
   "entrypoints": [
     "static/css/main.e2cb7034.css",
-    "static/js/main.7ce4ec55.js"
+    "static/js/main.2c680dd8.js"
   ]
 }
