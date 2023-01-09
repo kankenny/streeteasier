@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/StreetEasier/static/css/main.e2cb7034.css",
+    "main.js": "/StreetEasier/static/js/main.7ce4ec55.js",
+    "static/media/anonymous-person2.jpg": "/StreetEasier/static/media/anonymous-person2.58c725026993c6e9b7f8.jpg",
+    "static/media/offering1.jpg": "/StreetEasier/static/media/offering1.ffe33981ecb206a04fa7.jpg",
+    "static/media/anonymous-person4.jpg": "/StreetEasier/static/media/anonymous-person4.95de1fa7ee5da84cbe51.jpg",
+    "static/media/anonymous-person6.jpg": "/StreetEasier/static/media/anonymous-person6.427a93f0aa5e6ea4b7ae.jpg",
+    "static/media/offering5.jpg": "/StreetEasier/static/media/offering5.10a90145a72bdaaad739.jpg",
+    "static/media/anonymous-person7.jpg": "/StreetEasier/static/media/anonymous-person7.65bfedf048dd75fb04f8.jpg",
+    "static/media/offering6.jpg": "/StreetEasier/static/media/offering6.0b83025f197eff3b2123.jpg",
+    "static/media/anonymous-person5.jpg": "/StreetEasier/static/media/anonymous-person5.1700c8c546f3903a0e9f.jpg",
+    "static/media/offering2.jpg": "/StreetEasier/static/media/offering2.82a787d470a638d8764e.jpg",
+    "static/media/anonymous-person9.jpg": "/StreetEasier/static/media/anonymous-person9.2202b33a6302f26ac091.jpg",
+    "static/media/offering4.jpg": "/StreetEasier/static/media/offering4.333ca231c25c3a6f89e2.jpg",
+    "static/media/bed.jpg": "/StreetEasier/static/media/bed.3efdd354232c9b82e069.jpg",
+    "static/media/anonymous-person1.jpg": "/StreetEasier/static/media/anonymous-person1.09724c4722bce34a2196.jpg",
+    "static/media/anonymous-person8.jpg": "/StreetEasier/static/media/anonymous-person8.61c01b250bc1c581ad03.jpg",
+    "static/media/login.jpg": "/StreetEasier/static/media/login.6702712664e7cf7cfdc8.jpg",
+    "static/media/offering8.jpg": "/StreetEasier/static/media/offering8.788f8828021fcc71f74f.jpg",
+    "static/media/offering3.jpg": "/StreetEasier/static/media/offering3.4bb30058962c0cb9fab9.jpg",
+    "static/media/offering7.jpg": "/StreetEasier/static/media/offering7.34173e750e027d2cc3a5.jpg",
+    "static/media/signup.jpg": "/StreetEasier/static/media/signup.4f7ed710203ae3b498a3.jpg",
+    "static/media/anonymous-person3.jpg": "/StreetEasier/static/media/anonymous-person3.63a6c00d94f29e2212a9.jpg",
+    "static/media/dummyApartmentImage.jpg": "/StreetEasier/static/media/dummyApartmentImage.fce55ceb0edac077dd17.jpg",
+    "static/media/dummy-profile-pic.jpg": "/StreetEasier/static/media/dummy-profile-pic.f44274a7fadb28efa5c9.jpg",
+    "static/media/projectLogo.png": "/StreetEasier/static/media/projectLogo.8fb62e5213db8eeaa017.png",
+    "index.html": "/StreetEasier/index.html",
+    "static/media/Marker.svg": "/StreetEasier/static/media/Marker.05ec2a8bb60ea3e905a2157763400a0c.svg",
+    "main.e2cb7034.css.map": "/StreetEasier/static/css/main.e2cb7034.css.map",
+    "main.7ce4ec55.js.map": "/StreetEasier/static/js/main.7ce4ec55.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e2cb7034.css",
+    "static/js/main.7ce4ec55.js"
+  ]
+}
